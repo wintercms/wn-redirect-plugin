@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Models;
+namespace Winter\Redirect\Models;
 
 use Backend\Models\ExportModel;
 

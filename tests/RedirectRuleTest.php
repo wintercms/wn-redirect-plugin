@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Tests;
+namespace Winter\Redirect\Tests;
 
 use Carbon\Carbon;
 use PHPUnit_Framework_Exception;
 use PluginTestCase;
-use Vdlp\Redirect\Classes\RedirectRule;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Classes\RedirectRule;
+use Winter\Redirect\Models\Redirect;
 
 class RedirectRuleTest extends PluginTestCase
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Contracts;
+namespace Winter\Redirect\Classes\Contracts;
 
 interface PublishManagerInterface
 {

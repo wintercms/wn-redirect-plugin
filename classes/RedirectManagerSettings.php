@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
-use Vdlp\Redirect\Models\Settings;
+use Winter\Redirect\Models\Settings;
 
 final class RedirectManagerSettings
 {

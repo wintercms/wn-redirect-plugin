@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Exceptions;
+namespace Winter\Redirect\Classes\Exceptions;
 
 use RuntimeException;
-use Vdlp\Redirect\Classes\RedirectRule;
+use Winter\Redirect\Classes\RedirectRule;
 
 final class NoMatchForRule extends RuntimeException
 {

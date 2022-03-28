@@ -4,7 +4,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use ApplicationException;
 use Carbon\Carbon;
@@ -19,12 +19,12 @@ use League\Csv\Reader;
 use RuntimeException;
 use Symfony\Component\Routing;
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
-use Vdlp\Redirect\Classes\Contracts\RedirectConditionInterface;
-use Vdlp\Redirect\Classes\Contracts\RedirectManagerInterface;
-use Vdlp\Redirect\Classes\Exceptions;
-use Vdlp\Redirect\Classes\Util\Str;
-use Vdlp\Redirect\Models;
+use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
+use Winter\Redirect\Classes\Contracts\RedirectConditionInterface;
+use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
+use Winter\Redirect\Classes\Exceptions;
+use Winter\Redirect\Classes\Util\Str;
+use Winter\Redirect\Models;
 
 final class RedirectManager implements RedirectManagerInterface
 {

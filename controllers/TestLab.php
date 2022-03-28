@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Controllers;
+namespace Winter\Redirect\Controllers;
 
 use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
@@ -11,8 +11,8 @@ use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use Throwable;
-use Vdlp\Redirect\Classes\Testers;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Classes\Testers;
+use Winter\Redirect\Models\Redirect;
 use Winter\Storm\Database\Collection;
 use Winter\Storm\Flash\FlashBag;
 

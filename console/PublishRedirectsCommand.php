@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Console;
+namespace Winter\Redirect\Console;
 
 use Illuminate\Console\Command;
-use Vdlp\Redirect\Classes\PublishManager;
+use Winter\Redirect\Classes\PublishManager;
 
 final class PublishRedirectsCommand extends Command
 {

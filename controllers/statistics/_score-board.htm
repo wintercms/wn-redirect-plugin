@@ -6,7 +6,7 @@
              data-size="120">
             <ul>
                 <?php foreach ($activeRedirects as $group => $activeRedirect): ?>
-                <li><?= e(trans('vdlp.redirect::lang.redirect.' . \Vdlp\Redirect\Models\Redirect::$statusCodes[$group])); ?>
+                <li><?= e(trans('vdlp.redirect::lang.redirect.' . \Winter\Redirect\Models\Redirect::$statusCodes[$group])); ?>
                     <span><?= count($activeRedirect); ?></span></li>
                 <?php endforeach; ?>
             </ul>

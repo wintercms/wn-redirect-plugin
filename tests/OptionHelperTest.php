@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Tests;
+namespace Winter\Redirect\Tests;
 
 use PHPUnit_Framework_Exception;
 use PluginTestCase;
-use Vdlp\Redirect\Classes\OptionHelper;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Classes\OptionHelper;
+use Winter\Redirect\Models\Redirect;
 
 class OptionHelperTest extends PluginTestCase
 {

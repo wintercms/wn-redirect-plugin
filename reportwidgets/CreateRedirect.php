@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\ReportWidgets;
+namespace Winter\Redirect\ReportWidgets;
 
 use Backend\Classes\Controller;
 use Backend\Classes\ReportWidgetBase;
@@ -10,7 +10,7 @@ use Backend\Helpers\Backend;
 use Backend\Widgets\Form;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Models\Redirect;
 
 /**
  * @property string $alias

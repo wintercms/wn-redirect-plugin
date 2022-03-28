@@ -4,7 +4,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Tests;
+namespace Winter\Redirect\Tests;
 
 use Carbon\Carbon;
 use Cms;
@@ -14,12 +14,12 @@ use Exception;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Exception;
 use PluginTestCase;
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\RedirectManager;
-use Vdlp\Redirect\Classes\RedirectRule;
-use Vdlp\Redirect\Models\Redirect;
-use Vdlp\Redirect\ServiceProvider;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\RedirectManager;
+use Winter\Redirect\Classes\RedirectRule;
+use Winter\Redirect\Models\Redirect;
+use Winter\Redirect\ServiceProvider;
 
 class RedirectManagerTest extends PluginTestCase
 {

@@ -4,17 +4,17 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Controllers;
+namespace Winter\Redirect\Controllers;
 
 use Backend\Behaviors\ListController;
 use Backend\Classes\Controller;
 use BackendMenu;
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Http\Request;
+use Winter\Storm\Flash\FlashBag;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use Vdlp\Redirect\Models\RedirectLog;
-use Winter\Storm\Flash\FlashBag;
+use Winter\Redirect\Models\RedirectLog;
 
 /**
  * @mixin ListController

@@ -9,7 +9,7 @@ title: vdlp.redirect::lang.buttons.reorder_redirects
 nameFrom: from_url
 
 # Model Class name
-modelClass: Vdlp\Redirect\Models\Redirect
+modelClass: Winter\Redirect\Models\Redirect
 
 # Toolbar widget configuration
 toolbar:

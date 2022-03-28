@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use Illuminate\Database\Eloquent\Collection;
 use JsonException;
 use League\Csv\Writer;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
-use Vdlp\Redirect\Classes\Contracts\PublishManagerInterface;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
+use Winter\Redirect\Classes\Contracts\PublishManagerInterface;
+use Winter\Redirect\Models\Redirect;
 
 final class PublishManager implements PublishManagerInterface
 {

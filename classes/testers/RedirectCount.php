@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Testers;
+namespace Winter\Redirect\Classes\Testers;
 
 use InvalidArgumentException;
-use Vdlp\Redirect\Classes\TesterBase;
-use Vdlp\Redirect\Classes\TesterResult;
+use Winter\Redirect\Classes\TesterBase;
+use Winter\Redirect\Classes\TesterResult;
 
 final class RedirectCount extends TesterBase
 {

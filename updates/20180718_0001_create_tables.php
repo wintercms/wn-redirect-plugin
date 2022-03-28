@@ -5,14 +5,14 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Updates;
+namespace Winter\Redirect\Updates;
 
 use Illuminate\Database\DatabaseManager;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use Vdlp\Redirect\Models\Category;
-use Vdlp\Redirect\Models\Redirect;
-use Vdlp\Redirect\Models\Settings;
+use Winter\Redirect\Models\Category;
+use Winter\Redirect\Models\Redirect;
+use Winter\Redirect\Models\Settings;
 use Winter\Storm\Database\Schema\Blueprint;
 use Winter\Storm\Database\Updates\Migration;
 use Winter\Storm\Support\Facades\Schema;

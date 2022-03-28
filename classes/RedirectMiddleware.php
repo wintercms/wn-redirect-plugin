@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -10,12 +10,12 @@ use Illuminate\Support\Str;
 use Winter\Storm\Events\Dispatcher;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
-use Vdlp\Redirect\Classes\Contracts\RedirectManagerInterface;
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\Exceptions\UnableToLoadRules;
-use Vdlp\Redirect\Models\Settings;
+use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
+use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\Exceptions\UnableToLoadRules;
+use Winter\Redirect\Models\Settings;
 
 final class RedirectMiddleware
 {

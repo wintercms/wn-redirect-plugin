@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Controllers;
+namespace Winter\Redirect\Controllers;
 
 use Backend\Behaviors;
 use Backend\Classes\Controller;
@@ -18,15 +18,15 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use System\Models\RequestLog;
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\Exceptions\UnableToLoadRules;
-use Vdlp\Redirect\Classes\Observers\RedirectObserver;
-use Vdlp\Redirect\Classes\RedirectManager;
-use Vdlp\Redirect\Classes\RedirectRule;
-use Vdlp\Redirect\Classes\StatisticsHelper;
-use Vdlp\Redirect\Models;
+use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\Exceptions\UnableToLoadRules;
+use Winter\Redirect\Classes\Observers\RedirectObserver;
+use Winter\Redirect\Classes\RedirectManager;
+use Winter\Redirect\Classes\RedirectRule;
+use Winter\Redirect\Classes\StatisticsHelper;
+use Winter\Redirect\Models;
 use Winter\Storm\Support\Arr;
 use Winter\Storm\Database\Builder;
 use Winter\Storm\Database\Model;

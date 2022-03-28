@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Testers;
+namespace Winter\Redirect\Classes\Testers;
 
 use InvalidArgumentException;
 use Request;
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\TesterBase;
-use Vdlp\Redirect\Classes\TesterResult;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\TesterBase;
+use Winter\Redirect\Classes\TesterResult;
+use Winter\Redirect\Models\Redirect;
 
 /**
  * Tester for checking if the response HTTP code is equal to the matched redirect.

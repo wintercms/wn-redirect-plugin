@@ -8,7 +8,7 @@ list: $/vdlp/redirect/models/redirectlog/columns.yaml
 filter: config_filter.yaml
 
 # Model Class name
-modelClass: Vdlp\Redirect\Models\RedirectLog
+modelClass: Winter\Redirect\Models\RedirectLog
 
 # List Title
 title: vdlp.redirect::lang.title.view_redirect_log

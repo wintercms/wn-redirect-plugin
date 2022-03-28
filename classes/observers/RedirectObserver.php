@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Observers;
+namespace Winter\Redirect\Classes\Observers;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Psr\Log\LoggerInterface;
-use Vdlp\Redirect\Classes\Observers\Traits\CanBeDisabled;
-use Vdlp\Redirect\Models;
+use Winter\Redirect\Classes\Observers\Traits\CanBeDisabled;
+use Winter\Redirect\Models;
 use Winter\Storm\Support\Arr;
 
 final class RedirectObserver

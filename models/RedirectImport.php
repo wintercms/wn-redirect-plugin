@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Models;
+namespace Winter\Redirect\Models;
 
 use Backend\Models\ImportModel;
 use Throwable;
-use Vdlp\Redirect\Classes\PublishManager;
+use Winter\Redirect\Classes\PublishManager;
 
 final class RedirectImport extends ImportModel
 {

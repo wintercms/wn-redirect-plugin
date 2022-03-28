@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Contracts;
+namespace Winter\Redirect\Classes\Contracts;
 
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\Exceptions\UnableToLoadRules;
-use Vdlp\Redirect\Classes\RedirectManagerSettings;
-use Vdlp\Redirect\Classes\RedirectRule;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\Exceptions\UnableToLoadRules;
+use Winter\Redirect\Classes\RedirectManagerSettings;
+use Winter\Redirect\Classes\RedirectRule;
 
 interface RedirectManagerInterface
 {

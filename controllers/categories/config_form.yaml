@@ -9,7 +9,7 @@ name: vdlp.redirect::lang.redirect.category
 form: $/vdlp/redirect/models/category/fields.yaml
 
 # Model Class name
-modelClass: Vdlp\Redirect\Models\Category
+modelClass: Winter\Redirect\Models\Category
 
 # Default redirect location
 defaultRedirect: vdlp/redirect/categories

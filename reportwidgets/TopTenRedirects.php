@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\ReportWidgets;
+namespace Winter\Redirect\ReportWidgets;
 
 use Backend\Classes\Controller;
 use Backend\Classes\ReportWidgetBase;
-use Vdlp\Redirect\Classes\StatisticsHelper;
+use Winter\Redirect\Classes\StatisticsHelper;
 
 /**
  * @property string $alias

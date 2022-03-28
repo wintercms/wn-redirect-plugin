@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Cache\Repository;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
-use Vdlp\Redirect\Classes\Contracts\PublishManagerInterface;
-use Vdlp\Redirect\Models\Settings;
+use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
+use Winter\Redirect\Classes\Contracts\PublishManagerInterface;
+use Winter\Redirect\Models\Settings;
 
 final class CacheManager implements CacheManagerInterface
 {

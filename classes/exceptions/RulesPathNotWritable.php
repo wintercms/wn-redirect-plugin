@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Exceptions;
+namespace Winter\Redirect\Classes\Exceptions;
 
 final class RulesPathNotWritable extends UnableToLoadRules
 {

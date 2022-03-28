@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use Cms\Classes\Page;
 use Cms\Classes\Theme;
 use System\Classes\PluginManager;
-use Vdlp\Redirect\Models\Category;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Models\Category;
+use Winter\Redirect\Models\Redirect;
 
 final class OptionHelper
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Observers;
+namespace Winter\Redirect\Classes\Observers;
 
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\PublishManagerInterface;
+use Winter\Redirect\Classes\Contracts\PublishManagerInterface;
 
 final class SettingsObserver
 {

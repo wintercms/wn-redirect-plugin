@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect;
+namespace Winter\Redirect;
 
 use Backend\Facades\Backend;
 use Event;
@@ -11,12 +11,12 @@ use Illuminate\Contracts\Translation\Translator;
 use System\Classes\PluginBase;
 use Throwable;
 use Validator;
-use Vdlp\Redirect\Classes\Contracts\PublishManagerInterface;
-use Vdlp\Redirect\Classes\Observers;
-use Vdlp\Redirect\Classes\RedirectMiddleware;
-use Vdlp\Redirect\Console\PublishRedirectsCommand;
-use Vdlp\Redirect\Models;
-use Vdlp\Redirect\ReportWidgets;
+use Winter\Redirect\Classes\Contracts\PublishManagerInterface;
+use Winter\Redirect\Classes\Observers;
+use Winter\Redirect\Classes\RedirectMiddleware;
+use Winter\Redirect\Console\PublishRedirectsCommand;
+use Winter\Redirect\Models;
+use Winter\Redirect\ReportWidgets;
 
 final class Plugin extends PluginBase
 {

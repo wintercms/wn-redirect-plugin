@@ -14,24 +14,24 @@ scopes:
     match_type:
         label: vdlp.redirect::lang.redirect.match_type
         type: group
-        modelClass: Vdlp\Redirect\Models\Redirect
+        modelClass: Winter\Redirect\Models\Redirect
         options: filterMatchTypeOptions
         conditions: match_type in (:filtered)
     target_type:
         label: vdlp.redirect::lang.redirect.target_type
         type: group
-        modelClass: Vdlp\Redirect\Models\Redirect
+        modelClass: Winter\Redirect\Models\Redirect
         options: filterTargetTypeOptions
         conditions: target_type in (:filtered)
     status_code:
         label: vdlp.redirect::lang.redirect.status_code
         type: group
-        modelClass: Vdlp\Redirect\Models\Redirect
+        modelClass: Winter\Redirect\Models\Redirect
         options: filterStatusCodeOptions
         conditions: status_code in (:filtered)
     category:
         label: vdlp.redirect::lang.redirect.category
-        modelClass: Vdlp\Redirect\Models\Category
+        modelClass: Winter\Redirect\Models\Category
         conditions: category_id in (:filtered)
         nameFrom: name
     hits:

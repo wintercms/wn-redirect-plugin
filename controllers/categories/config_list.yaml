@@ -6,7 +6,7 @@
 list: $/vdlp/redirect/models/category/columns.yaml
 
 # Model Class name
-modelClass: Vdlp\Redirect\Models\Category
+modelClass: Winter\Redirect\Models\Category
 
 # List Title
 title: vdlp.redirect::lang.title.categories

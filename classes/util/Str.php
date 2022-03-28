@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Util;
+namespace Winter\Redirect\Classes\Util;
 
 final class Str
 {

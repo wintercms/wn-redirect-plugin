@@ -10,6 +10,6 @@ scopes:
     status_code:
         label: vdlp.redirect::lang.redirect.status_code
         type: group
-        modelClass: Vdlp\Redirect\Models\Redirect
+        modelClass: Winter\Redirect\Models\Redirect
         options: filterStatusCodeOptions
         conditions: status_code in (:filtered)

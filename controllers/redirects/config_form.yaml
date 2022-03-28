@@ -9,7 +9,7 @@ name: vdlp.redirect::lang.redirect.redirect
 form: $/vdlp/redirect/models/redirect/fields.yaml
 
 # Model Class name
-modelClass: Vdlp\Redirect\Models\Redirect
+modelClass: Winter\Redirect\Models\Redirect
 
 # Default redirect location
 defaultRedirect: vdlp/redirect/redirects

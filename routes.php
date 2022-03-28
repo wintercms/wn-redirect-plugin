@@ -7,8 +7,8 @@ use Backend\Models\BrandSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
-use Vdlp\Redirect\Classes\Sparkline;
-use Vdlp\Redirect\Classes\StatisticsHelper;
+use Winter\Redirect\Classes\Sparkline;
+use Winter\Redirect\Classes\StatisticsHelper;
 
 Route::group(['middleware' => ['web']], static function () {
     Route::get('vdlp/redirect/sparkline/{redirectId}', static function ($redirectId) {

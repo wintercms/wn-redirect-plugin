@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Models;
+namespace Winter\Redirect\Models;
 
 use Carbon\Carbon;
 use Exception;
@@ -10,7 +10,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Fluent;
 use Illuminate\Validation\Validator;
 use System\Models\RequestLog;
-use Vdlp\Redirect\Classes\OptionHelper;
+use Winter\Redirect\Classes\OptionHelper;
 use Winter\Storm\Support\Arr;
 use Winter\Storm\Database\Builder;
 use Winter\Storm\Database\Model;

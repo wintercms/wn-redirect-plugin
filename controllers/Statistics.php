@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Controllers;
+namespace Winter\Redirect\Controllers;
 
 use Backend\Classes\Controller;
 use Backend\Models\BrandSetting;
@@ -11,7 +11,7 @@ use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
 use JsonException;
 use SystemException;
-use Vdlp\Redirect\Classes\StatisticsHelper;
+use Winter\Redirect\Classes\StatisticsHelper;
 
 /**
  * @property string $pageTitle
