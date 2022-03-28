@@ -17,7 +17,7 @@ final class Settings extends Model
     /**
      * The settings code which to save the settings under.
      */
-    public string $settingsCode = 'vdlp_redirect_settings';
+    public string $settingsCode = 'winter_redirect_settings';
 
     /**
      * Form fields definition file.

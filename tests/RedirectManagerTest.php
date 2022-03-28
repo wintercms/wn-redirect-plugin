@@ -380,13 +380,13 @@ class RedirectManagerTest extends PluginTestCase
      */
     public function testTargetCmsPageRedirect(): void
     {
-        $page = Page::load(Theme::getActiveTheme(), 'vdlp-redirect-testpage');
+        $page = Page::load(Theme::getActiveTheme(), 'winter-redirect-testpage');
 
         if ($page === null) {
             $page = new Page();
             $page->title = 'Testpage';
             $page->url = '/winter/redirect/testpage';
-            $page->setFileNameAttribute('vdlp-redirect-testpage');
+            $page->setFileNameAttribute('winter-redirect-testpage');
             $page->save();
         }
 
@@ -396,7 +396,7 @@ class RedirectManagerTest extends PluginTestCase
             'from_scheme' => Redirect::SCHEME_AUTO,
             'from_url' => '/this-should-be-source',
             'to_scheme' => Redirect::SCHEME_AUTO,
-            'cms_page' => 'vdlp-redirect-testpage',
+            'cms_page' => 'winter-redirect-testpage',
             'requirements' => null,
             'status_code' => 302,
             'from_date' => Carbon::today(),

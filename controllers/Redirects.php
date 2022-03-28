@@ -310,7 +310,7 @@ final class Redirects extends Controller
     public function listExtendQuery(Builder $query, $definition = null): void
     {
         if ($definition === 'requestLog') {
-            $query->whereNull('vdlp_redirect_redirect_id');
+            $query->whereNull('winter_redirect_redirect_id');
         }
     }
 
@@ -449,7 +449,7 @@ final class Redirects extends Controller
             ]);
 
             $requestLog->update([
-                'vdlp_redirect_redirect_id' => $redirect->getKey()
+                'winter_redirect_redirect_id' => $redirect->getKey()
             ]);
 
             $redirectsCreated++;

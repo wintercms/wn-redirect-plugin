@@ -37,7 +37,7 @@ Route::group(['middleware' => ['web']], static function () {
             ];
         }
 
-        $cacheKey = sprintf('vdlp_redirect_%s_%d_%d', $preset, (int) $redirectId, (int) $crawler);
+        $cacheKey = sprintf('winter_redirect_%s_%d_%d', $preset, (int) $redirectId, (int) $crawler);
 
         $data = Cache::remember($cacheKey, 5 * 60, static function () use ($redirectId, $crawler, $properties) {
             return (new StatisticsHelper())->getRedirectHitsSparkline((int) $redirectId, $crawler, $properties['days']);

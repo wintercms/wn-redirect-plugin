@@ -202,7 +202,7 @@ final class StatisticsHelper
         return Models\Client::query()
             ->selectRaw('COUNT(redirect_id) AS hits')
             ->addSelect('redirect_id', 'r.from_url')
-            ->join('vdlp_redirect_redirects AS r', 'r.id', '=', 'redirect_id')
+            ->join('winter_redirect_redirects AS r', 'r.id', '=', 'redirect_id')
             ->where('month', '=', (int) date('n'))
             ->where('year', '=', (int) date('Y'))
             ->groupBy('redirect_id', 'r.from_url')

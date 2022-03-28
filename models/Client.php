@@ -8,7 +8,7 @@ use Winter\Storm\Database\Model;
 
 final class Client extends Model
 {
-    public $table = 'vdlp_redirect_clients';
+    public $table = 'winter_redirect_clients';
 
     public $belongsTo = [
         'redirect' => Redirect::class,

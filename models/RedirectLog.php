@@ -8,7 +8,7 @@ use Winter\Storm\Database\Model;
 
 final class RedirectLog extends Model
 {
-    public $table = 'vdlp_redirect_redirect_logs';
+    public $table = 'winter_redirect_redirect_logs';
 
     public $belongsTo = [
         'redirect' => Redirect::class,

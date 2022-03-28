@@ -112,7 +112,7 @@ This plugin makes advantage of the `symfony/routing` package. So if you need mor
 
 ## Contribution
 
-Please feel free to [contribute](https://github.com/vdlp/oc-redirect-plugin) to this awesome plugin.
+Please feel free to [contribute](https://github.com/wintercms/wn-redirect-plugin) to this awesome plugin.
 
 ## Questions? Need help?
 

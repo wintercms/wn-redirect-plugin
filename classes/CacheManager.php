@@ -14,9 +14,9 @@ use Winter\Redirect\Models\Settings;
 
 final class CacheManager implements CacheManagerInterface
 {
-    private const CACHE_TAG = 'vdlp_redirect';
-    private const CACHE_TAG_RULES = 'vdlp_redirect_rules';
-    private const CACHE_TAG_MATCHES = 'vdlp_redirect_matches';
+    private const CACHE_TAG = 'winter_redirect';
+    private const CACHE_TAG_RULES = 'winter_redirect_rules';
+    private const CACHE_TAG_MATCHES = 'winter_redirect_matches';
 
     private Repository $cache;
     private LoggerInterface $log;

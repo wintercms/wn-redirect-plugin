@@ -70,7 +70,7 @@ final class Redirect extends Model
         410 => 'gone',
     ];
 
-    public $table = 'vdlp_redirect_redirects';
+    public $table = 'winter_redirect_redirects';
 
     /**
      * Validation rules.
@@ -132,7 +132,7 @@ final class Redirect extends Model
         'systemRequestLog' => [
             RequestLog::class,
             'key' => 'id',
-            'otherKey' => 'vdlp_redirect_redirect_id',
+            'otherKey' => 'winter_redirect_redirect_id',
         ],
     ];
 

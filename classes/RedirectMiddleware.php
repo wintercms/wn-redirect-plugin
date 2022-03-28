@@ -57,7 +57,7 @@ final class RedirectMiddleware
             return $next($request);
         }
 
-        if ($request->header('X-Vdlp-Redirect') === 'Tester') {
+        if ($request->header('X-Winter-Redirect') === 'Tester') {
             $this->redirectManager->setSettings(new RedirectManagerSettings(
                 false,
                 false,

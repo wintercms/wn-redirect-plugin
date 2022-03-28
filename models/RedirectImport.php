@@ -10,7 +10,7 @@ use Winter\Redirect\Classes\PublishManager;
 
 final class RedirectImport extends ImportModel
 {
-    public $table = 'vdlp_redirect_redirects';
+    public $table = 'winter_redirect_redirects';
 
     /**
      * Basic validation rules.
