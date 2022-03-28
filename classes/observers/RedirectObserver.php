@@ -44,7 +44,7 @@ final class RedirectObserver
 
         $this->logChange($model, 'created');
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($model->getKey())
         ]);
     }
@@ -61,7 +61,7 @@ final class RedirectObserver
 
         $this->logChange($model, 'updated');
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($model->getKey())
         ]);
     }
@@ -78,7 +78,7 @@ final class RedirectObserver
 
         $this->logChange($model, 'deleted');
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($model->getKey())
         ]);
     }

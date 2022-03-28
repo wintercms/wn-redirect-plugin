@@ -221,7 +221,7 @@ final class Redirect extends Model
 
         /** @var Dispatcher $dispatcher */
         $dispatcher = resolve(Dispatcher::class);
-        $dispatcher->dispatch('vdlp.redirect.changed', ['redirectIds' => $itemIds]);
+        $dispatcher->dispatch('winter.redirect.changed', ['redirectIds' => $itemIds]);
 
         $this->traitSetSortableOrder($itemIds, $itemOrders);
     }

@@ -21,7 +21,7 @@ use Winter\Storm\Flash\FlashBag;
  */
 final class TestLab extends Controller
 {
-    public $requiredPermissions = ['vdlp.redirect.access_redirects'];
+    public $requiredPermissions = ['winter.redirect.access_redirects'];
 
     private array $redirects = [];
     private Request $request;

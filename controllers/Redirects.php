@@ -62,7 +62,7 @@ final class Redirects extends Controller
     public string $importExportConfig = 'config_import_export.yaml';
     public string $relationConfig = 'config_relation.yaml';
 
-    public $requiredPermissions = ['vdlp.redirect.access_redirects'];
+    public $requiredPermissions = ['winter.redirect.access_redirects'];
 
     private Request $request;
     private Translator $translator;
@@ -163,7 +163,7 @@ final class Redirects extends Controller
 
         Models\Redirect::destroy($redirectIds);
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
 
@@ -178,7 +178,7 @@ final class Redirects extends Controller
             ->whereIn('id', $redirectIds)
             ->update(['is_enabled' => 1]);
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
 
@@ -193,7 +193,7 @@ final class Redirects extends Controller
             ->whereIn('id', $redirectIds)
             ->update(['is_enabled' => 0]);
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
 
@@ -213,7 +213,7 @@ final class Redirects extends Controller
             ->whereIn('redirect_id', $redirectIds)
             ->delete();
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
 
@@ -248,7 +248,7 @@ final class Redirects extends Controller
 
         $this->flash->success($this->translator->trans('winter.redirect::lang.flash.statistics_reset_success'));
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
 
@@ -274,7 +274,7 @@ final class Redirects extends Controller
 
         $this->flash->success($this->translator->trans('winter.redirect::lang.flash.disabled_all_redirects_success'));
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
 
@@ -290,7 +290,7 @@ final class Redirects extends Controller
 
         $this->flash->success($this->translator->trans('winter.redirect::lang.flash.deleted_all_redirects_success'));
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
 

@@ -19,7 +19,7 @@ final class Categories extends Controller
         Behaviors\ListController::class
     ];
 
-    public $requiredPermissions = ['vdlp.redirect.access_redirects'];
+    public $requiredPermissions = ['winter.redirect.access_redirects'];
     public string $formConfig = 'config_form.yaml';
     public string $listConfig = 'config_list.yaml';
 

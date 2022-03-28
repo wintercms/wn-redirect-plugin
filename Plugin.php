@@ -60,7 +60,7 @@ final class Plugin extends PluginBase
     public function registerPermissions(): array
     {
         return [
-            'vdlp.redirect.access_redirects' => [
+            'winter.redirect.access_redirects' => [
                 'label' => 'winter.redirect::lang.permission.access_redirects.label',
                 'tab' => 'winter.redirect::lang.permission.access_redirects.tab',
             ],
@@ -81,7 +81,7 @@ final class Plugin extends PluginBase
                 'url' => $defaultBackendUrl,
                 'order' => 201,
                 'permissions' => [
-                    'vdlp.redirect.access_redirects',
+                    'winter.redirect.access_redirects',
                 ],
                 'sideMenu' => [
                     'redirects' => [
@@ -90,7 +90,7 @@ final class Plugin extends PluginBase
                         'url' => Backend::url('vdlp/redirect/redirects'),
                         'order' => 20,
                         'permissions' => [
-                            'vdlp.redirect.access_redirects',
+                            'winter.redirect.access_redirects',
                         ],
                     ],
                     'categories' => [
@@ -99,7 +99,7 @@ final class Plugin extends PluginBase
                         'icon' => 'icon-tag',
                         'order' => 60,
                         'permissions' => [
-                            'vdlp.redirect.access_redirects',
+                            'winter.redirect.access_redirects',
                         ],
                     ],
                     'import' => [
@@ -108,7 +108,7 @@ final class Plugin extends PluginBase
                         'icon' => 'icon-download',
                         'order' => 70,
                         'permissions' => [
-                            'vdlp.redirect.access_redirects',
+                            'winter.redirect.access_redirects',
                         ],
                     ],
                     'export' => [
@@ -117,7 +117,7 @@ final class Plugin extends PluginBase
                         'icon' => 'icon-upload',
                         'order' => 80,
                         'permissions' => [
-                            'vdlp.redirect.access_redirects',
+                            'winter.redirect.access_redirects',
                         ],
                     ],
                     'settings' => [
@@ -126,7 +126,7 @@ final class Plugin extends PluginBase
                         'icon' => 'icon-cogs',
                         'order' => 90,
                         'permissions' => [
-                            'vdlp.redirect.access_redirects',
+                            'winter.redirect.access_redirects',
                         ],
                     ],
                     'extensions' => [
@@ -135,7 +135,7 @@ final class Plugin extends PluginBase
                         'icon' => 'icon-cubes',
                         'order' => 100,
                         'permissions' => [
-                            'vdlp.redirect.access_redirects',
+                            'winter.redirect.access_redirects',
                         ],
                     ],
                 ],
@@ -149,7 +149,7 @@ final class Plugin extends PluginBase
                 'url' => Backend::url('vdlp/redirect/statistics'),
                 'order' => 10,
                 'permissions' => [
-                    'vdlp.redirect.access_redirects',
+                    'winter.redirect.access_redirects',
                 ],
             ];
         }
@@ -161,7 +161,7 @@ final class Plugin extends PluginBase
                 'url' => Backend::url('vdlp/redirect/testlab'),
                 'order' => 30,
                 'permissions' => [
-                    'vdlp.redirect.access_redirects',
+                    'winter.redirect.access_redirects',
                 ],
             ];
         }
@@ -174,7 +174,7 @@ final class Plugin extends PluginBase
                 'visible' => false,
                 'order' => 50,
                 'permissions' => [
-                    'vdlp.redirect.access_redirects',
+                    'winter.redirect.access_redirects',
                 ],
             ];
         }
@@ -192,7 +192,7 @@ final class Plugin extends PluginBase
                 'class' => Models\Settings::class,
                 'order' => 600,
                 'permissions' => [
-                    'vdlp.redirect.access_redirects',
+                    'winter.redirect.access_redirects',
                 ],
             ],
         ];
@@ -305,7 +305,7 @@ final class Plugin extends PluginBase
 
     private function registerConsoleCommands(): void
     {
-        $this->registerConsoleCommand('vdlp.redirect.publish-redirects', PublishRedirectsCommand::class);
+        $this->registerConsoleCommand('winter.redirect.publish-redirects', PublishRedirectsCommand::class);
     }
 
     private function registerCustomValidators(): void
@@ -335,11 +335,11 @@ final class Plugin extends PluginBase
          * Allows third-party plugin develop to notify when a URL has changed.
          * E.g. An editor changes the slug of a blog item.
          *
-         * `Event::fire('vdlp.redirect.toUrlChanged', [$oldSlug, $newSlug])`
+         * `Event::fire('winter.redirect.toUrlChanged', [$oldSlug, $newSlug])`
          *
          * Only 'exact' redirects will be supported.
          */
-        Event::listen('vdlp.redirect.toUrlChanged', static function (string $oldUrl, string $newUrl): void {
+        Event::listen('winter.redirect.toUrlChanged', static function (string $oldUrl, string $newUrl): void {
             Models\Redirect::query()
                 ->where('match_type', '=', Models\Redirect::TYPE_EXACT)
                 ->where('target_type', '=', Models\Redirect::TARGET_TYPE_PATH_URL)
@@ -356,7 +356,7 @@ final class Plugin extends PluginBase
          *
          * When one or more redirects have been changed.
          */
-        Event::listen('vdlp.redirect.changed', static function (array $redirectIds): void {
+        Event::listen('winter.redirect.changed', static function (array $redirectIds): void {
             try {
                 /** @var PublishManagerInterface $publishManager */
                 $publishManager = resolve(PublishManagerInterface::class);

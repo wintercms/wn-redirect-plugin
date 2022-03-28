@@ -98,7 +98,7 @@ final class RedirectMiddleware
          *
          * At this point a positive match was made based on the request URI.
          */
-        $this->dispatcher->fire('vdlp.redirect.match', [$rule, $requestUri]);
+        $this->dispatcher->fire('winter.redirect.match', [$rule, $requestUri]);
 
         /*
          * Extensibility:

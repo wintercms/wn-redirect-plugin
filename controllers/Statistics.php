@@ -18,7 +18,7 @@ use Winter\Redirect\Classes\StatisticsHelper;
  */
 final class Statistics extends Controller
 {
-    public $requiredPermissions = ['vdlp.redirect.access_redirects'];
+    public $requiredPermissions = ['winter.redirect.access_redirects'];
     private StatisticsHelper $helper;
 
     public function __construct()
