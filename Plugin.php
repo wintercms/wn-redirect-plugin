@@ -299,7 +299,7 @@ final class Plugin extends PluginBase
 
     public function registerSchedule($schedule): void
     {
-        $schedule->command('vdlp:redirect:publish-redirects')
+        $schedule->command('winter:redirect:publish-redirects')
             ->dailyAt(config('winter.redirect::cron.publish_redirects', '00:00'));
     }
 

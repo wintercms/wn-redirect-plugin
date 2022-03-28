@@ -148,4 +148,4 @@ Result: /blog/news/general
 
 | Command | Description |
 | --- | --- |
-| `vdlp:redirect:publish-redirects` | Publish all redirects. |
+| `winter:redirect:publish-redirects` | Publish all redirects. |
