@@ -102,7 +102,7 @@ final class Redirects extends Controller
         parent::index();
 
         if ($this->cacheManager->cachingEnabledButNotSupported()) {
-            $this->vars['warningMessage'] = $this->translator->trans('vdlp.redirect::lang.redirect.cache_warning');
+            $this->vars['warningMessage'] = $this->translator->trans('winter.redirect::lang.redirect.cache_warning');
         }
     }
 
@@ -122,7 +122,7 @@ final class Redirects extends Controller
             && !class_exists('\Winter\Pages\Classes\Page')
         ) {
             $this->flash->error(
-                $this->translator->trans('vdlp.redirect::lang.flash.static_page_redirect_not_supported')
+                $this->translator->trans('winter.redirect::lang.flash.static_page_redirect_not_supported')
             );
 
             return redirect()->back();
@@ -130,7 +130,7 @@ final class Redirects extends Controller
 
         if (!$redirect->isActiveOnDate(Carbon::now())) {
             $this->vars['warningMessage'] = $this->translator->trans(
-                'vdlp.redirect::lang.scheduling.not_active_warning'
+                'winter.redirect::lang.scheduling.not_active_warning'
             );
         }
 
@@ -226,7 +226,7 @@ final class Redirects extends Controller
         $cacheManager = resolve(CacheManagerInterface::class);
         $cacheManager->flush();
 
-        $this->flash->success($this->translator->trans('vdlp.redirect::lang.flash.cache_cleared_success'));
+        $this->flash->success($this->translator->trans('winter.redirect::lang.flash.cache_cleared_success'));
     }
 
     /**
@@ -246,7 +246,7 @@ final class Redirects extends Controller
         Models\Redirect::query()->update(['hits' => 0]);
         Models\Client::query()->delete();
 
-        $this->flash->success($this->translator->trans('vdlp.redirect::lang.flash.statistics_reset_success'));
+        $this->flash->success($this->translator->trans('winter.redirect::lang.flash.statistics_reset_success'));
 
         $this->dispatcher->dispatch('vdlp.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
@@ -272,7 +272,7 @@ final class Redirects extends Controller
         Models\Redirect::query()
             ->update(['is_enabled' => $enabled]);
 
-        $this->flash->success($this->translator->trans('vdlp.redirect::lang.flash.disabled_all_redirects_success'));
+        $this->flash->success($this->translator->trans('winter.redirect::lang.flash.disabled_all_redirects_success'));
 
         $this->dispatcher->dispatch('vdlp.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
@@ -288,7 +288,7 @@ final class Redirects extends Controller
         Models\Redirect::query()
             ->delete();
 
-        $this->flash->success($this->translator->trans('vdlp.redirect::lang.flash.deleted_all_redirects_success'));
+        $this->flash->success($this->translator->trans('winter.redirect::lang.flash.deleted_all_redirects_success'));
 
         $this->dispatcher->dispatch('vdlp.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
@@ -331,7 +331,7 @@ final class Redirects extends Controller
         }
 
         if (!Models\Settings::isTestLabEnabled()) {
-            $host->removeTab('vdlp.redirect::lang.tab.tab_test_lab');
+            $host->removeTab('winter.redirect::lang.tab.tab_test_lab');
         }
 
         if ($this->request->isMethod(Request::METHOD_GET)) {
@@ -457,7 +457,7 @@ final class Redirects extends Controller
 
         if ($redirectsCreated > 0) {
             $this->flash->success($this->translator->trans(
-                'vdlp.redirect::lang.flash.success_created_redirects',
+                'winter.redirect::lang.flash.success_created_redirects',
                 [
                     'count' => $redirectsCreated,
                 ]

@@ -3,12 +3,12 @@
 # ===================================
 
 import:
-    title: vdlp.redirect::lang.title.import
+    title: winter.redirect::lang.title.import
     modelClass: Winter\Redirect\Models\RedirectImport
     list: $/vdlp/redirect/models/redirectimport/columns.yaml
     redirect: vdlp/redirect/redirects
 export:
-    title: vdlp.redirect::lang.title.export
+    title: winter.redirect::lang.title.export
     modelClass: Winter\Redirect\Models\RedirectExport
     list: $/vdlp/redirect/models/redirectexport/columns.yaml
     redirect: vdlp/redirect/redirects

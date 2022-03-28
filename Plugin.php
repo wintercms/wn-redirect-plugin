@@ -23,8 +23,8 @@ final class Plugin extends PluginBase
     public function pluginDetails(): array
     {
         return [
-            'name' => 'vdlp.redirect::lang.plugin.name',
-            'description' => 'vdlp.redirect::lang.plugin.description',
+            'name' => 'winter.redirect::lang.plugin.name',
+            'description' => 'winter.redirect::lang.plugin.description',
             'author' => 'Winter CMS',
             'icon' => 'icon-link',
             'homepage' => 'https://github.com/wintercms/wn-redirect-plugin',
@@ -61,8 +61,8 @@ final class Plugin extends PluginBase
     {
         return [
             'vdlp.redirect.access_redirects' => [
-                'label' => 'vdlp.redirect::lang.permission.access_redirects.label',
-                'tab' => 'vdlp.redirect::lang.permission.access_redirects.tab',
+                'label' => 'winter.redirect::lang.permission.access_redirects.label',
+                'tab' => 'winter.redirect::lang.permission.access_redirects.tab',
             ],
         ];
     }
@@ -75,7 +75,7 @@ final class Plugin extends PluginBase
 
         $navigation = [
             'redirect' => [
-                'label' => 'vdlp.redirect::lang.navigation.menu_label',
+                'label' => 'winter.redirect::lang.navigation.menu_label',
                 'iconSvg' => '/plugins/vdlp/redirect/assets/images/icon.svg',
                 'icon' => 'icon-link',
                 'url' => $defaultBackendUrl,
@@ -86,7 +86,7 @@ final class Plugin extends PluginBase
                 'sideMenu' => [
                     'redirects' => [
                         'icon' => 'icon-list',
-                        'label' => 'vdlp.redirect::lang.navigation.menu_label',
+                        'label' => 'winter.redirect::lang.navigation.menu_label',
                         'url' => Backend::url('vdlp/redirect/redirects'),
                         'order' => 20,
                         'permissions' => [
@@ -94,7 +94,7 @@ final class Plugin extends PluginBase
                         ],
                     ],
                     'categories' => [
-                        'label' => 'vdlp.redirect::lang.buttons.categories',
+                        'label' => 'winter.redirect::lang.buttons.categories',
                         'url' => Backend::url('vdlp/redirect/categories'),
                         'icon' => 'icon-tag',
                         'order' => 60,
@@ -103,7 +103,7 @@ final class Plugin extends PluginBase
                         ],
                     ],
                     'import' => [
-                        'label' => 'vdlp.redirect::lang.buttons.import',
+                        'label' => 'winter.redirect::lang.buttons.import',
                         'url' => Backend::url('vdlp/redirect/redirects/import'),
                         'icon' => 'icon-download',
                         'order' => 70,
@@ -112,7 +112,7 @@ final class Plugin extends PluginBase
                         ],
                     ],
                     'export' => [
-                        'label' => 'vdlp.redirect::lang.buttons.export',
+                        'label' => 'winter.redirect::lang.buttons.export',
                         'url' => Backend::url('vdlp/redirect/redirects/export'),
                         'icon' => 'icon-upload',
                         'order' => 80,
@@ -121,7 +121,7 @@ final class Plugin extends PluginBase
                         ],
                     ],
                     'settings' => [
-                        'label' => 'vdlp.redirect::lang.buttons.settings',
+                        'label' => 'winter.redirect::lang.buttons.settings',
                         'url' => Backend::url('system/settings/update/vdlp/redirect/config'),
                         'icon' => 'icon-cogs',
                         'order' => 90,
@@ -130,7 +130,7 @@ final class Plugin extends PluginBase
                         ],
                     ],
                     'extensions' => [
-                        'label' => 'vdlp.redirect::lang.buttons.extensions',
+                        'label' => 'winter.redirect::lang.buttons.extensions',
                         'url' => Backend::url('vdlp/redirect/extensions'),
                         'icon' => 'icon-cubes',
                         'order' => 100,
@@ -145,7 +145,7 @@ final class Plugin extends PluginBase
         if (Models\Settings::isStatisticsEnabled()) {
             $navigation['redirect']['sideMenu']['statistics'] = [
                 'icon' => 'icon-bar-chart',
-                'label' => 'vdlp.redirect::lang.title.statistics',
+                'label' => 'winter.redirect::lang.title.statistics',
                 'url' => Backend::url('vdlp/redirect/statistics'),
                 'order' => 10,
                 'permissions' => [
@@ -157,7 +157,7 @@ final class Plugin extends PluginBase
         if (Models\Settings::isTestLabEnabled()) {
             $navigation['redirect']['sideMenu']['test_lab'] = [
                 'icon' => 'icon-flask',
-                'label' => 'vdlp.redirect::lang.title.test_lab',
+                'label' => 'winter.redirect::lang.title.test_lab',
                 'url' => Backend::url('vdlp/redirect/testlab'),
                 'order' => 30,
                 'permissions' => [
@@ -168,7 +168,7 @@ final class Plugin extends PluginBase
 
         if (Models\Settings::isLoggingEnabled()) {
             $navigation['redirect']['sideMenu']['logs'] = [
-                'label' => 'vdlp.redirect::lang.buttons.logs',
+                'label' => 'winter.redirect::lang.buttons.logs',
                 'url' => Backend::url('vdlp/redirect/logs'),
                 'icon' => 'icon-file-text-o',
                 'visible' => false,
@@ -186,8 +186,8 @@ final class Plugin extends PluginBase
     {
         return [
             'config' => [
-                'label' => 'vdlp.redirect::lang.settings.menu_label',
-                'description' => 'vdlp.redirect::lang.settings.menu_description',
+                'label' => 'winter.redirect::lang.settings.menu_label',
+                'description' => 'winter.redirect::lang.settings.menu_description',
                 'icon' => 'icon-link',
                 'class' => Models\Settings::class,
                 'order' => 600,
@@ -204,14 +204,14 @@ final class Plugin extends PluginBase
         $translator = resolve(Translator::class);
 
         $reportWidgets[ReportWidgets\CreateRedirect::class] = [
-            'label' => 'vdlp.redirect::lang.buttons.create_redirect',
+            'label' => 'winter.redirect::lang.buttons.create_redirect',
             'context' => 'dashboard',
         ];
 
         if (Models\Settings::isStatisticsEnabled()) {
             $reportWidgets[ReportWidgets\TopTenRedirects::class] = [
                 'label' => e($translator->trans(
-                    'vdlp.redirect::lang.statistics.top_redirects_this_month',
+                    'winter.redirect::lang.statistics.top_redirects_this_month',
                     [
                         'top' => 10,
                     ]
@@ -238,11 +238,11 @@ final class Plugin extends PluginBase
             'redirect_match_type' => static function ($value): string {
                 switch ($value) {
                     case Models\Redirect::TYPE_EXACT:
-                        return e(trans('vdlp.redirect::lang.redirect.exact'));
+                        return e(trans('winter.redirect::lang.redirect.exact'));
                     case Models\Redirect::TYPE_PLACEHOLDERS:
-                        return e(trans('vdlp.redirect::lang.redirect.placeholders'));
+                        return e(trans('winter.redirect::lang.redirect.placeholders'));
                     case Models\Redirect::TYPE_REGEX:
-                        return e(trans('vdlp.redirect::lang.redirect.regex'));
+                        return e(trans('winter.redirect::lang.redirect.regex'));
                     default:
                         return e($value);
                 }
@@ -250,15 +250,15 @@ final class Plugin extends PluginBase
             'redirect_status_code' => static function ($value): string {
                 switch ($value) {
                     case 301:
-                        return e(trans('vdlp.redirect::lang.redirect.permanent'));
+                        return e(trans('winter.redirect::lang.redirect.permanent'));
                     case 302:
-                        return e(trans('vdlp.redirect::lang.redirect.temporary'));
+                        return e(trans('winter.redirect::lang.redirect.temporary'));
                     case 303:
-                        return e(trans('vdlp.redirect::lang.redirect.see_other'));
+                        return e(trans('winter.redirect::lang.redirect.see_other'));
                     case 404:
-                        return e(trans('vdlp.redirect::lang.redirect.not_found'));
+                        return e(trans('winter.redirect::lang.redirect.not_found'));
                     case 410:
-                        return e(trans('vdlp.redirect::lang.redirect.gone'));
+                        return e(trans('winter.redirect::lang.redirect.gone'));
                     default:
                         return e($value);
                 }
@@ -266,11 +266,11 @@ final class Plugin extends PluginBase
             'redirect_target_type' => static function ($value): string {
                 switch ($value) {
                     case Models\Redirect::TARGET_TYPE_PATH_URL:
-                        return e(trans('vdlp.redirect::lang.redirect.target_type_path_or_url'));
+                        return e(trans('winter.redirect::lang.redirect.target_type_path_or_url'));
                     case Models\Redirect::TARGET_TYPE_CMS_PAGE:
-                        return e(trans('vdlp.redirect::lang.redirect.target_type_cms_page'));
+                        return e(trans('winter.redirect::lang.redirect.target_type_cms_page'));
                     case Models\Redirect::TARGET_TYPE_STATIC_PAGE:
-                        return e(trans('vdlp.redirect::lang.redirect.target_type_static_page'));
+                        return e(trans('winter.redirect::lang.redirect.target_type_static_page'));
                     default:
                         return e($value);
                 }
@@ -291,7 +291,7 @@ final class Plugin extends PluginBase
                 return sprintf(
                     '<span class="%s" title="%s"></span>',
                     $value ? 'oc-icon-magic' : 'oc-icon-user',
-                    e(trans('vdlp.redirect::lang.redirect.system_tip'))
+                    e(trans('winter.redirect::lang.redirect.system_tip'))
                 );
             },
         ];
@@ -300,7 +300,7 @@ final class Plugin extends PluginBase
     public function registerSchedule($schedule): void
     {
         $schedule->command('vdlp:redirect:publish-redirects')
-            ->dailyAt(config('vdlp.redirect::cron.publish_redirects', '00:00'));
+            ->dailyAt(config('winter.redirect::cron.publish_redirects', '00:00'));
     }
 
     private function registerConsoleCommands(): void

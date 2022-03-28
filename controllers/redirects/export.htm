@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb'); ?>
     <ul>
-        <li><a href="<?= Backend::url('vdlp/redirect/redirects'); ?>"><?= e(trans('vdlp.redirect::lang.navigation.menu_label')); ?></a></li>
+        <li><a href="<?= Backend::url('vdlp/redirect/redirects'); ?>"><?= e(trans('winter.redirect::lang.navigation.menu_label')); ?></a></li>
         <li><?= e($this->pageTitle); ?></li>
     </ul>
 <?php Block::endPut(); ?>
@@ -17,7 +17,7 @@
                 data-handler="onExportLoadForm"
                 data-keyboard="false"
                 class="btn btn-primary">
-                <?= e(trans('vdlp.redirect::lang.buttons.export')); ?>
+                <?= e(trans('winter.redirect::lang.buttons.export')); ?>
             </button>
         </div>
     </div>

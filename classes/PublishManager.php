@@ -59,7 +59,7 @@ final class PublishManager implements PublishManagerInterface
 
         $count = $redirects->count();
 
-        if ((bool) config('vdlp.redirect::log_redirect_changes', false) === true) {
+        if ((bool) config('winter.redirect::log_redirect_changes', false) === true) {
             $this->log->info(sprintf(
                 'Winter.Redirect: Redirect engine has been updated with %s redirects.',
                 $count
@@ -71,7 +71,7 @@ final class PublishManager implements PublishManagerInterface
 
     private function publishToFilesystem(array $columns, array $redirects): void
     {
-        $redirectsFile = config('vdlp.redirect::rules_path');
+        $redirectsFile = config('winter.redirect::rules_path');
 
         if (file_exists($redirectsFile)) {
             unlink($redirectsFile);

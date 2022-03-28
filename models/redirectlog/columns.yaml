@@ -4,18 +4,18 @@
 
 columns:
     from_url:
-        label: vdlp.redirect::lang.redirect.from_url
+        label: winter.redirect::lang.redirect.from_url
         type: redirect_from_url
         searchable: true
     to_url:
-        label: vdlp.redirect::lang.redirect.to_url
+        label: winter.redirect::lang.redirect.to_url
         searchable: true
     status_code:
-        label: vdlp.redirect::lang.redirect.status_code
+        label: winter.redirect::lang.redirect.status_code
         type: redirect_status_code
         searchable: true
     hits:
-        label: vdlp.redirect::lang.redirect.hits
+        label: winter.redirect::lang.redirect.hits
     updated_at:
-        label: vdlp.redirect::lang.redirect.date_time
+        label: winter.redirect::lang.redirect.date_time
         type: datetime

@@ -3,7 +3,7 @@
 # ===================================
 
 # Reorder Title
-title: vdlp.redirect::lang.buttons.reorder_redirects
+title: winter.redirect::lang.buttons.reorder_redirects
 
 # Attribute name
 nameFrom: from_url

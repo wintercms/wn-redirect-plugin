@@ -55,7 +55,7 @@ final class Logs extends Controller
     {
         try {
             RedirectLog::query()->truncate();
-            $this->flash->success($this->translator->trans('vdlp.redirect::lang.flash.truncate_success'));
+            $this->flash->success($this->translator->trans('winter.redirect::lang.flash.truncate_success'));
         } catch (Throwable $e) {
             $this->log->warning($e);
         }
@@ -79,7 +79,7 @@ final class Logs extends Controller
                 }
             }
 
-            $this->flash->success($this->translator->trans('vdlp.redirect::lang.flash.delete_selected_success'));
+            $this->flash->success($this->translator->trans('winter.redirect::lang.flash.delete_selected_success'));
         } else {
             $this->flash->error($this->translator->trans('backend::lang.list.delete_selected_empty'));
         }

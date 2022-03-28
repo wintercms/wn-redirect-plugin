@@ -556,7 +556,7 @@ final class RedirectManager implements RedirectManagerInterface
      */
     private function loadRulesFromFilesystem(): array
     {
-        $rulesPath = (string) config('vdlp.redirect::rules_path');
+        $rulesPath = (string) config('winter.redirect::rules_path');
 
         if (!file_exists($rulesPath) && touch($rulesPath) === false) {
             throw Exceptions\RulesPathNotWritable::withPath($rulesPath);

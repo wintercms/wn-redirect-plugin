@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: vdlp.redirect::lang.redirect.redirect
+name: winter.redirect::lang.redirect.redirect
 
 # Model Form Field configuration
 form: $/vdlp/redirect/models/redirect/fields.yaml
@@ -16,12 +16,12 @@ defaultRedirect: vdlp/redirect/redirects
 
 # Create page
 create:
-    title: vdlp.redirect::lang.title.create_redirect
+    title: winter.redirect::lang.title.create_redirect
     redirect: vdlp/redirect/redirects/update/:id
     redirectClose: vdlp/redirect/redirects
 
 # Update page
 update:
-    title: vdlp.redirect::lang.title.edit_redirect
+    title: winter.redirect::lang.title.edit_redirect
     redirect: vdlp/redirect/redirects
     redirectClose: vdlp/redirect/redirects

@@ -9,128 +9,128 @@ fields:
         span: full
         default: 301
         options:
-            301: vdlp.redirect::lang.redirect.permanent
-            302: vdlp.redirect::lang.redirect.temporary
-            303: vdlp.redirect::lang.redirect.see_other
-            404: vdlp.redirect::lang.redirect.not_found
-            410: vdlp.redirect::lang.redirect.gone
+            301: winter.redirect::lang.redirect.permanent
+            302: winter.redirect::lang.redirect.temporary
+            303: winter.redirect::lang.redirect.see_other
+            404: winter.redirect::lang.redirect.not_found
+            410: winter.redirect::lang.redirect.gone
         commentHtml: true
         commentAbove: '<label>HTTP Status Code <span class="status-code-info icon-question-circle"data-control="popup" data-handler="onShowStatusCodeInfo" data-keyboard="true" data-size="huge"></span></label>'
     match_type:
-        label: vdlp.redirect::lang.redirect.match_type
+        label: winter.redirect::lang.redirect.match_type
         type: dropdown
         required: true
         span: right
     target_type:
-        label: vdlp.redirect::lang.redirect.target_type
+        label: winter.redirect::lang.redirect.target_type
         required: true
         type: dropdown
         default: path_or_url
         span: left
         dependsOn: status_code
     from_url:
-        label: vdlp.redirect::lang.redirect.from_url
-        placeholder: vdlp.redirect::lang.redirect.from_url_placeholder
+        label: winter.redirect::lang.redirect.from_url
+        placeholder: winter.redirect::lang.redirect.from_url_placeholder
         type: text
         span: left
-        comment: vdlp.redirect::lang.redirect.from_url_comment
+        comment: winter.redirect::lang.redirect.from_url_comment
         required: true
         attributes:
             autofocus: ''
     to_url:
-        label: vdlp.redirect::lang.redirect.to_url
-        placeholder: vdlp.redirect::lang.redirect.to_url_placeholder
+        label: winter.redirect::lang.redirect.to_url
+        placeholder: winter.redirect::lang.redirect.to_url_placeholder
         type: text
         span: right
-        comment: vdlp.redirect::lang.redirect.to_url_comment
+        comment: winter.redirect::lang.redirect.to_url_comment
         dependsOn:
             - target_type
             - status_code
     cms_page:
-        label: vdlp.redirect::lang.redirect.target_type_cms_page
+        label: winter.redirect::lang.redirect.target_type_cms_page
         span: right
         type: dropdown
         dependsOn:
             - target_type
             - status_code
     static_page:
-        label: vdlp.redirect::lang.redirect.target_type_static_page
+        label: winter.redirect::lang.redirect.target_type_static_page
         span: right
         type: dropdown
         dependsOn:
             - target_type
             - status_code
 tabs:
-    defaultTab: vdlp.redirect::lang.tab.tab_general
+    defaultTab: winter.redirect::lang.tab.tab_general
     lazy:
-        - vdlp.redirect::lang.tab.tab_logs
+        - winter.redirect::lang.tab.tab_logs
     icons:
-        vdlp.redirect::lang.tab.tab_general: icon-mouse-pointer
-        vdlp.redirect::lang.tab.tab_requirements:
-        vdlp.redirect::lang.tab.tab_test: icon-bug
-        vdlp.redirect::lang.tab.tab_scheduling: icon-calendar-o
-        vdlp.redirect::lang.tab.tab_test_lab: icon-flask
-        vdlp.redirect::lang.tab.tab_advanced: icon-cog
-        vdlp.redirect::lang.tab.tab_logs: icon-file-text-o
+        winter.redirect::lang.tab.tab_general: icon-mouse-pointer
+        winter.redirect::lang.tab.tab_requirements:
+        winter.redirect::lang.tab.tab_test: icon-bug
+        winter.redirect::lang.tab.tab_scheduling: icon-calendar-o
+        winter.redirect::lang.tab.tab_test_lab: icon-flask
+        winter.redirect::lang.tab.tab_advanced: icon-cog
+        winter.redirect::lang.tab.tab_logs: icon-file-text-o
     fields:
         #
         # General
         #
         is_enabled:
-            label: vdlp.redirect::lang.redirect.enabled
-            comment: vdlp.redirect::lang.redirect.enabled_comment
+            label: winter.redirect::lang.redirect.enabled
+            comment: winter.redirect::lang.redirect.enabled_comment
             span: left
             type: checkbox
             default: true
         category:
-            label: vdlp.redirect::lang.redirect.category
+            label: winter.redirect::lang.redirect.category
             span: right
             nameFrom: name
             type: relation
         ignore_query_parameters:
-            label: vdlp.redirect::lang.redirect.ignore_query_parameters
+            label: winter.redirect::lang.redirect.ignore_query_parameters
             type: checkbox
             span: left
             default: false
-            comment: vdlp.redirect::lang.redirect.ignore_query_parameters_comment
+            comment: winter.redirect::lang.redirect.ignore_query_parameters_comment
         description:
-            label: vdlp.redirect::lang.redirect.description
+            label: winter.redirect::lang.redirect.description
             span: right
             type: text
         ignore_case:
-            label: vdlp.redirect::lang.redirect.ignore_case
+            label: winter.redirect::lang.redirect.ignore_case
             type: checkbox
             span: left
             default: false
-            comment: vdlp.redirect::lang.redirect.ignore_case_comment
+            comment: winter.redirect::lang.redirect.ignore_case_comment
         sort_order:
-            label: vdlp.redirect::lang.redirect.priority
+            label: winter.redirect::lang.redirect.priority
             type: text
             span: right
             context: update
         ignore_trailing_slash:
-            label: vdlp.redirect::lang.redirect.ignore_trailing_slash
+            label: winter.redirect::lang.redirect.ignore_trailing_slash
             type: checkbox
             span: left
             default: false
-            comment: vdlp.redirect::lang.redirect.ignore_trailing_slash_comment
+            comment: winter.redirect::lang.redirect.ignore_trailing_slash_comment
 
         #
         # Requirements
         #
         section_requirements:
-            tab: vdlp.redirect::lang.tab.tab_requirements
+            tab: winter.redirect::lang.tab.tab_requirements
             type: section
-            commentAbove: vdlp.redirect::lang.redirect.requirements_comment
+            commentAbove: winter.redirect::lang.redirect.requirements_comment
             trigger:
                 action: show
                 field: match_type
                 condition: value[placeholders]
         requirements:
-            tab: vdlp.redirect::lang.tab.tab_requirements
+            tab: winter.redirect::lang.tab.tab_requirements
             type: repeater
             span: full
-            prompt: vdlp.redirect::lang.redirect.requirements_prompt
+            prompt: winter.redirect::lang.redirect.requirements_prompt
             trigger:
                 action: show
                 field: match_type
@@ -138,56 +138,56 @@ tabs:
             form:
                 fields:
                     placeholder:
-                        label: vdlp.redirect::lang.redirect.placeholder
-                        comment: vdlp.redirect::lang.redirect.placeholder_comment
+                        label: winter.redirect::lang.redirect.placeholder
+                        comment: winter.redirect::lang.redirect.placeholder_comment
                         type: text
                         span: left
                         required: true
                     requirement:
-                        label: vdlp.redirect::lang.redirect.requirement
-                        comment: vdlp.redirect::lang.redirect.requirement_comment
+                        label: winter.redirect::lang.redirect.requirement
+                        comment: winter.redirect::lang.redirect.requirement_comment
                         type: text
                         span: right
                         required: true
                     replacement:
-                        label: vdlp.redirect::lang.redirect.replacement
-                        comment: vdlp.redirect::lang.redirect.replacement_comment
+                        label: winter.redirect::lang.redirect.replacement
+                        comment: winter.redirect::lang.redirect.replacement_comment
                         span: left
                         required: false
         #
         # Test
         #
         section_test:
-            tab: vdlp.redirect::lang.tab.tab_test
+            tab: winter.redirect::lang.tab.tab_test
             type: section
-            commentAbove: vdlp.redirect::lang.test.test_comment
+            commentAbove: winter.redirect::lang.test.test_comment
         test_url:
-            tab: vdlp.redirect::lang.tab.tab_test
+            tab: winter.redirect::lang.tab.tab_test
             type: text
             hidden: true
         test:
-            tab: vdlp.redirect::lang.tab.tab_test
+            tab: winter.redirect::lang.tab.tab_test
             type: partial
             path: redirect_test
         #
         # Scheduling
         #
         section_scheduling:
-            tab: vdlp.redirect::lang.tab.tab_scheduling
+            tab: winter.redirect::lang.tab.tab_scheduling
             type: section
-            commentAbove: vdlp.redirect::lang.scheduling.scheduling_comment
+            commentAbove: winter.redirect::lang.scheduling.scheduling_comment
         from_date:
-            tab: vdlp.redirect::lang.tab.tab_scheduling
-            label: vdlp.redirect::lang.scheduling.from_date
-            comment: vdlp.redirect::lang.scheduling.from_date_comment
+            tab: winter.redirect::lang.tab.tab_scheduling
+            label: winter.redirect::lang.scheduling.from_date
+            comment: winter.redirect::lang.scheduling.from_date_comment
             type: datepicker
             mode: date
             span: left
             ignoreTimezone: true
         to_date:
-            tab: vdlp.redirect::lang.tab.tab_scheduling
-            label: vdlp.redirect::lang.scheduling.to_date
-            comment: vdlp.redirect::lang.scheduling.to_date_comment
+            tab: winter.redirect::lang.tab.tab_scheduling
+            label: winter.redirect::lang.scheduling.to_date
+            comment: winter.redirect::lang.scheduling.to_date_comment
             type: datepicker
             mode: date
             span: right
@@ -196,19 +196,19 @@ tabs:
         # TestLab
         #
         section_test_lab:
-            tab: vdlp.redirect::lang.tab.tab_test_lab
+            tab: winter.redirect::lang.tab.tab_test_lab
             type: section
-            commentAbove: vdlp.redirect::lang.test_lab.section_test_lab_comment
+            commentAbove: winter.redirect::lang.test_lab.section_test_lab_comment
         test_lab:
-            tab: vdlp.redirect::lang.tab.tab_test_lab
-            label: vdlp.redirect::lang.test_lab.test_lab_label
-            comment: vdlp.redirect::lang.test_lab.test_lab_enable
+            tab: winter.redirect::lang.tab.tab_test_lab
+            label: winter.redirect::lang.test_lab.test_lab_label
+            comment: winter.redirect::lang.test_lab.test_lab_enable
             type: switch
             span: left
         test_lab_path:
-            tab: vdlp.redirect::lang.tab.tab_test_lab
-            label: vdlp.redirect::lang.test_lab.test_lab_path_label
-            comment: vdlp.redirect::lang.test_lab.test_lab_path_comment
+            tab: winter.redirect::lang.tab.tab_test_lab
+            label: winter.redirect::lang.test_lab.test_lab_path_label
+            comment: winter.redirect::lang.test_lab.test_lab_path_comment
             type: text
             span: left
             trigger:
@@ -219,15 +219,15 @@ tabs:
         # Logs
         #
         tab_logs:
-            tab: vdlp.redirect::lang.tab.tab_logs
+            tab: winter.redirect::lang.tab.tab_logs
             type: partial
         #
         # Advanced
         #
         from_scheme:
-            tab: vdlp.redirect::lang.tab.tab_advanced
-            label: vdlp.redirect::lang.redirect.from_scheme
-            comment: vdlp.redirect::lang.redirect.from_scheme_comment
+            tab: winter.redirect::lang.tab.tab_advanced
+            label: winter.redirect::lang.redirect.from_scheme
+            comment: winter.redirect::lang.redirect.from_scheme_comment
             commentHtml: true
             type: balloon-selector
             span: left
@@ -235,11 +235,11 @@ tabs:
             options:
                 http: http
                 https: https
-                auto: vdlp.redirect::lang.redirect.scheme_auto
+                auto: winter.redirect::lang.redirect.scheme_auto
         to_scheme:
-            tab: vdlp.redirect::lang.tab.tab_advanced
-            label: vdlp.redirect::lang.redirect.to_scheme
-            comment: vdlp.redirect::lang.redirect.to_scheme_comment
+            tab: winter.redirect::lang.tab.tab_advanced
+            label: winter.redirect::lang.redirect.to_scheme
+            comment: winter.redirect::lang.redirect.to_scheme_comment
             commentHtml: true
             type: balloon-selector
             span: right
@@ -247,7 +247,7 @@ tabs:
             options:
                 http: http
                 https: https
-                auto: vdlp.redirect::lang.redirect.scheme_auto
+                auto: winter.redirect::lang.redirect.scheme_auto
             dependsOn: status_code
 secondaryTabs:
     fields:

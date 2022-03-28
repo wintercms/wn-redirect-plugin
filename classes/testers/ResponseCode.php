@@ -40,7 +40,7 @@ final class ResponseCode extends TesterBase
         }
 
         if ($error !== null) {
-            return new TesterResult(false, e(trans('vdlp.redirect::lang.test_lab.result_request_failed')));
+            return new TesterResult(false, e(trans('winter.redirect::lang.test_lab.result_request_failed')));
         }
 
         $statusCode = (int) curl_getinfo($curlHandle, CURLINFO_HTTP_CODE);
@@ -57,7 +57,7 @@ final class ResponseCode extends TesterBase
         }
 
         if ($match && $match->getStatusCode() !== $statusCode) {
-            $message = e(trans('vdlp.redirect::lang.test_lab.matched_not_http_code', [
+            $message = e(trans('winter.redirect::lang.test_lab.matched_not_http_code', [
                 'expected' => $match->getStatusCode(),
                 'received' => $statusCode
             ]));
@@ -66,7 +66,7 @@ final class ResponseCode extends TesterBase
         }
 
         if ($match && $match->getStatusCode() === $statusCode) {
-            $message = e(trans('vdlp.redirect::lang.test_lab.matched_http_code', [
+            $message = e(trans('winter.redirect::lang.test_lab.matched_http_code', [
                 'code' => $statusCode,
             ]));
 
@@ -77,7 +77,7 @@ final class ResponseCode extends TesterBase
         if (!array_key_exists($statusCode, Redirect::$statusCodes)) {
             return new TesterResult(
                 false,
-                e(trans('vdlp.redirect::lang.test_lab.response_http_code_should_be'))
+                e(trans('winter.redirect::lang.test_lab.response_http_code_should_be'))
                 . ' '
                 . implode(', ', array_keys(Redirect::$statusCodes))
             );
@@ -85,7 +85,7 @@ final class ResponseCode extends TesterBase
 
         return new TesterResult(
             true,
-            e(trans('vdlp.redirect::lang.test_lab.response_http_code')) . ': ' . $statusCode
+            e(trans('winter.redirect::lang.test_lab.response_http_code')) . ': ' . $statusCode
         );
     }
 }

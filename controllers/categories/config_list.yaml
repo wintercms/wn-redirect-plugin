@@ -9,7 +9,7 @@ list: $/vdlp/redirect/models/category/columns.yaml
 modelClass: Winter\Redirect\Models\Category
 
 # List Title
-title: vdlp.redirect::lang.title.categories
+title: winter.redirect::lang.title.categories
 
 # Link URL for each record
 recordUrl: vdlp/redirect/categories/update/:id

@@ -25,14 +25,14 @@ final class RedirectMatch extends TesterBase
         }
 
         if ($match === false) {
-            return new TesterResult(false, e(trans('vdlp.redirect::lang.test_lab.not_match_redirect')));
+            return new TesterResult(false, e(trans('winter.redirect::lang.test_lab.not_match_redirect')));
         }
 
         $message = sprintf(
             '%s <a href="%s" target="_blank">%s</a>.',
-            e(trans('vdlp.redirect::lang.test_lab.matched')),
+            e(trans('winter.redirect::lang.test_lab.matched')),
             Backend::url('vdlp/redirect/redirects/update/' . $match->getId()),
-            e(trans('vdlp.redirect::lang.test_lab.redirect'))
+            e(trans('winter.redirect::lang.test_lab.redirect'))
         );
 
         return new TesterResult(true, $message);

@@ -16,25 +16,25 @@ final class OptionHelper
     {
         if ($statusCode === 404 || $statusCode === 410) {
             return [
-                Redirect::TARGET_TYPE_NONE => 'vdlp.redirect::lang.redirect.target_type_none',
+                Redirect::TARGET_TYPE_NONE => 'winter.redirect::lang.redirect.target_type_none',
             ];
         }
 
         return [
-            Redirect::TARGET_TYPE_PATH_URL => 'vdlp.redirect::lang.redirect.target_type_path_or_url',
-            Redirect::TARGET_TYPE_CMS_PAGE => 'vdlp.redirect::lang.redirect.target_type_cms_page',
-            Redirect::TARGET_TYPE_STATIC_PAGE => 'vdlp.redirect::lang.redirect.target_type_static_page',
+            Redirect::TARGET_TYPE_PATH_URL => 'winter.redirect::lang.redirect.target_type_path_or_url',
+            Redirect::TARGET_TYPE_CMS_PAGE => 'winter.redirect::lang.redirect.target_type_cms_page',
+            Redirect::TARGET_TYPE_STATIC_PAGE => 'winter.redirect::lang.redirect.target_type_static_page',
         ];
     }
 
     public static function getCmsPageOptions(): array
     {
-        return ['' => '-- ' . e(trans('vdlp.redirect::lang.redirect.none')) . ' --' ] + Page::getNameList();
+        return ['' => '-- ' . e(trans('winter.redirect::lang.redirect.none')) . ' --' ] + Page::getNameList();
     }
 
     public static function getStaticPageOptions(): array
     {
-        $options = ['' => '-- ' . e(trans('vdlp.redirect::lang.redirect.none')) . ' --' ];
+        $options = ['' => '-- ' . e(trans('winter.redirect::lang.redirect.none')) . ' --' ];
 
         $hasPagesPlugin = PluginManager::instance()->hasPlugin('Winter.Pages');
 

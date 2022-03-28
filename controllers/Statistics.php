@@ -27,7 +27,7 @@ final class Statistics extends Controller
 
         BackendMenu::setContext('Winter.Redirect', 'redirect', 'statistics');
 
-        $this->pageTitle = 'vdlp.redirect::lang.title.statistics';
+        $this->pageTitle = 'winter.redirect::lang.title.statistics';
 
         $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
         $this->addCss('/plugins/vdlp/redirect/assets/css/statistics.css');
@@ -163,8 +163,8 @@ final class Statistics extends Controller
 
         return [
             'label' => $crawler
-                ? e(trans('vdlp.redirect::lang.statistics.crawler_hits'))
-                : e(trans('vdlp.redirect::lang.statistics.visitor_hits')),
+                ? e(trans('winter.redirect::lang.statistics.crawler_hits'))
+                : e(trans('winter.redirect::lang.statistics.visitor_hits')),
             'backgroundColor' => sprintf('rgb(%d, %d, %d, 0.5)', $r, $g, $b),
             'borderColor' => sprintf('rgb(%d, %d, %d, 1)', $r, $g, $b),
             'borderWidth' => 1,

@@ -25,12 +25,12 @@ final class RedirectLoop extends TesterBase
 
         if (curl_exec($curlHandle) === false
             && curl_errno($curlHandle) === CURLE_TOO_MANY_REDIRECTS) {
-            $error = e(trans('vdlp.redirect::lang.test_lab.possible_loop'));
+            $error = e(trans('winter.redirect::lang.test_lab.possible_loop'));
         }
 
         curl_close($curlHandle);
 
-        $message = $error ?? e(trans('vdlp.redirect::lang.test_lab.no_loop'));
+        $message = $error ?? e(trans('winter.redirect::lang.test_lab.no_loop'));
 
         return new TesterResult($error === null, $message);
     }

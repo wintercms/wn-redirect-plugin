@@ -1,46 +1,46 @@
 scopes:
     system:
-        label: vdlp.redirect::lang.list.switch_system
+        label: winter.redirect::lang.list.switch_system
         type: switch
         conditions:
             - system <> true
             - system = true
     is_enabled:
-        label: vdlp.redirect::lang.list.switch_is_enabled
+        label: winter.redirect::lang.list.switch_is_enabled
         type: switch
         conditions:
             - is_enabled <> true
             - is_enabled = true
     match_type:
-        label: vdlp.redirect::lang.redirect.match_type
+        label: winter.redirect::lang.redirect.match_type
         type: group
         modelClass: Winter\Redirect\Models\Redirect
         options: filterMatchTypeOptions
         conditions: match_type in (:filtered)
     target_type:
-        label: vdlp.redirect::lang.redirect.target_type
+        label: winter.redirect::lang.redirect.target_type
         type: group
         modelClass: Winter\Redirect\Models\Redirect
         options: filterTargetTypeOptions
         conditions: target_type in (:filtered)
     status_code:
-        label: vdlp.redirect::lang.redirect.status_code
+        label: winter.redirect::lang.redirect.status_code
         type: group
         modelClass: Winter\Redirect\Models\Redirect
         options: filterStatusCodeOptions
         conditions: status_code in (:filtered)
     category:
-        label: vdlp.redirect::lang.redirect.category
+        label: winter.redirect::lang.redirect.category
         modelClass: Winter\Redirect\Models\Category
         conditions: category_id in (:filtered)
         nameFrom: name
     hits:
-        label: vdlp.redirect::lang.redirect.has_hits
+        label: winter.redirect::lang.redirect.has_hits
         type: switch
         conditions:
             - hits = 0
             - hits <> 0
     minimum_hits:
-        label: vdlp.redirect::lang.redirect.minimum_hits
+        label: winter.redirect::lang.redirect.minimum_hits
         type: number
         conditions: hits >= ':filtered'
