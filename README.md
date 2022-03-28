@@ -12,7 +12,7 @@
 	<img src="https://badgen.net/packagist/v/winter/wn-redirect-plugin/latest">
 	<img src="https://badgen.net/badge/cms/Winter%20CMS">
 	<img src="https://badgen.net/badge/type/plugin">
-	<img src="http://poser.pugx.org/winter/wn-pages-plugin/downloads" alt="Total downloads>
+	<img src="http://poser.pugx.org/winter/wn-redirect-plugin/downloads" alt="Total downloads">
 </p>
 
 ## The #1 Redirect plugin for Winter CMS
