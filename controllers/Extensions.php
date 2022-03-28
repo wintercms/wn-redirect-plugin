@@ -25,7 +25,7 @@ final class Extensions extends Controller
 
         BackendMenu::setContext('Winter.Redirect', 'redirect', 'extensions');
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
 
         $this->pageTitle = 'Redirect Extensions (new)';
     }

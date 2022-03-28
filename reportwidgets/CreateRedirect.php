@@ -36,7 +36,7 @@ final class CreateRedirect extends ReportWidgetBase
      */
     public function render()
     {
-        $widgetConfig = $this->makeConfig('~/plugins/vdlp/redirect/reportwidgets/createredirect/fields.yaml');
+        $widgetConfig = $this->makeConfig('~/plugins/winter/redirect/reportwidgets/createredirect/fields.yaml');
         $widgetConfig->model = new Redirect;
         $widgetConfig->alias = $this->alias . 'Redirect';
 
@@ -59,6 +59,6 @@ final class CreateRedirect extends ReportWidgetBase
             'status_code' => 302,
         ]);
 
-        return $this->redirect->to(Backend::url('vdlp/redirect/redirects/update/' . $redirect->getKey()));
+        return $this->redirect->to(Backend::url('winter/redirect/redirects/update/' . $redirect->getKey()));
     }
 }

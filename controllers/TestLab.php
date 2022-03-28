@@ -47,9 +47,9 @@ final class TestLab extends Controller
     {
         $this->pageTitle = 'winter.redirect::lang.title.test_lab';
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
-        $this->addCss('/plugins/vdlp/redirect/assets/css/test-lab.css');
-        $this->addJs('/plugins/vdlp/redirect/assets/javascript/test-lab.js');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/test-lab.css');
+        $this->addJs('/plugins/winter/redirect/assets/javascript/test-lab.js');
 
         $this->vars['redirectCount'] = $this->getRedirectCount();
     }

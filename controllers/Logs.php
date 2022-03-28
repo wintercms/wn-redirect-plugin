@@ -38,7 +38,7 @@ final class Logs extends Controller
 
         BackendMenu::setContext('Winter.Redirect', 'redirect', 'logs');
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
 
         $this->request = $request;
         $this->translator = $translator;

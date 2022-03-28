@@ -6,22 +6,22 @@
 name: winter.redirect::lang.redirect.redirect
 
 # Model Form Field configuration
-form: $/vdlp/redirect/models/redirect/fields.yaml
+form: $/winter/redirect/models/redirect/fields.yaml
 
 # Model Class name
 modelClass: Winter\Redirect\Models\Redirect
 
 # Default redirect location
-defaultRedirect: vdlp/redirect/redirects
+defaultRedirect: winter/redirect/redirects
 
 # Create page
 create:
     title: winter.redirect::lang.title.create_redirect
-    redirect: vdlp/redirect/redirects/update/:id
-    redirectClose: vdlp/redirect/redirects
+    redirect: winter/redirect/redirects/update/:id
+    redirectClose: winter/redirect/redirects
 
 # Update page
 update:
     title: winter.redirect::lang.title.edit_redirect
-    redirect: vdlp/redirect/redirects
-    redirectClose: vdlp/redirect/redirects
+    redirect: winter/redirect/redirects
+    redirectClose: winter/redirect/redirects

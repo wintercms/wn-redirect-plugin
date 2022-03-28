@@ -52,7 +52,7 @@ final class RedirectMiddleware
         if (
             $request->isXmlHttpRequest()
             || !in_array($request->method(), self::$supportedMethods, true)
-            || Str::startsWith($request->getRequestUri(), '/vdlp/redirect/sparkline/')
+            || Str::startsWith($request->getRequestUri(), '/winter/redirect/sparkline/')
         ) {
             return $next($request);
         }

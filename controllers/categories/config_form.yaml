@@ -6,22 +6,22 @@
 name: winter.redirect::lang.redirect.category
 
 # Model Form Field configuration
-form: $/vdlp/redirect/models/category/fields.yaml
+form: $/winter/redirect/models/category/fields.yaml
 
 # Model Class name
 modelClass: Winter\Redirect\Models\Category
 
 # Default redirect location
-defaultRedirect: vdlp/redirect/categories
+defaultRedirect: winter/redirect/categories
 
 # Create page
 create:
     title: winter.redirect::lang.title.create_category
-    redirect: vdlp/redirect/categories/update/:id
-    redirectClose: vdlp/redirect/categories
+    redirect: winter/redirect/categories/update/:id
+    redirectClose: winter/redirect/categories
 
 # Update page
 update:
     title: winter.redirect::lang.title.edit_category
-    redirect: vdlp/redirect/categories
-    redirectClose: vdlp/redirect/categories
+    redirect: winter/redirect/categories
+    redirectClose: winter/redirect/categories

@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/vdlp/redirect/models/category/columns.yaml
+list: $/winter/redirect/models/category/columns.yaml
 
 # Model Class name
 modelClass: Winter\Redirect\Models\Category
@@ -12,7 +12,7 @@ modelClass: Winter\Redirect\Models\Category
 title: winter.redirect::lang.title.categories
 
 # Link URL for each record
-recordUrl: vdlp/redirect/categories/update/:id
+recordUrl: winter/redirect/categories/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

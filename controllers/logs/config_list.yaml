@@ -3,7 +3,7 @@
 # ===================================
 
 # Model List Column configuration
-list: $/vdlp/redirect/models/redirectlog/columns.yaml
+list: $/winter/redirect/models/redirectlog/columns.yaml
 
 filter: config_filter.yaml
 
@@ -14,7 +14,7 @@ modelClass: Winter\Redirect\Models\RedirectLog
 title: winter.redirect::lang.title.view_redirect_log
 
 # Link URL for each record
-recordUrl: vdlp/redirect/redirects/update/:redirect_id
+recordUrl: winter/redirect/redirects/update/:redirect_id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

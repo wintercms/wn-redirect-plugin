@@ -70,13 +70,13 @@ final class Plugin extends PluginBase
     public function registerNavigation(): array
     {
         $defaultBackendUrl = Backend::url(
-            'vdlp/redirect/' . (Models\Settings::isStatisticsEnabled() ? 'statistics' : 'redirects')
+            'winter/redirect/' . (Models\Settings::isStatisticsEnabled() ? 'statistics' : 'redirects')
         );
 
         $navigation = [
             'redirect' => [
                 'label' => 'winter.redirect::lang.navigation.menu_label',
-                'iconSvg' => '/plugins/vdlp/redirect/assets/images/icon.svg',
+                'iconSvg' => '/plugins/winter/redirect/assets/images/icon.svg',
                 'icon' => 'icon-link',
                 'url' => $defaultBackendUrl,
                 'order' => 201,
@@ -87,7 +87,7 @@ final class Plugin extends PluginBase
                     'redirects' => [
                         'icon' => 'icon-list',
                         'label' => 'winter.redirect::lang.navigation.menu_label',
-                        'url' => Backend::url('vdlp/redirect/redirects'),
+                        'url' => Backend::url('winter/redirect/redirects'),
                         'order' => 20,
                         'permissions' => [
                             'winter.redirect.access_redirects',
@@ -95,7 +95,7 @@ final class Plugin extends PluginBase
                     ],
                     'categories' => [
                         'label' => 'winter.redirect::lang.buttons.categories',
-                        'url' => Backend::url('vdlp/redirect/categories'),
+                        'url' => Backend::url('winter/redirect/categories'),
                         'icon' => 'icon-tag',
                         'order' => 60,
                         'permissions' => [
@@ -104,7 +104,7 @@ final class Plugin extends PluginBase
                     ],
                     'import' => [
                         'label' => 'winter.redirect::lang.buttons.import',
-                        'url' => Backend::url('vdlp/redirect/redirects/import'),
+                        'url' => Backend::url('winter/redirect/redirects/import'),
                         'icon' => 'icon-download',
                         'order' => 70,
                         'permissions' => [
@@ -113,7 +113,7 @@ final class Plugin extends PluginBase
                     ],
                     'export' => [
                         'label' => 'winter.redirect::lang.buttons.export',
-                        'url' => Backend::url('vdlp/redirect/redirects/export'),
+                        'url' => Backend::url('winter/redirect/redirects/export'),
                         'icon' => 'icon-upload',
                         'order' => 80,
                         'permissions' => [
@@ -122,7 +122,7 @@ final class Plugin extends PluginBase
                     ],
                     'settings' => [
                         'label' => 'winter.redirect::lang.buttons.settings',
-                        'url' => Backend::url('system/settings/update/vdlp/redirect/config'),
+                        'url' => Backend::url('system/settings/update/winter/redirect/config'),
                         'icon' => 'icon-cogs',
                         'order' => 90,
                         'permissions' => [
@@ -131,7 +131,7 @@ final class Plugin extends PluginBase
                     ],
                     'extensions' => [
                         'label' => 'winter.redirect::lang.buttons.extensions',
-                        'url' => Backend::url('vdlp/redirect/extensions'),
+                        'url' => Backend::url('winter/redirect/extensions'),
                         'icon' => 'icon-cubes',
                         'order' => 100,
                         'permissions' => [
@@ -146,7 +146,7 @@ final class Plugin extends PluginBase
             $navigation['redirect']['sideMenu']['statistics'] = [
                 'icon' => 'icon-bar-chart',
                 'label' => 'winter.redirect::lang.title.statistics',
-                'url' => Backend::url('vdlp/redirect/statistics'),
+                'url' => Backend::url('winter/redirect/statistics'),
                 'order' => 10,
                 'permissions' => [
                     'winter.redirect.access_redirects',
@@ -158,7 +158,7 @@ final class Plugin extends PluginBase
             $navigation['redirect']['sideMenu']['test_lab'] = [
                 'icon' => 'icon-flask',
                 'label' => 'winter.redirect::lang.title.test_lab',
-                'url' => Backend::url('vdlp/redirect/testlab'),
+                'url' => Backend::url('winter/redirect/testlab'),
                 'order' => 30,
                 'permissions' => [
                     'winter.redirect.access_redirects',
@@ -169,7 +169,7 @@ final class Plugin extends PluginBase
         if (Models\Settings::isLoggingEnabled()) {
             $navigation['redirect']['sideMenu']['logs'] = [
                 'label' => 'winter.redirect::lang.buttons.logs',
-                'url' => Backend::url('vdlp/redirect/logs'),
+                'url' => Backend::url('winter/redirect/logs'),
                 'icon' => 'icon-file-text-o',
                 'visible' => false,
                 'order' => 50,

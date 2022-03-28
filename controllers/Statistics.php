@@ -29,8 +29,8 @@ final class Statistics extends Controller
 
         $this->pageTitle = 'winter.redirect::lang.title.statistics';
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
-        $this->addCss('/plugins/vdlp/redirect/assets/css/statistics.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/statistics.css');
 
         $this->helper = new StatisticsHelper();
     }

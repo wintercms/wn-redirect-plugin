@@ -385,7 +385,7 @@ class RedirectManagerTest extends PluginTestCase
         if ($page === null) {
             $page = new Page();
             $page->title = 'Testpage';
-            $page->url = '/vdlp/redirect/testpage';
+            $page->url = '/winter/redirect/testpage';
             $page->setFileNameAttribute('vdlp-redirect-testpage');
             $page->save();
         }
@@ -411,7 +411,7 @@ class RedirectManagerTest extends PluginTestCase
         $result = $manager->match('/this-should-be-source', Redirect::SCHEME_HTTPS);
 
         self::assertInstanceOf(RedirectRule::class, $result);
-        self::assertEquals(Cms::url('/vdlp/redirect/testpage'), $manager->getLocation($result));
+        self::assertEquals(Cms::url('/winter/redirect/testpage'), $manager->getLocation($result));
 
         self::assertTrue($page->delete());
     }

@@ -84,7 +84,7 @@ final class Redirects extends Controller
 
         BackendMenu::setContext('Winter.Redirect', 'redirect', $sideMenuItemCode);
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
 
         $this->vars['match'] = null;
         $this->vars['statisticsHelper'] = new StatisticsHelper();
@@ -151,7 +151,7 @@ final class Redirects extends Controller
         $redirect = parent::create_onSave($context);
 
         if ($this->request->has('new')) {
-            return Backend::redirect('vdlp/redirect/redirects/create');
+            return Backend::redirect('winter/redirect/redirects/create');
         }
 
         return $redirect;

@@ -31,7 +31,7 @@ final class RedirectMatch extends TesterBase
         $message = sprintf(
             '%s <a href="%s" target="_blank">%s</a>.',
             e(trans('winter.redirect::lang.test_lab.matched')),
-            Backend::url('vdlp/redirect/redirects/update/' . $match->getId()),
+            Backend::url('winter/redirect/redirects/update/' . $match->getId()),
             e(trans('winter.redirect::lang.test_lab.redirect'))
         );
 

@@ -27,7 +27,7 @@ final class Categories extends Controller
     {
         parent::__construct();
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
 
         BackendMenu::setContext('Winter.Redirect', 'redirect', 'categories');
     }

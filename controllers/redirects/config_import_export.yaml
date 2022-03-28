@@ -5,11 +5,11 @@
 import:
     title: winter.redirect::lang.title.import
     modelClass: Winter\Redirect\Models\RedirectImport
-    list: $/vdlp/redirect/models/redirectimport/columns.yaml
-    redirect: vdlp/redirect/redirects
+    list: $/winter/redirect/models/redirectimport/columns.yaml
+    redirect: winter/redirect/redirects
 export:
     title: winter.redirect::lang.title.export
     modelClass: Winter\Redirect\Models\RedirectExport
-    list: $/vdlp/redirect/models/redirectexport/columns.yaml
-    redirect: vdlp/redirect/redirects
+    list: $/winter/redirect/models/redirectexport/columns.yaml
+    redirect: winter/redirect/redirects
     filename: redirects.csv
