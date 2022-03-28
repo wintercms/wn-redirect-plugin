@@ -16,12 +16,6 @@ use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use October\Rain\Database\Builder;
-use October\Rain\Database\Model;
-use October\Rain\Exception\ApplicationException;
-use October\Rain\Exception\SystemException;
-use October\Rain\Flash\FlashBag;
 use System\Models\RequestLog;
 use Throwable;
 use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
@@ -33,6 +27,12 @@ use Vdlp\Redirect\Classes\RedirectManager;
 use Vdlp\Redirect\Classes\RedirectRule;
 use Vdlp\Redirect\Classes\StatisticsHelper;
 use Vdlp\Redirect\Models;
+use Winter\Storm\Support\Arr;
+use Winter\Storm\Database\Builder;
+use Winter\Storm\Database\Model;
+use Winter\Storm\Exception\ApplicationException;
+use Winter\Storm\Exception\SystemException;
+use Winter\Storm\Flash\FlashBag;
 
 /**
  * @mixin Behaviors\FormController
@@ -82,7 +82,7 @@ final class Redirects extends Controller
             ? $this->action
             : 'redirects';
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', $sideMenuItemCode);
+        BackendMenu::setContext('Winter.Redirect', 'redirect', $sideMenuItemCode);
 
         $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
 
@@ -119,7 +119,7 @@ final class Redirects extends Controller
 
         /** @noinspection ClassConstantCanBeUsedInspection */
         if ($redirect->getAttribute('target_type') === Models\Redirect::TARGET_TYPE_STATIC_PAGE
-            && !class_exists('\RainLab\Pages\Classes\Page')
+            && !class_exists('\Winter\Pages\Classes\Page')
         ) {
             $this->flash->error(
                 $this->translator->trans('vdlp.redirect::lang.flash.static_page_redirect_not_supported')

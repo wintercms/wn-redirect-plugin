@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Vdlp\Redirect\Classes\Observers;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Support\Arr;
 use Psr\Log\LoggerInterface;
 use Vdlp\Redirect\Classes\Observers\Traits\CanBeDisabled;
 use Vdlp\Redirect\Models;
+use Winter\Storm\Support\Arr;
 
 final class RedirectObserver
 {
@@ -90,7 +90,7 @@ final class RedirectObserver
         }
 
         $this->log->info(sprintf(
-            'Vdlp.Redirect: Redirect %d has been %s.',
+            'Winter.Redirect: Redirect %d has been %s.',
             $model->getKey(),
             $typeOfChange
         ), $model->getDirty());

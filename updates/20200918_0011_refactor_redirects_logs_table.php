@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Illuminate\Database\Schema\Blueprint;
-use October\Rain\Database\Updates\Migration;
-use October\Rain\Support\Facades\Schema;
+use Winter\Storm\Database\Schema\Blueprint;
+use Winter\Storm\Database\Updates\Migration;
+use Winter\Storm\Support\Facades\Schema;
 
 class RefactorRedirectsLogTable extends Migration
 {

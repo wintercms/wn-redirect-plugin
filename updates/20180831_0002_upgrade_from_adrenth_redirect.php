@@ -9,9 +9,9 @@ namespace Vdlp\Redirect\Updates;
 
 use Exception;
 use Illuminate\Database\DatabaseManager;
-use October\Rain\Database\Updates\Migration;
 use Psr\Log\LoggerInterface;
 use Throwable;
+use Winter\Storm\Database\Updates\Migration;
 
 class UpgradeFromAdrenthRedirect extends Migration
 {
@@ -30,7 +30,7 @@ class UpgradeFromAdrenthRedirect extends Migration
 
         if (!$schema->hasTable('adrenth_redirect_redirects')) {
             // Skip upgrade migration.
-            $log->info('No upgrade of Vdlp.Redirect needed. Fresh installation.');
+            $log->info('No upgrade of Winter.Redirect needed. Fresh installation.');
             return;
         }
 
@@ -71,7 +71,7 @@ class UpgradeFromAdrenthRedirect extends Migration
             });
         } catch (Throwable $e) {
             $log->error(sprintf(
-                'Vdlp.Redirect: Could not upgrade plugin Vdlp.Redirect from Adrenth.Redirect: %s',
+                'Winter.Redirect: Could not upgrade plugin Winter.Redirect from Adrenth.Redirect: %s',
                 $e->getMessage()
             ));
         }

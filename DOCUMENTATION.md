@@ -1,4 +1,4 @@
-# Vdlp.Redirect documentation
+# Winter.Redirect documentation
 
 This plugin should be easy to understand if you are familiar with the basics of the web. If you have issues setting up some redirects, please do not hesitate to contact me.
 
@@ -16,7 +16,7 @@ This plugin allows you to redirect to the following types:
 
 * An internal path
 * An internal CMS Page
-* An internal Static Page (`RainLab.Pages` plugin)
+* An internal Static Page (`Winter.Pages` plugin)
 * An external URL
 
 ## Relative vs. Absolute URLs

@@ -7,7 +7,7 @@ namespace Vdlp\Redirect\Classes;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use October\Rain\Events\Dispatcher;
+use Winter\Storm\Events\Dispatcher;
 use Psr\Log\LoggerInterface;
 use Throwable;
 use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
@@ -82,7 +82,7 @@ final class RedirectMiddleware
             $rule = false;
         } catch (Throwable $e) {
             $this->log->error(sprintf(
-                'Vdlp.Redirect: Could not perform redirect for %s (scheme: %s): %s',
+                'Winter.Redirect: Could not perform redirect for %s (scheme: %s): %s',
                 $requestUri,
                 $request->getScheme(),
                 $e->getMessage()

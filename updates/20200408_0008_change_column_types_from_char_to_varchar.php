@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace Vdlp\Redirect\Updates;
 
 use Illuminate\Database\DatabaseManager;
-use October\Rain\Database\Updates\Migration;
+use Winter\Storm\Database\Updates\Migration;
 
 class ChangeColumnTypesFromCharToVarChar extends Migration
 {

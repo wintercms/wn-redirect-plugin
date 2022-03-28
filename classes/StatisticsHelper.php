@@ -7,7 +7,7 @@ namespace Vdlp\Redirect\Classes;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Jaybizzle\CrawlerDetect\CrawlerDetect;
-use October\Rain\Database\Collection;
+use Winter\Storm\Database\Collection;
 use Vdlp\Redirect\Classes\Observers\RedirectObserver;
 use Vdlp\Redirect\Models;
 

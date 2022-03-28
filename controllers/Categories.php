@@ -29,6 +29,6 @@ final class Categories extends Controller
 
         $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', 'categories');
+        BackendMenu::setContext('Winter.Redirect', 'redirect', 'categories');
     }
 }

@@ -7,11 +7,11 @@ declare(strict_types=1);
 
 namespace Vdlp\Redirect\Updates;
 
-use October\Rain\Database\Schema\Blueprint;
-use October\Rain\Database\Updates\Migration;
 use Psr\Log\LoggerInterface;
-use Schema;
 use Throwable;
+use Winter\Storm\Database\Schema\Blueprint;
+use Winter\Storm\Database\Updates\Migration;
+use Winter\Storm\Support\Facades\Schema;
 
 class AddMonthYearCrawlerIndexOnClientsTable extends Migration
 {
@@ -46,7 +46,7 @@ class AddMonthYearCrawlerIndexOnClientsTable extends Migration
             });
         } catch (Throwable $e) {
             resolve(LoggerInterface::class)->error(sprintf(
-                'Vdlp.Redirect: Unable to drop index `%s`, `%s` from table `%s`: %s',
+                'Winter.Redirect: Unable to drop index `%s`, `%s` from table `%s`: %s',
                 'month_year_crawler',
                 'month_year',
                 'vdlp_redirect_clients',

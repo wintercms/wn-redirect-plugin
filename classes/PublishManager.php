@@ -61,7 +61,7 @@ final class PublishManager implements PublishManagerInterface
 
         if ((bool) config('vdlp.redirect::log_redirect_changes', false) === true) {
             $this->log->info(sprintf(
-                'Vdlp.Redirect: Redirect engine has been updated with %s redirects.',
+                'Winter.Redirect: Redirect engine has been updated with %s redirects.',
                 $count
             ));
         }

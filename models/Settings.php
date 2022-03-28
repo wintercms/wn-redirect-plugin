@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Vdlp\Redirect\Models;
 
-use October\Rain\Database\Model;
 use System\Behaviors\SettingsModel;
 use Throwable;
+use Winter\Storm\Database\Model;
 
 /**
  * @property array $implement

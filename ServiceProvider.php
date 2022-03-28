@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vdlp\Redirect;
 
-use October\Rain\Support\ServiceProvider as ServiceProviderBase;
+use Winter\Storm\Support\ServiceProvider as ServiceProviderBase;
 use Vdlp\Redirect\Classes\CacheManager;
 use Vdlp\Redirect\Classes\Contracts;
 use Vdlp\Redirect\Classes\PublishManager;

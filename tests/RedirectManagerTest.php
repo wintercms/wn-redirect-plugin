@@ -305,7 +305,7 @@ class RedirectManagerTest extends PluginTestCase
             'requirements' => [
                 [
                     'placeholder' => '{category}',
-                    'requirement' => '(octobercms|wordpress|drupal)',
+                    'requirement' => '(wintercms|wordpress|drupal)',
                     'replacement' => null,
                 ],
                 [
@@ -327,7 +327,7 @@ class RedirectManagerTest extends PluginTestCase
         $rule = RedirectRule::createWithModel($redirect);
         $manager = RedirectManager::createWithRule($rule);
 
-        $test = '/blog.php?cat=octobercms&section=test&id=1337';
+        $test = '/blog.php?cat=wintercms&section=test&id=1337';
 
         try {
             $result = $manager->match($test, Redirect::SCHEME_HTTPS);
@@ -337,11 +337,11 @@ class RedirectManagerTest extends PluginTestCase
 
         self::assertFalse($result);
 
-        $test = '/blog.php?cat=octobercms&section=test&id=13';
+        $test = '/blog.php?cat=wintercms&section=test&id=13';
         $result = $manager->match($test, Redirect::SCHEME_HTTPS);
 
         self::assertInstanceOf(RedirectRule::class, $result);
-        self::assertEquals(Cms::url('/blog/octobercms/test/13'), $manager->getLocation($result));
+        self::assertEquals(Cms::url('/blog/wintercms/test/13'), $manager->getLocation($result));
 
         $test = '/blog.php?cat=wordpress&section=test&id=99';
 

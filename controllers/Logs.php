@@ -11,10 +11,10 @@ use Backend\Classes\Controller;
 use BackendMenu;
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Http\Request;
-use October\Rain\Flash\FlashBag;
 use Psr\Log\LoggerInterface;
 use Throwable;
 use Vdlp\Redirect\Models\RedirectLog;
+use Winter\Storm\Flash\FlashBag;
 
 /**
  * @mixin ListController
@@ -36,7 +36,7 @@ final class Logs extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', 'logs');
+        BackendMenu::setContext('Winter.Redirect', 'redirect', 'logs');
 
         $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
 

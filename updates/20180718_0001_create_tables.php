@@ -8,14 +8,14 @@ declare(strict_types=1);
 namespace Vdlp\Redirect\Updates;
 
 use Illuminate\Database\DatabaseManager;
-use Illuminate\Database\Schema\Blueprint;
-use October\Rain\Database\Updates\Migration;
 use Psr\Log\LoggerInterface;
-use Schema;
 use Throwable;
 use Vdlp\Redirect\Models\Category;
 use Vdlp\Redirect\Models\Redirect;
 use Vdlp\Redirect\Models\Settings;
+use Winter\Storm\Database\Schema\Blueprint;
+use Winter\Storm\Database\Updates\Migration;
+use Winter\Storm\Support\Facades\Schema;
 
 class CreateTables extends Migration
 {
@@ -43,7 +43,7 @@ class CreateTables extends Migration
                     $database->statement($statement);
                 } catch (Throwable $e) {
                     resolve(LoggerInterface::class)
-                        ->error(sprintf('Vdlp.Redirect: Unable to drop index: %s'. $e->getMessage()));
+                        ->error(sprintf('Winter.Redirect: Unable to drop index: %s'. $e->getMessage()));
 
                     continue;
                 }
@@ -171,7 +171,7 @@ class CreateTables extends Migration
             $settings->save();
         } catch (Throwable $e) {
             resolve(LoggerInterface::class)->error(sprintf(
-                'Vdlp.Redirect: Unable to save default settings: %s',
+                'Winter.Redirect: Unable to save default settings: %s',
                 $e->getMessage()
             ));
         }
@@ -188,7 +188,7 @@ class CreateTables extends Migration
             Schema::enableForeignKeyConstraints();
         } catch (Throwable $e) {
             resolve(LoggerInterface::class)->error(sprintf(
-                'Vdlp.Redirect: Unable to drop all tables: %s',
+                'Winter.Redirect: Unable to drop all tables: %s',
                 $e->getMessage()
             ));
         }

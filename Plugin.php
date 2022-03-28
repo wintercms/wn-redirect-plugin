@@ -25,9 +25,9 @@ final class Plugin extends PluginBase
         return [
             'name' => 'vdlp.redirect::lang.plugin.name',
             'description' => 'vdlp.redirect::lang.plugin.description',
-            'author' => 'Van der Let & Partners',
+            'author' => 'Winter CMS',
             'icon' => 'icon-link',
-            'homepage' => 'https://octobercms.com/plugin/vdlp-redirect',
+            'homepage' => 'https://github.com/wintercms/wn-redirect-plugin',
         ];
     }
 

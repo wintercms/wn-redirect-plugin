@@ -58,7 +58,7 @@ final class CacheManager implements CacheManagerInterface
             ->flush();
 
         if ((bool) config('vdlp.redirect::log_redirect_changes', false) === true) {
-            $this->log->info('Vdlp.Redirect: Redirect cache has been flushed.');
+            $this->log->info('Winter.Redirect: Redirect cache has been flushed.');
         }
     }
 

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vdlp\Redirect\Models;
 
-use October\Rain\Database\Model;
+use Winter\Storm\Database\Model;
 
 final class Client extends Model
 {

@@ -12,18 +12,18 @@ final class Extensions extends Controller
 {
     /** @var string[] */
     private static array $extensions = [
-        'Vdlp.RedirectConditions',
-        'Vdlp.RedirectConditionsDomain',
-        'Vdlp.RedirectConditionsExample',
-        'Vdlp.RedirectConditionsHeader',
-        'Vdlp.RedirectConditionsUserAgent',
+        'Winter.RedirectConditions',
+        'Winter.RedirectConditionsDomain',
+        'Winter.RedirectConditionsExample',
+        'Winter.RedirectConditionsHeader',
+        'Winter.RedirectConditionsUserAgent',
     ];
 
     public function __construct()
     {
         parent::__construct();
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', 'extensions');
+        BackendMenu::setContext('Winter.Redirect', 'redirect', 'extensions');
 
         $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
 

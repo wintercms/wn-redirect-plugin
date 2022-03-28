@@ -25,7 +25,7 @@ final class Statistics extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', 'statistics');
+        BackendMenu::setContext('Winter.Redirect', 'redirect', 'statistics');
 
         $this->pageTitle = 'vdlp.redirect::lang.title.statistics';
 

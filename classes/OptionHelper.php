@@ -36,15 +36,15 @@ final class OptionHelper
     {
         $options = ['' => '-- ' . e(trans('vdlp.redirect::lang.redirect.none')) . ' --' ];
 
-        $hasPagesPlugin = PluginManager::instance()->hasPlugin('RainLab.Pages');
+        $hasPagesPlugin = PluginManager::instance()->hasPlugin('Winter.Pages');
 
         if (!$hasPagesPlugin) {
             return $options;
         }
 
-        $pages = \RainLab\Pages\Classes\Page::listInTheme(Theme::getActiveTheme());
+        $pages = \Winter\Pages\Classes\Page::listInTheme(Theme::getActiveTheme());
 
-        /** @var \RainLab\Pages\Classes\Page $page */
+        /** @var \Winter\Pages\Classes\Page $page */
         foreach ($pages as $page) {
             if (array_key_exists('title', $page->viewBag)) {
                 $options[$page->getBaseFileName()] = $page->viewBag['title'];
