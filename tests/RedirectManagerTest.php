@@ -19,6 +19,7 @@ use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
 use Winter\Redirect\Classes\RedirectManager;
 use Winter\Redirect\Classes\RedirectRule;
 use Winter\Redirect\Models\Redirect;
+use Winter\Redirect\Models\Settings;
 use Winter\Redirect\ServiceProvider;
 
 class RedirectManagerTest extends PluginTestCase
@@ -28,6 +29,10 @@ class RedirectManagerTest extends PluginTestCase
         parent::setUp();
 
         $this->app->register(ServiceProvider::class);
+
+        // Setup default settings
+        $settings = Settings::instance();
+        $settings->setSettingsValue('relative_paths_enabled', false);
     }
 
     /**
