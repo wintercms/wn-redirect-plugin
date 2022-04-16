@@ -61,6 +61,9 @@ class CreateTables extends Migration
                 $table->timestamps();
             });
 
+            Category::extend(function ($model) {
+                $model->setTable('vdlp_redirect_categories');
+            });
             Category::create(['name' => 'General']);
         }
 

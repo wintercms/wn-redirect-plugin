@@ -129,15 +129,6 @@ final class Plugin extends PluginBase
                             'winter.redirect.access_redirects',
                         ],
                     ],
-                    'extensions' => [
-                        'label' => 'winter.redirect::lang.buttons.extensions',
-                        'url' => Backend::url('winter/redirect/extensions'),
-                        'icon' => 'icon-cubes',
-                        'order' => 100,
-                        'permissions' => [
-                            'winter.redirect.access_redirects',
-                        ],
-                    ],
                 ],
             ],
         ];
