@@ -1,4 +1,4 @@
-# Vdlp.Redirect documentation
+# Winter.Redirect documentation
 
 This plugin should be easy to understand if you are familiar with the basics of the web. If you have issues setting up some redirects, please do not hesitate to contact me.
 
@@ -16,7 +16,7 @@ This plugin allows you to redirect to the following types:
 
 * An internal path
 * An internal CMS Page
-* An internal Static Page (`RainLab.Pages` plugin)
+* An internal Static Page (`Winter.Pages` plugin)
 * An external URL
 
 ## Relative vs. Absolute URLs
@@ -135,17 +135,17 @@ Result: /blog/news/general
 
 | Event | Payload | Description |
 | --- | --- | --- |
-| `vdlp.redirect.match` | none | When a request matched, right before the redirect response.
-| `vdlp.redirect.changed` | int[] $redirectId | When one or more redirects are changed.
+| `winter.redirect.match` | none | When a request matched, right before the redirect response.
+| `winter.redirect.changed` | int[] $redirectId | When one or more redirects are changed.
 
 ### Listens to events
 
 | Event | Payload | Description |
 | --- | --- | --- |
-| `vdlp.redirect.toUrlChanged` | `string $oldUrl, string $newUrl` | Can be fired from a third-party plugin.
+| `winter.redirect.toUrlChanged` | `string $oldUrl, string $newUrl` | Can be fired from a third-party plugin.
 
 ## Commands
 
 | Command | Description |
 | --- | --- |
-| `vdlp:redirect:publish-redirects` | Publish all redirects. |
+| `winter:redirect:publish-redirects` | Publish all redirects. |

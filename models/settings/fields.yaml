@@ -4,37 +4,37 @@
 
 fields:
     redirect_settings_section:
-        label: vdlp.redirect::lang.settings.menu_label
-        comment: vdlp.redirect::lang.settings.menu_description
+        label: winter.redirect::lang.settings.menu_label
+        comment: winter.redirect::lang.settings.menu_description
         type: section
         span: left
     relative_paths_enabled:
-        label: vdlp.redirect::lang.settings.relative_paths_enabled_label
-        comment: vdlp.redirect::lang.settings.relative_paths_enabled_command
+        label: winter.redirect::lang.settings.relative_paths_enabled_label
+        comment: winter.redirect::lang.settings.relative_paths_enabled_command
         span: left
         type: switch
         default: true
     logging_enabled:
-        label: vdlp.redirect::lang.settings.logging_enabled_label
-        comment: vdlp.redirect::lang.settings.logging_enabled_comment
+        label: winter.redirect::lang.settings.logging_enabled_label
+        comment: winter.redirect::lang.settings.logging_enabled_comment
         span: left
         type: switch
         default: false
     statistics_enabled:
-        label: vdlp.redirect::lang.settings.statistics_enabled_label
-        comment: vdlp.redirect::lang.settings.statistics_enabled_comment
+        label: winter.redirect::lang.settings.statistics_enabled_label
+        comment: winter.redirect::lang.settings.statistics_enabled_comment
         span: left
         type: switch
         default: false
     test_lab_enabled:
-        label: vdlp.redirect::lang.settings.test_lab_enabled_label
-        comment: vdlp.redirect::lang.settings.test_lab_enabled_comment
+        label: winter.redirect::lang.settings.test_lab_enabled_label
+        comment: winter.redirect::lang.settings.test_lab_enabled_comment
         span: left
         type: switch
         default: false
     caching_enabled:
-        label: vdlp.redirect::lang.settings.caching_enabled_label
-        comment: vdlp.redirect::lang.settings.caching_enabled_comment
+        label: winter.redirect::lang.settings.caching_enabled_label
+        comment: winter.redirect::lang.settings.caching_enabled_comment
         span: left
         type: switch
         default: false

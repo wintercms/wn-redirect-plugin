@@ -3,19 +3,19 @@
 # ===================================
 
 # Model List Column configuration
-list: $/vdlp/redirect/models/redirect/columns.yaml
+list: $/winter/redirect/models/redirect/columns.yaml
 
 # Model Class name
-modelClass: Vdlp\Redirect\Models\Redirect
+modelClass: Winter\Redirect\Models\Redirect
 
 # List Title
-title: vdlp.redirect::lang.title.redirects
+title: winter.redirect::lang.title.redirects
 
 # Link URL for each record
-recordUrl: vdlp/redirect/redirects/update/:id
+recordUrl: winter/redirect/redirects/update/:id
 
 # Message to display if the list is empty
-noRecordsMessage: vdlp.redirect::lang.list.no_records
+noRecordsMessage: winter.redirect::lang.list.no_records
 
 # Records to display per page
 recordsPerPage: 20

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Controllers;
+namespace Winter\Redirect\Controllers;
 
 use Backend\Classes\Controller;
 use Backend\Facades\BackendMenu;
@@ -10,18 +10,18 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
-use October\Rain\Database\Collection;
-use October\Rain\Flash\FlashBag;
 use Throwable;
-use Vdlp\Redirect\Classes\Testers;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Classes\Testers;
+use Winter\Redirect\Models\Redirect;
+use Winter\Storm\Database\Collection;
+use Winter\Storm\Flash\FlashBag;
 
 /**
  * @property string $bodyClass
  */
 final class TestLab extends Controller
 {
-    public $requiredPermissions = ['vdlp.redirect.access_redirects'];
+    public $requiredPermissions = ['winter.redirect.access_redirects'];
 
     private array $redirects = [];
     private Request $request;
@@ -34,7 +34,7 @@ final class TestLab extends Controller
 
         parent::__construct();
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', 'test_lab');
+        BackendMenu::setContext('Winter.Redirect', 'redirect', 'test_lab');
 
         $this->loadRedirects();
 
@@ -45,11 +45,11 @@ final class TestLab extends Controller
 
     public function index(): void
     {
-        $this->pageTitle = 'vdlp.redirect::lang.title.test_lab';
+        $this->pageTitle = 'winter.redirect::lang.title.test_lab';
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
-        $this->addCss('/plugins/vdlp/redirect/assets/css/test-lab.css');
-        $this->addJs('/plugins/vdlp/redirect/assets/javascript/test-lab.js');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/test-lab.css');
+        $this->addJs('/plugins/winter/redirect/assets/javascript/test-lab.js');
 
         $this->vars['redirectCount'] = $this->getRedirectCount();
     }
@@ -106,7 +106,7 @@ final class TestLab extends Controller
         /** @var Redirect $redirect */
         $redirect = Redirect::query()->findOrFail($this->request->get('id'));
 
-        $this->flash->success(trans('vdlp.redirect::lang.test_lab.flash_test_executed'));
+        $this->flash->success(trans('winter.redirect::lang.test_lab.flash_test_executed'));
 
         return [
             '#testerResult' . $redirect->getKey() => $this->makePartial(
@@ -125,7 +125,7 @@ final class TestLab extends Controller
         $redirect = Redirect::query()->findOrFail($this->request->get('id'));
         $redirect->update(['test_lab' => false]);
 
-        $this->flash->success(trans('vdlp.redirect::lang.test_lab.flash_redirect_excluded'));
+        $this->flash->success(trans('winter.redirect::lang.test_lab.flash_redirect_excluded'));
 
         return [
             '#testButtonWrapper' => $this->makePartial('test_button', [

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use October\Rain\Database\Schema\Blueprint;
-use October\Rain\Database\Updates\Migration;
 use Psr\Log\LoggerInterface;
+use Winter\Storm\Database\Schema\Blueprint;
+use Winter\Storm\Database\Updates\Migration;
 
 class AddIgnoreCaseToRedirectsTable extends Migration
 {
@@ -25,7 +25,7 @@ class AddIgnoreCaseToRedirectsTable extends Migration
             });
         } catch (Throwable $e) {
             resolve(LoggerInterface::class)->error(sprintf(
-                'Vdlp.Redirect: Unable to drop column `%s` from table `%s`: %s',
+                'Winter.Redirect: Unable to drop column `%s` from table `%s`: %s',
                 'ignore_case',
                 'vdlp_redirect_redirects',
                 $e->getMessage()

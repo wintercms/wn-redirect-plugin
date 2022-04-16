@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Models;
+namespace Winter\Redirect\Models;
 
-use October\Rain\Database\Model;
+use Winter\Storm\Database\Model;
 use System\Behaviors\SettingsModel;
 use Throwable;
 
@@ -17,7 +17,7 @@ final class Settings extends Model
     /**
      * The settings code which to save the settings under.
      */
-    public string $settingsCode = 'vdlp_redirect_settings';
+    public string $settingsCode = 'winter_redirect_settings';
 
     /**
      * Form fields definition file.

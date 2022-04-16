@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Testers;
+namespace Winter\Redirect\Classes\Testers;
 
 use InvalidArgumentException;
-use Vdlp\Redirect\Classes\TesterBase;
-use Vdlp\Redirect\Classes\TesterResult;
+use Winter\Redirect\Classes\TesterBase;
+use Winter\Redirect\Classes\TesterResult;
 
 final class RedirectCount extends TesterBase
 {
@@ -26,7 +26,7 @@ final class RedirectCount extends TesterBase
         }
 
         if ($error !== null) {
-            return new TesterResult(false, e(trans('vdlp.redirect::lang.test_lab.result_request_failed')));
+            return new TesterResult(false, e(trans('winter.redirect::lang.test_lab.result_request_failed')));
         }
 
         $statusCode = (int) curl_getinfo($curlHandle, CURLINFO_HTTP_CODE);
@@ -36,7 +36,7 @@ final class RedirectCount extends TesterBase
 
         return new TesterResult(
             $redirectCount === 1 || ($redirectCount === 0 && $statusCode > 400),
-            e(trans('vdlp.redirect::lang.test_lab.redirects_followed', ['count' => $redirectCount, 'limit' => 10]))
+            e(trans('winter.redirect::lang.test_lab.redirects_followed', ['count' => $redirectCount, 'limit' => 10]))
         );
     }
 }

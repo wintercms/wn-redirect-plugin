@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use InvalidArgumentException;
 use Symfony\Component\Stopwatch\Stopwatch;
-use Vdlp\Redirect\Classes\Contracts\RedirectManagerInterface;
-use Vdlp\Redirect\Classes\Contracts\TesterInterface;
-use Vdlp\Redirect\Models\Settings;
+use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
+use Winter\Redirect\Classes\Contracts\TesterInterface;
+use Winter\Redirect\Models\Settings;
 
 abstract class TesterBase implements TesterInterface
 {
@@ -86,7 +86,7 @@ abstract class TesterBase implements TesterInterface
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_VERBOSE, false);
         curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [
-            'X-Vdlp-Redirect: Tester',
+            'X-Winter-Redirect: Tester',
         ]);
     }
 

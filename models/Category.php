@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Models;
+namespace Winter\Redirect\Models;
 
-use October\Rain\Database\Model;
+use Winter\Storm\Database\Model;
 
 final class Category extends Model
 {
-    public $table = 'vdlp_redirect_categories';
+    public $table = 'winter_redirect_categories';
 }

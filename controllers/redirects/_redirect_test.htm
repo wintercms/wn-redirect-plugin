@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4">
             <label class="control-label">
-                <?= e(trans('vdlp.redirect::lang.test.input_scheme')); ?>
+                <?= e(trans('winter.redirect::lang.test.input_scheme')); ?>
             </label>
             <?php $defaultScheme = \Request::getScheme(); ?>
             <div data-control="balloon-selector" class="control-balloon-selector">
@@ -15,15 +15,15 @@
         </div>
         <div class="col-md-8">
             <label class="control-label">
-                <?= e(trans('vdlp.redirect::lang.test.input_path')); ?>
+                <?= e(trans('winter.redirect::lang.test.input_path')); ?>
             </label>
             <input type="text"
                    id="inputPath"
                    class="form-control"
                    name="Redirect[test_url]"
                    value="<?= e($formModel->getAttribute('test_url')); ?>"
-                   placeholder="<?= e(trans('vdlp.redirect::lang.test.input_path_placeholder')); ?>">
-            <p class="help-block"><?= e(trans('vdlp.redirect::lang.test.input_path_comment')); ?></p>
+                   placeholder="<?= e(trans('winter.redirect::lang.test.input_path_placeholder')); ?>">
+            <p class="help-block"><?= e(trans('winter.redirect::lang.test.input_path_comment')); ?></p>
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@
 </div>
 <div class="form-group span-left">
     <label class="control-label">
-        <?= e(trans('vdlp.redirect::lang.test.test_date')); ?>
+        <?= e(trans('winter.redirect::lang.test.test_date')); ?>
     </label>
     <div id="testDate"
          class="field-datepicker"
@@ -48,17 +48,17 @@
                    autocomplete="off">
         </div>
     </div>
-    <p class="help-block"><?= e(trans('vdlp.redirect::lang.test.test_date_comment')); ?></p>
+    <p class="help-block"><?= e(trans('winter.redirect::lang.test.test_date_comment')); ?></p>
     <div class="form-group">
         <button type="submit"
                 id="onTestButton"
                 data-request="onTest"
                 data-hotkey="ctrl+t, cmd+t"
-                data-load-indicator="<?= e(trans('vdlp.redirect::lang.test.testing')); ?>"
+                data-load-indicator="<?= e(trans('winter.redirect::lang.test.testing')); ?>"
                 style="margin-top: 10px"
                 class="btn btn-success oc-icon-play"
                 data-disposable="">
-            <?= e(trans('vdlp.redirect::lang.test.run_test')); ?>
+            <?= e(trans('winter.redirect::lang.test.run_test')); ?>
         </button>
     </div>
 </div>

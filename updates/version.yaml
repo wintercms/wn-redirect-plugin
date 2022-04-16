@@ -71,3 +71,6 @@ v3.0.0:
 v3.0.1: "Add support for regular expression matches in target path."
 v3.0.2: "Change version constraint for composer/installers."
 v3.0.3: "Update plugin dependencies"
+v4.0.1:
+    - "Renamed to Winter.Redirect, forked for use as a Winter CMS plugin."
+    - 20220415_0013_rename_to_winter_redirect.php

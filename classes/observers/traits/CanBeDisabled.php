@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Observers\Traits;
+namespace Winter\Redirect\Classes\Observers\Traits;
 
 trait CanBeDisabled
 {

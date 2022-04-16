@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Controllers;
+namespace Winter\Redirect\Controllers;
 
 use Backend\Classes\Controller;
 use Backend\Models\BrandSetting;
@@ -11,26 +11,26 @@ use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
 use JsonException;
 use SystemException;
-use Vdlp\Redirect\Classes\StatisticsHelper;
+use Winter\Redirect\Classes\StatisticsHelper;
 
 /**
  * @property string $pageTitle
  */
 final class Statistics extends Controller
 {
-    public $requiredPermissions = ['vdlp.redirect.access_redirects'];
+    public $requiredPermissions = ['winter.redirect.access_redirects'];
     private StatisticsHelper $helper;
 
     public function __construct()
     {
         parent::__construct();
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', 'statistics');
+        BackendMenu::setContext('Winter.Redirect', 'redirect', 'statistics');
 
-        $this->pageTitle = 'vdlp.redirect::lang.title.statistics';
+        $this->pageTitle = 'winter.redirect::lang.title.statistics';
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
-        $this->addCss('/plugins/vdlp/redirect/assets/css/statistics.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/statistics.css');
 
         $this->helper = new StatisticsHelper();
     }
@@ -163,8 +163,8 @@ final class Statistics extends Controller
 
         return [
             'label' => $crawler
-                ? e(trans('vdlp.redirect::lang.statistics.crawler_hits'))
-                : e(trans('vdlp.redirect::lang.statistics.visitor_hits')),
+                ? e(trans('winter.redirect::lang.statistics.crawler_hits'))
+                : e(trans('winter.redirect::lang.statistics.visitor_hits')),
             'backgroundColor' => sprintf('rgb(%d, %d, %d, 0.5)', $r, $g, $b),
             'borderColor' => sprintf('rgb(%d, %d, %d, 1)', $r, $g, $b),
             'borderWidth' => 1,

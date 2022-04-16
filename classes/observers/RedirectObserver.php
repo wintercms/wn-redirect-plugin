@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Observers;
+namespace Winter\Redirect\Classes\Observers;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Support\Arr;
 use Psr\Log\LoggerInterface;
-use Vdlp\Redirect\Classes\Observers\Traits\CanBeDisabled;
-use Vdlp\Redirect\Models;
+use Winter\Redirect\Classes\Observers\Traits\CanBeDisabled;
+use Winter\Redirect\Models;
+use Winter\Storm\Support\Arr;
 
 final class RedirectObserver
 {
@@ -44,7 +44,7 @@ final class RedirectObserver
 
         $this->logChange($model, 'created');
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($model->getKey())
         ]);
     }
@@ -61,7 +61,7 @@ final class RedirectObserver
 
         $this->logChange($model, 'updated');
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($model->getKey())
         ]);
     }
@@ -78,19 +78,19 @@ final class RedirectObserver
 
         $this->logChange($model, 'deleted');
 
-        $this->dispatcher->dispatch('vdlp.redirect.changed', [
+        $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($model->getKey())
         ]);
     }
 
     private function logChange(Models\Redirect $model, string $typeOfChange): void
     {
-        if ((bool) config('vdlp.redirect::log_redirect_changes', false) === false) {
+        if ((bool) config('winter.redirect::log_redirect_changes', false) === false) {
             return;
         }
 
         $this->log->info(sprintf(
-            'Vdlp.Redirect: Redirect %d has been %s.',
+            'Winter.Redirect: Redirect %d has been %s.',
             $model->getKey(),
             $typeOfChange
         ), $model->getDirty());

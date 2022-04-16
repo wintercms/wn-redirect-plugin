@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Cache\Repository;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
-use Vdlp\Redirect\Classes\Contracts\PublishManagerInterface;
-use Vdlp\Redirect\Models\Settings;
+use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
+use Winter\Redirect\Classes\Contracts\PublishManagerInterface;
+use Winter\Redirect\Models\Settings;
 
 final class CacheManager implements CacheManagerInterface
 {
-    private const CACHE_TAG = 'vdlp_redirect';
-    private const CACHE_TAG_RULES = 'vdlp_redirect_rules';
-    private const CACHE_TAG_MATCHES = 'vdlp_redirect_matches';
+    private const CACHE_TAG = 'winter_redirect';
+    private const CACHE_TAG_RULES = 'winter_redirect_rules';
+    private const CACHE_TAG_MATCHES = 'winter_redirect_matches';
 
     private Repository $cache;
     private LoggerInterface $log;
@@ -57,8 +57,8 @@ final class CacheManager implements CacheManagerInterface
         $this->cache->tags([self::CACHE_TAG, self::CACHE_TAG_RULES, self::CACHE_TAG_MATCHES])
             ->flush();
 
-        if ((bool) config('vdlp.redirect::log_redirect_changes', false) === true) {
-            $this->log->info('Vdlp.Redirect: Redirect cache has been flushed.');
+        if ((bool) config('winter.redirect::log_redirect_changes', false) === true) {
+            $this->log->info('Winter.Redirect: Redirect cache has been flushed.');
         }
     }
 

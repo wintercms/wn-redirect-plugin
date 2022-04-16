@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use October\Rain\Events\Dispatcher;
+use Winter\Storm\Events\Dispatcher;
 use Psr\Log\LoggerInterface;
 use Throwable;
-use Vdlp\Redirect\Classes\Contracts\CacheManagerInterface;
-use Vdlp\Redirect\Classes\Contracts\RedirectManagerInterface;
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\Exceptions\UnableToLoadRules;
-use Vdlp\Redirect\Models\Settings;
+use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
+use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\Exceptions\UnableToLoadRules;
+use Winter\Redirect\Models\Settings;
 
 final class RedirectMiddleware
 {
@@ -52,12 +52,12 @@ final class RedirectMiddleware
         if (
             $request->isXmlHttpRequest()
             || !in_array($request->method(), self::$supportedMethods, true)
-            || Str::startsWith($request->getRequestUri(), '/vdlp/redirect/sparkline/')
+            || Str::startsWith($request->getRequestUri(), '/winter/redirect/sparkline/')
         ) {
             return $next($request);
         }
 
-        if ($request->header('X-Vdlp-Redirect') === 'Tester') {
+        if ($request->header('X-Winter-Redirect') === 'Tester') {
             $this->redirectManager->setSettings(new RedirectManagerSettings(
                 false,
                 false,
@@ -82,7 +82,7 @@ final class RedirectMiddleware
             $rule = false;
         } catch (Throwable $e) {
             $this->log->error(sprintf(
-                'Vdlp.Redirect: Could not perform redirect for %s (scheme: %s): %s',
+                'Winter.Redirect: Could not perform redirect for %s (scheme: %s): %s',
                 $requestUri,
                 $request->getScheme(),
                 $e->getMessage()
@@ -98,7 +98,7 @@ final class RedirectMiddleware
          *
          * At this point a positive match was made based on the request URI.
          */
-        $this->dispatcher->fire('vdlp.redirect.match', [$rule, $requestUri]);
+        $this->dispatcher->fire('winter.redirect.match', [$rule, $requestUri]);
 
         /*
          * Extensibility:

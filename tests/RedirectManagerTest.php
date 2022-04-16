@@ -4,7 +4,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Tests;
+namespace Winter\Redirect\Tests;
 
 use Carbon\Carbon;
 use Cms;
@@ -14,12 +14,13 @@ use Exception;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Exception;
 use PluginTestCase;
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\RedirectManager;
-use Vdlp\Redirect\Classes\RedirectRule;
-use Vdlp\Redirect\Models\Redirect;
-use Vdlp\Redirect\ServiceProvider;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\RedirectManager;
+use Winter\Redirect\Classes\RedirectRule;
+use Winter\Redirect\Models\Redirect;
+use Winter\Redirect\Models\Settings;
+use Winter\Redirect\ServiceProvider;
 
 class RedirectManagerTest extends PluginTestCase
 {
@@ -28,6 +29,10 @@ class RedirectManagerTest extends PluginTestCase
         parent::setUp();
 
         $this->app->register(ServiceProvider::class);
+
+        // Setup default settings
+        $settings = Settings::instance();
+        $settings->setSettingsValue('relative_paths_enabled', false);
     }
 
     /**
@@ -305,7 +310,7 @@ class RedirectManagerTest extends PluginTestCase
             'requirements' => [
                 [
                     'placeholder' => '{category}',
-                    'requirement' => '(octobercms|wordpress|drupal)',
+                    'requirement' => '(wintercms|wordpress|drupal)',
                     'replacement' => null,
                 ],
                 [
@@ -327,7 +332,7 @@ class RedirectManagerTest extends PluginTestCase
         $rule = RedirectRule::createWithModel($redirect);
         $manager = RedirectManager::createWithRule($rule);
 
-        $test = '/blog.php?cat=octobercms&section=test&id=1337';
+        $test = '/blog.php?cat=wintercms&section=test&id=1337';
 
         try {
             $result = $manager->match($test, Redirect::SCHEME_HTTPS);
@@ -337,11 +342,11 @@ class RedirectManagerTest extends PluginTestCase
 
         self::assertFalse($result);
 
-        $test = '/blog.php?cat=octobercms&section=test&id=13';
+        $test = '/blog.php?cat=wintercms&section=test&id=13';
         $result = $manager->match($test, Redirect::SCHEME_HTTPS);
 
         self::assertInstanceOf(RedirectRule::class, $result);
-        self::assertEquals(Cms::url('/blog/octobercms/test/13'), $manager->getLocation($result));
+        self::assertEquals(Cms::url('/blog/wintercms/test/13'), $manager->getLocation($result));
 
         $test = '/blog.php?cat=wordpress&section=test&id=99';
 
@@ -380,13 +385,13 @@ class RedirectManagerTest extends PluginTestCase
      */
     public function testTargetCmsPageRedirect(): void
     {
-        $page = Page::load(Theme::getActiveTheme(), 'vdlp-redirect-testpage');
+        $page = Page::load(Theme::getActiveTheme(), 'winter-redirect-testpage');
 
         if ($page === null) {
             $page = new Page();
             $page->title = 'Testpage';
-            $page->url = '/vdlp/redirect/testpage';
-            $page->setFileNameAttribute('vdlp-redirect-testpage');
+            $page->url = '/winter/redirect/testpage';
+            $page->setFileNameAttribute('winter-redirect-testpage');
             $page->save();
         }
 
@@ -396,7 +401,7 @@ class RedirectManagerTest extends PluginTestCase
             'from_scheme' => Redirect::SCHEME_AUTO,
             'from_url' => '/this-should-be-source',
             'to_scheme' => Redirect::SCHEME_AUTO,
-            'cms_page' => 'vdlp-redirect-testpage',
+            'cms_page' => 'winter-redirect-testpage',
             'requirements' => null,
             'status_code' => 302,
             'from_date' => Carbon::today(),
@@ -411,7 +416,7 @@ class RedirectManagerTest extends PluginTestCase
         $result = $manager->match('/this-should-be-source', Redirect::SCHEME_HTTPS);
 
         self::assertInstanceOf(RedirectRule::class, $result);
-        self::assertEquals(Cms::url('/vdlp/redirect/testpage'), $manager->getLocation($result));
+        self::assertEquals(Cms::url('/winter/redirect/testpage'), $manager->getLocation($result));
 
         self::assertTrue($page->delete());
     }

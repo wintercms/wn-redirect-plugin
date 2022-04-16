@@ -4,12 +4,12 @@
 
 scopes:
     updated_at:
-        label: vdlp.redirect::lang.redirect.date
+        label: winter.redirect::lang.redirect.date
         type: date
         conditions: updated_at >= ':filtered'
     status_code:
-        label: vdlp.redirect::lang.redirect.status_code
+        label: winter.redirect::lang.redirect.status_code
         type: group
-        modelClass: Vdlp\Redirect\Models\Redirect
+        modelClass: Winter\Redirect\Models\Redirect
         options: filterStatusCodeOptions
         conditions: status_code in (:filtered)

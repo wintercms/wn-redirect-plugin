@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
 use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
 use JsonException;
-use Vdlp\Redirect\Models\Redirect;
+use Winter\Redirect\Models\Redirect;
 
 final class RedirectRule
 {

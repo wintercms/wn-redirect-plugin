@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect;
+namespace Winter\Redirect;
 
-use October\Rain\Support\ServiceProvider as ServiceProviderBase;
-use Vdlp\Redirect\Classes\CacheManager;
-use Vdlp\Redirect\Classes\Contracts;
-use Vdlp\Redirect\Classes\PublishManager;
-use Vdlp\Redirect\Classes\RedirectManager;
+use Winter\Storm\Support\ServiceProvider as ServiceProviderBase;
+use Winter\Redirect\Classes\CacheManager;
+use Winter\Redirect\Classes\Contracts;
+use Winter\Redirect\Classes\PublishManager;
+use Winter\Redirect\Classes\RedirectManager;
 
 final class ServiceProvider extends ServiceProviderBase
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Models;
+namespace Winter\Redirect\Models;
 
 use Backend\Models\ImportModel;
 use Throwable;
-use Vdlp\Redirect\Classes\PublishManager;
+use Winter\Redirect\Classes\PublishManager;
 
 final class RedirectImport extends ImportModel
 {
-    public $table = 'vdlp_redirect_redirects';
+    public $table = 'winter_redirect_redirects';
 
     /**
      * Basic validation rules.

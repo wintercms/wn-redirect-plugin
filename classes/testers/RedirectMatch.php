@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes\Testers;
+namespace Winter\Redirect\Classes\Testers;
 
 use Backend;
 use Request;
-use Vdlp\Redirect\Classes\Exceptions\InvalidScheme;
-use Vdlp\Redirect\Classes\Exceptions\NoMatchForRequest;
-use Vdlp\Redirect\Classes\TesterBase;
-use Vdlp\Redirect\Classes\TesterResult;
+use Winter\Redirect\Classes\Exceptions\InvalidScheme;
+use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
+use Winter\Redirect\Classes\TesterBase;
+use Winter\Redirect\Classes\TesterResult;
 
 final class RedirectMatch extends TesterBase
 {
@@ -25,14 +25,14 @@ final class RedirectMatch extends TesterBase
         }
 
         if ($match === false) {
-            return new TesterResult(false, e(trans('vdlp.redirect::lang.test_lab.not_match_redirect')));
+            return new TesterResult(false, e(trans('winter.redirect::lang.test_lab.not_match_redirect')));
         }
 
         $message = sprintf(
             '%s <a href="%s" target="_blank">%s</a>.',
-            e(trans('vdlp.redirect::lang.test_lab.matched')),
-            Backend::url('vdlp/redirect/redirects/update/' . $match->getId()),
-            e(trans('vdlp.redirect::lang.test_lab.redirect'))
+            e(trans('winter.redirect::lang.test_lab.matched')),
+            Backend::url('winter/redirect/redirects/update/' . $match->getId()),
+            e(trans('winter.redirect::lang.test_lab.redirect'))
         );
 
         return new TesterResult(true, $message);

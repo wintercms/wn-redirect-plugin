@@ -4,5 +4,5 @@
 
 fields:
     name:
-        label: vdlp.redirect::lang.redirect.name
+        label: winter.redirect::lang.redirect.name
         span: left

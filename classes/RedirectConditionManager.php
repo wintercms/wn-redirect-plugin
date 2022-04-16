@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Classes;
+namespace Winter\Redirect\Classes;
 
-use Vdlp\Redirect\Classes\Contracts\RedirectConditionInterface;
-use Vdlp\Redirect\Classes\Contracts\RedirectManagerInterface;
+use Winter\Redirect\Classes\Contracts\RedirectConditionInterface;
+use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
 
 final class RedirectConditionManager
 {
@@ -20,7 +20,7 @@ final class RedirectConditionManager
     {
         $enabledConditions = [];
 
-        if (!class_exists(\Vdlp\RedirectConditions\Models\ConditionParameter::class)) {
+        if (!class_exists(\Winter\RedirectConditions\Models\ConditionParameter::class)) {
             return $enabledConditions;
         }
 
@@ -30,7 +30,7 @@ final class RedirectConditionManager
             return $enabledConditions;
         }
 
-        $conditionCodes = \Vdlp\RedirectConditions\Models\ConditionParameter::query()
+        $conditionCodes = \Winter\RedirectConditions\Models\ConditionParameter::query()
             ->where('redirect_id', '=', $rule->getId())
             ->whereNotNull('is_enabled')
             ->get(['condition_code'])

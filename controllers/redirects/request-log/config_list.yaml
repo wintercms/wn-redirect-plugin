@@ -3,7 +3,7 @@
 # ===================================
 
 title: system::lang.request_log.menu_label
-list: $/vdlp/redirect/controllers/redirects/request-log/columns.yaml
+list: $/winter/redirect/controllers/redirects/request-log/columns.yaml
 modelClass: System\Models\RequestLog
 noRecordsMessage: backend::lang.list.no_records
 recordsPerPage: 10

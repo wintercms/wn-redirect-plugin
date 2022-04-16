@@ -5,7 +5,7 @@
 logs:
     label: Log
     view:
-        list: $/vdlp/redirect/models/redirectlog/columns.yaml
+        list: $/winter/redirect/models/redirectlog/columns.yaml
         toolbarButtons: delete
         showSearch: true
         showSorting: true

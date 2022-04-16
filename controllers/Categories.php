@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vdlp\Redirect\Controllers;
+namespace Winter\Redirect\Controllers;
 
 use Backend\Behaviors;
 use Backend\Classes\Controller;
@@ -19,7 +19,7 @@ final class Categories extends Controller
         Behaviors\ListController::class
     ];
 
-    public $requiredPermissions = ['vdlp.redirect.access_redirects'];
+    public $requiredPermissions = ['winter.redirect.access_redirects'];
     public string $formConfig = 'config_form.yaml';
     public string $listConfig = 'config_list.yaml';
 
@@ -27,8 +27,8 @@ final class Categories extends Controller
     {
         parent::__construct();
 
-        $this->addCss('/plugins/vdlp/redirect/assets/css/redirect.css');
+        $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
 
-        BackendMenu::setContext('Vdlp.Redirect', 'redirect', 'categories');
+        BackendMenu::setContext('Winter.Redirect', 'redirect', 'categories');
     }
 }
