@@ -28,6 +28,7 @@ final class Plugin extends PluginBase
             'author' => 'Winter CMS',
             'icon' => 'icon-link',
             'homepage' => 'https://github.com/wintercms/wn-redirect-plugin',
+            'replaces' => ['Vdlp.Redirect' => '<= 3.0.2'],
         ];
     }
 
