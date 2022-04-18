@@ -1,35 +1,13 @@
-<p align="center">
-	<h1 align="center">Winter.Redirect</h1>
-</p>
+# Redirect plugin
 
-<p align="center">
-	<em>Manage all your HTTP redirects with an easy to use GUI. This is an essential SEO plugin.</em>
-</p>
+![Banner](https://github.com/wintercms/wn-redirect-plugin/raw/main/.github/assets/banner.png?raw=true)
 
-<p align="center">
-	<img src="https://badgen.net/packagist/php/winter/wn-redirect-plugin">
-	<img src="https://badgen.net/packagist/license/winter/wn-redirect-plugin">
-	<img src="https://badgen.net/packagist/v/winter/wn-redirect-plugin/latest">
-	<img src="https://badgen.net/badge/cms/Winter%20CMS">
-	<img src="https://badgen.net/badge/type/plugin">
-	<img src="http://poser.pugx.org/winter/wn-redirect-plugin/downloads" alt="Total downloads">
-</p>
+Manage all your HTTP redirects with an easy to use GUI. This is an essential SEO plugin. With this plugin installed you can manage redirects directly from Winter's beautiful interface. Many webmasters and SEO specialists use redirects to optimise their website for search engines.
 
-## The #1 Redirect plugin for Winter CMS
-
-This is the best Redirect-plugin for Winter CMS. With this plugin installed you can manage redirects directly from Winter's beautiful interface. Many webmasters and SEO specialists use redirects to optimise their website for search engines. This plugin allows you to manage such redirects with a nice and user-friendly interface.
-
-## History
-
-- 2016: Originally built by Alwin Drenth, a Software Engineer at Van der Let & Partners.
-- 2018: The plugin is re-distributed under the vendor name VDLP.Redirect (formerly known as Adrenth.Redirect).
-- 2022: The plugin is forked by the Winter CMS maintainers and made available for Winter CMS as Winter.Redirect
-
-The Winter.Redirect plugin is currently maintained by the Winter CMS maintainers and You (the open source community).
-
-## What does this plugin offer?
-
-This plugin adds a 'Redirects' section to the main menu of Winter CMS. This plugin has a unique and fast matching algorithm to match your redirects before your website is being rendered.
+[![Version](https://img.shields.io/github/v/release/wintercms/wn-redirect-plugin?sort=semver&style=flat-square)](https://github.com/wintercms/wn-redirect-plugin/releases)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/winter/wn-redirect-plugin?style=flat-square)
+[![License](https://img.shields.io/github/license/wintercms/wn-redirect-plugin?label=open%20source&style=flat-square)](https://packagist.org/packages/winter/wn-redirect-plugin)
+[![Discord](https://img.shields.io/discord/816852513684193281?label=discord&style=flat-square)](https://discord.gg/D5MFSPH6Ux)
 
 ## Features
 
@@ -56,17 +34,29 @@ This plugin adds a 'Redirects' section to the main menu of Winter CMS. This plug
 * HTTP status codes 301, 302, 303, 404, 410
 * Caching
 
-## Supported database platforms
+## History
 
-* MySQL
-* Postgres
-* SQLite
+- 2016: Originally built by Alwin Drenth, a Software Engineer at Van der Let & Partners.
+- 2018: The plugin is re-distributed under the vendor name VDLP.Redirect (formerly known as Adrenth.Redirect).
+- 2022: The plugin is forked by the Winter CMS maintainers and made available for Winter CMS as Winter.Redirect
+
+The Winter.Redirect plugin is currently maintained by the Winter CMS maintainers and you (the open-source community).
+
+## What does this plugin offer?
+
+This plugin adds a 'Redirects' section to the main menu of Winter CMS. This plugin has a unique and fast matching algorithm to match your redirects before your website is being rendered.
 
 ## Requirements
 
 * Winter CMS 1.2 or higher.
 * PHP version 7.4 or higher.
 * PHP extensions: `ext-curl` and `ext-json`.
+
+## Supported database platforms
+
+* MySQL
+* Postgres
+* SQLite
 
 ## Supported HTTP status codes
 
@@ -116,4 +106,4 @@ Please feel free to [contribute](https://github.com/wintercms/wn-redirect-plugin
 
 ## Questions? Need help?
 
-If you have any question about how to use this plugin, please don't hesitate to contact us via the Winter CMS discord. We're happy to help you.
+If you have any question about how to use this plugin, please don't hesitate to contact us via the Winter CMS [Discord](https://discord.gg/D5MFSPH6Ux). We're happy to help you.
