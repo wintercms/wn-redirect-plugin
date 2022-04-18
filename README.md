@@ -1,6 +1,6 @@
 # Redirect plugin
 
-![Banner](https://github.com/wintercms/wn-redirect-plugin/raw/main/.github/assets/banner.png?raw=true)
+![Banner](https://github.com/wintercms/wn-redirect-plugin/raw/main/.github/banner.png?raw=true)
 
 Manage all your HTTP redirects with an easy to use GUI. This is an essential SEO plugin. With this plugin installed you can manage redirects directly from Winter's beautiful interface. Many webmasters and SEO specialists use redirects to optimise their website for search engines.
 
