@@ -48,7 +48,7 @@ This plugin adds a 'Redirects' section to the main menu of Winter CMS. This plug
 
 ## Requirements
 
-* Winter CMS 1.2 or higher.
+* Winter CMS 1.1 or higher.
 * PHP version 7.4 or higher.
 * PHP extensions: `ext-curl` and `ext-json`.
 
