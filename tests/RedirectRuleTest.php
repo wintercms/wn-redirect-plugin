@@ -6,7 +6,7 @@ namespace Winter\Redirect\Tests;
 
 use Carbon\Carbon;
 use PHPUnit_Framework_Exception;
-use PluginTestCase;
+use System\Tests\Bootstrap\PluginTestCase;
 use Winter\Redirect\Classes\RedirectRule;
 use Winter\Redirect\Models\Redirect;
 

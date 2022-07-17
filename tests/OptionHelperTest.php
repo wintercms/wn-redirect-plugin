@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Winter\Redirect\Tests;
 
 use PHPUnit_Framework_Exception;
-use PluginTestCase;
+use System\Tests\Bootstrap\PluginTestCase;
 use Winter\Redirect\Classes\OptionHelper;
 use Winter\Redirect\Models\Redirect;
 

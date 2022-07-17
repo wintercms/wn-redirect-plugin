@@ -13,7 +13,7 @@ use Cms\Classes\Theme;
 use Exception;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Exception;
-use PluginTestCase;
+use System\Tests\Bootstrap\PluginTestCase;
 use Winter\Redirect\Classes\Exceptions\InvalidScheme;
 use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
 use Winter\Redirect\Classes\RedirectManager;
