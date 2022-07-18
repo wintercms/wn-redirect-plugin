@@ -2,14 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Winter\Redirect\Tests;
+namespace Winter\Redirect\Tests\Cases;
 
 use PHPUnit_Framework_Exception;
-use PluginTestCase;
 use Winter\Redirect\Classes\OptionHelper;
 use Winter\Redirect\Models\Redirect;
 
-class OptionHelperTest extends PluginTestCase
+class OptionHelperTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
 {
     /**
      * @throws PHPUnit_Framework_Exception

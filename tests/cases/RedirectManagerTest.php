@@ -4,7 +4,7 @@
 
 declare(strict_types=1);
 
-namespace Winter\Redirect\Tests;
+namespace Winter\Redirect\Tests\Cases;
 
 use Carbon\Carbon;
 use Cms;
@@ -13,7 +13,6 @@ use Cms\Classes\Theme;
 use Exception;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Exception;
-use PluginTestCase;
 use Winter\Redirect\Classes\Exceptions\InvalidScheme;
 use Winter\Redirect\Classes\Exceptions\NoMatchForRequest;
 use Winter\Redirect\Classes\RedirectManager;
@@ -22,7 +21,7 @@ use Winter\Redirect\Models\Redirect;
 use Winter\Redirect\Models\Settings;
 use Winter\Redirect\ServiceProvider;
 
-class RedirectManagerTest extends PluginTestCase
+class RedirectManagerTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
 {
     public function setUp(): void
     {

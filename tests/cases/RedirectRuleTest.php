@@ -2,15 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Winter\Redirect\Tests;
+namespace Winter\Redirect\Tests\Cases;
 
 use Carbon\Carbon;
 use PHPUnit_Framework_Exception;
-use PluginTestCase;
 use Winter\Redirect\Classes\RedirectRule;
 use Winter\Redirect\Models\Redirect;
 
-class RedirectRuleTest extends PluginTestCase
+class RedirectRuleTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
 {
     public function testInstance(): void
     {
