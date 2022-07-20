@@ -74,3 +74,4 @@
 "4.0.1":
     - "Renamed to Winter.Redirect, forked for use as a Winter CMS plugin."
     - 20220415_0013_rename_to_winter_redirect.php
+"4.0.2": "Maintained compatibility with Winter 1.1, fixed issue with trailing data on imports"
