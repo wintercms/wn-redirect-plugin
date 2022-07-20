@@ -7,6 +7,7 @@ namespace Winter\Redirect\Models;
 use Backend\Models\ImportModel;
 use Throwable;
 use Winter\Redirect\Classes\PublishManager;
+use Winter\Storm\Argon\Argon;
 
 final class RedirectImport extends ImportModel
 {
@@ -36,6 +37,17 @@ final class RedirectImport extends ImportModel
         'test_lab_path',
     ];
 
+    private static array $dateAttributes = [
+        'from_date',
+        'to_date',
+    ];
+
+    private static array $dateTimeAttributes = [
+        'last_used_at',
+        'created_at',
+        'updated_at',
+    ];
+
     public function importData($results, $sessionKey = null)
     {
         foreach ((array) $results as $row => $data) {
@@ -47,6 +59,10 @@ final class RedirectImport extends ImportModel
                 foreach (array_except($data, $except) as $attribute => $value) {
                     if ($attribute === 'requirements') {
                         $value = json_decode($value, true, 512, JSON_THROW_ON_ERROR);
+                    } elseif (!empty($value) && in_array($attribute, self::$dateAttributes)) {
+                        $value = Argon::parse($value)->toDateString();
+                    } elseif (!empty($value) && in_array($attribute, self::$dateTimeAttributes)) {
+                        $value = Argon::parse($value)->toDateTimeString();
                     } elseif (empty($value) && in_array($attribute, self::$nullableAttributes, true)) {
                         $value = null;
                     }
