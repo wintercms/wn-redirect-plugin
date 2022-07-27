@@ -138,6 +138,30 @@ final class Redirects extends Controller
         parent::update($recordId, $context);
     }
 
+    /**
+     * Force rule flushing on update
+     */
+    public function update_onSave(?string $context = null)
+    {
+        /** @noinspection PhpPossiblePolymorphicInvocationInspection */
+        parent::update_onSave($context);
+
+        $fromUrl = post('Redirect')['from_url'] ?? null;
+
+        if (!$fromUrl) {
+            return;
+        }
+
+        $this->cacheManager->forget($this->cacheManager->cacheKey($fromUrl, 'http'));
+        $this->cacheManager->forget($this->cacheManager->cacheKey($fromUrl, 'https'));
+
+        $redirectIds = $this->getAllRedirectIds();
+
+        $this->dispatcher->dispatch('winter.redirect.changed', [
+            'redirectIds' => Arr::wrap($redirectIds)
+        ]);
+    }
+
     // @codingStandardsIgnoreStart
 
     public function getCacheManager(): CacheManagerInterface
