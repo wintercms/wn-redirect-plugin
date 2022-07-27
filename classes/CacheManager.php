@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Winter\Redirect\Classes;
 
+use Config;
 use Carbon\Carbon;
 use Illuminate\Contracts\Cache\Repository;
 use Psr\Log\LoggerInterface;
@@ -29,20 +30,17 @@ final class CacheManager implements CacheManagerInterface
 
     public function get(string $key)
     {
-        return $this->cache->tags(self::CACHE_TAG_MATCHES)
-            ->get($key);
+        return $this->cache->get(self::CACHE_TAG_MATCHES . '.' . $key);
     }
 
     public function forget(string $key): bool
     {
-        return $this->cache->tags(self::CACHE_TAG_MATCHES)
-            ->forget($key);
+        return $this->cache->forget(self::CACHE_TAG_MATCHES . '.'  . $key);
     }
 
     public function has(string $key): bool
     {
-        return $this->cache->tags(self::CACHE_TAG_MATCHES)
-            ->has($key);
+        return $this->cache->has(self::CACHE_TAG_MATCHES . '.' . $key);
     }
 
     public function cacheKey(string $requestPath, string $scheme): string
@@ -54,8 +52,9 @@ final class CacheManager implements CacheManagerInterface
 
     public function flush(): void
     {
-        $this->cache->tags([self::CACHE_TAG, self::CACHE_TAG_RULES, self::CACHE_TAG_MATCHES])
-            ->flush();
+        foreach ([self::CACHE_TAG, self::CACHE_TAG_RULES, self::CACHE_TAG_MATCHES] as $key) {
+            $this->cache->forget($key);
+        }
 
         if ((bool) config('winter.redirect::log_redirect_changes', false) === true) {
             $this->log->info('Winter.Redirect: Redirect cache has been flushed.');
@@ -64,19 +63,17 @@ final class CacheManager implements CacheManagerInterface
 
     public function putRedirectRules(array $redirectRules): void
     {
-        $this->cache->tags(self::CACHE_TAG_RULES)
-            ->forever('rules', $redirectRules);
+        $this->cache->forever(self::CACHE_TAG_RULES . '.rules', $redirectRules);
     }
 
     public function getRedirectRules(): array
     {
-        if (!$this->cache->tags(self::CACHE_TAG_RULES)->has('rules')) {
+        if (!$this->cache->has(self::CACHE_TAG_RULES . '.rules')) {
             $publishManager = resolve(PublishManagerInterface::class);
             $publishManager->publish();
         }
 
-        $data = $this->cache->tags(self::CACHE_TAG_RULES)
-            ->get('rules', []);
+        $data = $this->cache->get(self::CACHE_TAG_RULES . '.rules', []);
 
         if (is_array($data)) {
             return $data;
@@ -88,8 +85,7 @@ final class CacheManager implements CacheManagerInterface
     public function putMatch(string $cacheKey, ?RedirectRule $matchedRule = null): ?RedirectRule
     {
         if ($matchedRule === null) {
-            $this->cache->tags(self::CACHE_TAG_MATCHES)
-                ->forever($cacheKey, false);
+            $this->cache->forever(self::CACHE_TAG_MATCHES . '.' . $cacheKey, false);
 
             return null;
         }
@@ -99,11 +95,9 @@ final class CacheManager implements CacheManagerInterface
         if ($matchedRuleToDate instanceof Carbon) {
             $minutes = $matchedRuleToDate->diffInMinutes(Carbon::now());
 
-            $this->cache->tags(self::CACHE_TAG_MATCHES)
-                ->put($cacheKey, $matchedRule, $minutes);
+            $this->cache->put(self::CACHE_TAG_MATCHES . '.' . $cacheKey, $matchedRule, $minutes);
         } else {
-            $this->cache->tags(self::CACHE_TAG_MATCHES)
-                ->forever($cacheKey, $matchedRule);
+            $this->cache->forever(self::CACHE_TAG_MATCHES . '.' . $cacheKey, $matchedRule);
         }
 
         return $matchedRule;
@@ -111,31 +105,11 @@ final class CacheManager implements CacheManagerInterface
 
     public function cachingEnabledAndSupported(): bool
     {
-        if (!Settings::isCachingEnabled()) {
-            return false;
-        }
-
-        try {
-            $this->cache->tags(self::CACHE_TAG);
-        } catch (Throwable $e) {
-            return false;
-        }
-
-        return true;
+        return Settings::isCachingEnabled() && !in_array(Config::get('cache.default'), ['file', 'database']);
     }
 
     public function cachingEnabledButNotSupported(): bool
     {
-        if (!Settings::isCachingEnabled()) {
-            return false;
-        }
-
-        try {
-            $this->cache->tags(self::CACHE_TAG);
-        } catch (Throwable $e) {
-            return true;
-        }
-
-        return false;
+        return Settings::isCachingEnabled() && in_array(Config::get('cache.default'), ['file', 'database']);
     }
 }
