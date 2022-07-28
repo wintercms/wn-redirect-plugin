@@ -113,7 +113,7 @@ return [
         'ignore_trailing_slash' => 'Ignore trailing slash',
         'ignore_trailing_slash_comment' => 'The redirect engine will ignore trailing slashes.',
         'forward_query_parameters' => 'Forward query parameters',
-        'forward_query_parameters_comment' => 'The redirect engine forward query parameters.',
+        'forward_query_parameters_comment' => 'The redirect engine will forward query parameters.',
         'last_used_at' => 'Last hit',
         'updated_at' => 'Updated at',
         'invalid_regex' => 'Invalid regular expression.',
