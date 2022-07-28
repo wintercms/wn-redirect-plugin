@@ -25,6 +25,7 @@ use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
 use Winter\Redirect\Classes\Exceptions;
 use Winter\Redirect\Classes\Util\Str;
 use Winter\Redirect\Models;
+use Winter\Storm\Router\UrlGenerator;
 
 final class RedirectManager implements RedirectManagerInterface
 {
@@ -235,6 +236,12 @@ final class RedirectManager implements RedirectManagerInterface
             && (strncmp($toUrl, 'http://', 7) === 0 || strncmp($toUrl, 'https://', 8) === 0)
         ) {
             $toUrl = str_replace(['https://', 'http://'], $rule->getToScheme() . '://', $toUrl);
+        }
+
+        if ($rule->isForwardQueryParameters() && $params = \request()->query()) {
+            $toUrl = UrlGenerator::buildUrl($toUrl, [
+                'query' => $params
+            ]);
         }
 
         return $toUrl;
