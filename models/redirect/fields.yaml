@@ -114,6 +114,12 @@ tabs:
             span: left
             default: false
             comment: winter.redirect::lang.redirect.ignore_trailing_slash_comment
+        forward_query_parameters:
+            label: winter.redirect::lang.redirect.forward_query_parameters
+            type: checkbox
+            span: left
+            default: false
+            comment: winter.redirect::lang.redirect.forward_query_parameters_comment
 
         #
         # Requirements
