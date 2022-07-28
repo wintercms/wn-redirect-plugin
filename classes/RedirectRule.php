@@ -29,6 +29,7 @@ final class RedirectRule
     private bool $ignoreQueryParameters;
     private bool $ignoreCase;
     private bool $ignoreTrailingSlash;
+    private bool $forwardQueryParameters;
 
     public function __construct(array $attributes)
     {
@@ -94,6 +95,7 @@ final class RedirectRule
         $this->ignoreQueryParameters = (bool) ($attributes['ignore_query_parameters'] ?? false);
         $this->ignoreCase = (bool) ($attributes['ignore_case'] ?? false);
         $this->ignoreTrailingSlash = (bool) ($attributes['ignore_trailing_slash'] ?? false);
+        $this->forwardQueryParameters = (bool) ($attributes['forward_query_parameters'] ?? false);
     }
 
     public static function createWithModel(Redirect $model): RedirectRule
@@ -232,5 +234,10 @@ final class RedirectRule
     public function isIgnoreTrailingSlash(): bool
     {
         return $this->ignoreTrailingSlash;
+    }
+
+    public function isForwardQueryParameters(): bool
+    {
+        return $this->forwardQueryParameters;
     }
 }
