@@ -143,10 +143,9 @@ final class Redirects extends Controller
      */
     public function update_onSave(?string $context = null)
     {
-        /** @noinspection PhpPossiblePolymorphicInvocationInspection */
-        parent::update_onSave($context);
+        $this->asExtension('FormController')->update_onSave($context);
 
-        $fromUrl = post('Redirect')['from_url'] ?? null;
+        $fromUrl = $this->formGetWidget()->getSaveData()['from_url'] ?? null;
 
         if (!$fromUrl) {
             return;
