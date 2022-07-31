@@ -91,7 +91,7 @@ tabs:
             label: winter.redirect::lang.redirect.ignore_query_parameters
             type: checkbox
             span: left
-            default: false
+            default: true
             comment: winter.redirect::lang.redirect.ignore_query_parameters_comment
         description:
             label: winter.redirect::lang.redirect.description
@@ -101,7 +101,7 @@ tabs:
             label: winter.redirect::lang.redirect.ignore_case
             type: checkbox
             span: left
-            default: false
+            default: true
             comment: winter.redirect::lang.redirect.ignore_case_comment
         sort_order:
             label: winter.redirect::lang.redirect.priority
@@ -112,7 +112,7 @@ tabs:
             label: winter.redirect::lang.redirect.ignore_trailing_slash
             type: checkbox
             span: left
-            default: false
+            default: true
             comment: winter.redirect::lang.redirect.ignore_trailing_slash_comment
 
         #
