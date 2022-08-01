@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    bootstrap="../../../modules/system/tests/app.php"
+    bootstrap="../../../modules/system/tests/bootstrap/app.php"
     backupGlobals="false"
     backupStaticAttributes="false"
     colors="true"
