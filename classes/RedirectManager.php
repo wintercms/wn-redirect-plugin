@@ -332,7 +332,7 @@ final class RedirectManager implements RedirectManagerInterface
             // Try matching named regex groups to cms page params
             $pregMatchMatches = $rule->getPregMatchMatches();
             foreach ($pregMatchMatches as $placeholder => $value) {
-                $parameters[(string) $placeholder] = str_replace('/', '', $value);
+                $parameters[(string) $placeholder] = ltrim($value, '/');
             }
         } else if ($rule->isPlaceholdersMatchType()) {
             // Strip curly braces from keys
