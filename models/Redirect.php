@@ -176,11 +176,9 @@ final class Redirect extends Model
                 && $request->get('target_type') === self::TARGET_TYPE_STATIC_PAGE;
         });
 
-        if (method_exists($validator, 'validateIsRegex')) {
-            $validator->sometimes('from_url', 'is_regex', static function (Fluent $request): bool {
-                return $request->get('match_type') === self::TYPE_REGEX;
-            });
-        }
+        $validator->sometimes('from_url', 'is_regex', static function (Fluent $request): bool {
+            return $request->get('match_type') === self::TYPE_REGEX;
+        });
 
         return $validator;
     }
