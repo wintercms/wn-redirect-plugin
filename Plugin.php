@@ -37,11 +37,12 @@ final class Plugin extends PluginBase
      */
     public function boot(): void
     {
+        $this->registerCustomValidators();
+
         if ($this->app->runningInConsole() || $this->app->runningUnitTests()) {
             return;
         }
 
-        $this->registerCustomValidators();
         $this->registerObservers();
 
         if (!$this->app->runningInBackend()) {
