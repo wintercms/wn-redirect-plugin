@@ -334,7 +334,7 @@ final class RedirectManager implements RedirectManagerInterface
             foreach ($pregMatchMatches as $placeholder => $value) {
                 $parameters[(string) $placeholder] = ltrim($value, '/');
             }
-        } else if ($rule->isPlaceholdersMatchType()) {
+        } elseif ($rule->isPlaceholdersMatchType()) {
             // Strip curly braces from keys
             foreach ($rule->getPlaceholderMatches() as $placeholder => $value) {
                 $parameters[str_replace(['{', '}'], '', (string) $placeholder)] = $value;
