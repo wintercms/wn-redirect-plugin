@@ -118,7 +118,7 @@ tabs:
             label: winter.redirect::lang.redirect.forward_query_parameters
             type: checkbox
             span: left
-            default: false
+            default: true
             comment: winter.redirect::lang.redirect.forward_query_parameters_comment
 
         #
