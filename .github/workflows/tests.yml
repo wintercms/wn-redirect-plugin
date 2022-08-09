@@ -16,10 +16,6 @@ jobs:
         phpVersion: ['8.0', '8.1']
         winterRelease: ['develop']
         winterReleaseDir: ['develop']
-        include:
-          - phpVersion: '7.4'
-            winterRelease: 'v1.1.9'
-            winterReleaseDir: '1.1.9'
       fail-fast: false
     env:
       phpExtensions: mbstring, intl, gd, xml, sqlite
@@ -63,7 +59,7 @@ jobs:
           mv winter-${{ matrix.winterReleaseDir }}/* ./
           rmdir winter-${{ matrix.winterReleaseDir }}
           shopt -u dotglob
-          cp config/cms.php config/testing/cms.php
+          [ ! -f config/testing/cms.php ] && cp config/cms.php config/testing/cms.php
           mkdir -p plugins/winter
           mv redirect-plugin plugins/winter/redirect
 

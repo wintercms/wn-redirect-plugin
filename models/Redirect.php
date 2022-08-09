@@ -148,6 +148,7 @@ final class Redirect extends Model
         'ignore_query_parameters' => 'boolean',
         'ignore_case' => 'boolean',
         'ignore_trailing_slash' => 'boolean',
+        'forward_query_parameters' => 'boolean',
         'is_enabled' => 'boolean',
         'test_lab' => 'boolean',
         'system' => 'boolean',
