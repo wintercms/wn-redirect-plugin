@@ -37,8 +37,6 @@ final class Plugin extends PluginBase
      */
     public function boot(): void
     {
-        $this->registerCustomValidators();
-
         if ($this->app->runningInConsole() || $this->app->runningUnitTests()) {
             return;
         }
@@ -54,6 +52,8 @@ final class Plugin extends PluginBase
     public function register(): void
     {
         $this->app->register(ServiceProvider::class);
+
+        $this->registerCustomValidators();
 
         $this->registerConsoleCommands();
         $this->registerEventListeners();

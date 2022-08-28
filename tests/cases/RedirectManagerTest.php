@@ -452,6 +452,8 @@ class RedirectManagerTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
             'to_date' => Carbon::today()->addWeek(),
         ]);
 
+        self::assertTrue($redirect->save());
+
         $rule = RedirectRule::createWithModel($redirect);
         $manager = RedirectManager::createWithRule($rule);
 
