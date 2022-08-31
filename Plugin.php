@@ -53,8 +53,6 @@ final class Plugin extends PluginBase
     {
         $this->app->register(ServiceProvider::class);
 
-        $this->registerCustomValidators();
-
         $this->registerConsoleCommands();
         $this->registerEventListeners();
     }
@@ -299,19 +297,6 @@ final class Plugin extends PluginBase
     private function registerConsoleCommands(): void
     {
         $this->registerConsoleCommand('winter.redirect.publish-redirects', PublishRedirectsCommand::class);
-    }
-
-    private function registerCustomValidators(): void
-    {
-        Validator::extend('is_regex', static function ($attribute, $value): bool {
-            try {
-                preg_match($value, '');
-            } catch (Throwable $throwable) {
-                return false;
-            }
-
-            return true;
-        });
     }
 
     private function registerObservers(): void

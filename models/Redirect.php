@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Fluent;
 use System\Models\RequestLog;
+use Throwable;
 use Winter\Redirect\Classes\OptionHelper;
 use Winter\Storm\Database\Builder;
 use Winter\Storm\Database\Model;
@@ -316,6 +317,23 @@ final class Redirect extends Model
         }
 
         return $options;
+    }
+
+    /**
+     * Triggered before the model is validated.
+     * Add "is_regex" custom validator
+     */
+    public function beforeValidate(): bool
+    {
+        \Validator::extend('is_regex', static function ($attribute, $value): bool {
+            try {
+                preg_match($value, '');
+            } catch (Throwable $throwable) {
+                return false;
+            }
+
+            return true;
+        });
     }
 
     /**
