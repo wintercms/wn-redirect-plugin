@@ -323,7 +323,7 @@ final class Redirect extends Model
      * Triggered before the model is validated.
      * Add "is_regex" custom validator
      */
-    public function beforeValidate(): bool
+    public function beforeValidate(): void
     {
         \Validator::extend('is_regex', static function ($attribute, $value): bool {
             try {
