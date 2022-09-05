@@ -301,6 +301,19 @@ final class Plugin extends PluginBase
         $this->registerConsoleCommand('winter.redirect.publish-redirects', PublishRedirectsCommand::class);
     }
 
+    private function registerCustomValidators(): void
+    {
+        Validator::extend('is_regex', static function ($attribute, $value): bool {
+            try {
+                preg_match($value, '');
+            } catch (Throwable $throwable) {
+                return false;
+            }
+
+            return true;
+        });
+    }
+
     private function registerObservers(): void
     {
         Models\Redirect::observe(Observers\RedirectObserver::class);
@@ -359,19 +372,6 @@ final class Plugin extends PluginBase
             } catch (Throwable $throwable) {
                 // @ignoreException
             }
-        });
-    }
-
-    private function registerCustomValidators(): void
-    {
-        Validator::extend('is_regex', static function ($attribute, $value): bool {
-            try {
-                preg_match($value, '');
-            } catch (Throwable $throwable) {
-                return false;
-            }
-
-            return true;
         });
     }
 }
