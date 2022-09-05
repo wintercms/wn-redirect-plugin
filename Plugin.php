@@ -37,6 +37,8 @@ final class Plugin extends PluginBase
      */
     public function boot(): void
     {
+        $this->registerCustomValidators();
+
         if ($this->app->runningInConsole() || $this->app->runningUnitTests()) {
             return;
         }
@@ -357,6 +359,19 @@ final class Plugin extends PluginBase
             } catch (Throwable $throwable) {
                 // @ignoreException
             }
+        });
+    }
+
+    private function registerCustomValidators(): void
+    {
+        Validator::extend('is_regex', static function ($attribute, $value): bool {
+            try {
+                preg_match($value, '');
+            } catch (Throwable $throwable) {
+                return false;
+            }
+
+            return true;
         });
     }
 }

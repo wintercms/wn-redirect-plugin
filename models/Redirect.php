@@ -320,23 +320,6 @@ final class Redirect extends Model
     }
 
     /**
-     * Triggered before the model is validated.
-     * Add "is_regex" custom validator
-     */
-    public function beforeValidate(): void
-    {
-        \Validator::extend('is_regex', static function ($attribute, $value): bool {
-            try {
-                preg_match($value, '');
-            } catch (Throwable $throwable) {
-                return false;
-            }
-
-            return true;
-        });
-    }
-
-    /**
      * Triggered before the model is saved, either created or updated.
      * Make sure target fields are correctly set after saving.
      *
