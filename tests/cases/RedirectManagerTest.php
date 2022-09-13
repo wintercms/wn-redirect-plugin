@@ -423,6 +423,51 @@ class RedirectManagerTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
     /**
      * @throws PHPUnit_Framework_AssertionFailedError
      * @throws PHPUnit_Framework_Exception
+     * @throws InvalidScheme
+     * @throws NoMatchForRequest
+     * @throws Exception
+     */
+    public function testTargetCmsPageRedirectWithRegexSource(): void
+    {
+        $page = Page::load(Theme::getActiveTheme(), 'winter-redirect-testpage-params');
+
+        if ($page === null) {
+            $page = new Page();
+            $page->title = 'Testpage With URL Params';
+            $page->url = '/winter/redirect/testpage-params/:slug';
+            $page->setFileNameAttribute('winter-redirect-testpage-params');
+            $page->save();
+        }
+
+        $redirect = new Redirect([
+            'match_type' => Redirect::TYPE_REGEX,
+            'target_type' => Redirect::TARGET_TYPE_CMS_PAGE,
+            'from_scheme' => Redirect::SCHEME_AUTO,
+            'from_url' => '#/this-should-be-source/(?<slug>.*)#',
+            'to_scheme' => Redirect::SCHEME_AUTO,
+            'cms_page' => 'winter-redirect-testpage-params',
+            'requirements' => null,
+            'status_code' => 302,
+            'from_date' => Carbon::today(),
+            'to_date' => Carbon::today()->addWeek(),
+        ]);
+
+        self::assertTrue($redirect->save());
+
+        $rule = RedirectRule::createWithModel($redirect);
+        $manager = RedirectManager::createWithRule($rule);
+
+        $result = $manager->match('/this-should-be-source/mySlugValue', Redirect::SCHEME_HTTPS);
+
+        self::assertInstanceOf(RedirectRule::class, $result);
+        self::assertEquals(Cms::url('/winter/redirect/testpage-params/mySlugValue'), $manager->getLocation($result));
+
+        self::assertTrue($page->delete());
+    }
+
+    /**
+     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws PHPUnit_Framework_Exception
      */
     public function testScheduledRedirectPeriod(): void
     {
@@ -820,6 +865,8 @@ class RedirectManagerTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
             'from_date' => null,
             'to_date' => null,
         ]);
+
+        self::assertTrue($redirect->save());
 
         $rule = RedirectRule::createWithModel($redirect);
         $manager = RedirectManager::createWithRule($rule);

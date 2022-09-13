@@ -335,9 +335,17 @@ final class RedirectManager implements RedirectManagerInterface
     {
         $parameters = [];
 
-        // Strip curly braces from keys
-        foreach ($rule->getPlaceholderMatches() as $placeholder => $value) {
-            $parameters[str_replace(['{', '}'], '', (string) $placeholder)] = $value;
+        if ($rule->isRegexMatchType()) {
+            // Try matching named regex groups to cms page params
+            $pregMatchMatches = $rule->getPregMatchMatches();
+            foreach ($pregMatchMatches as $placeholder => $value) {
+                $parameters[(string) $placeholder] = ltrim($value, '/');
+            }
+        } elseif ($rule->isPlaceholdersMatchType()) {
+            // Strip curly braces from keys
+            foreach ($rule->getPlaceholderMatches() as $placeholder => $value) {
+                $parameters[str_replace(['{', '}'], '', (string) $placeholder)] = $value;
+            }
         }
 
         if ($this->settings->isRelativePathsEnabled()) {

@@ -8,7 +8,7 @@ This plugins ships with two types of redirects:
 
 * **Exact**; performs an exact match on the Source path.
 * **Placeholders**; matches placeholders like {id} or {category} (like the defined routes in Symfony or Laravel framework).
-* **Regular expression**; Use regular expressions to match multiple patterns at once (advanced).
+* **Regular expression**; Use regular expressions to match multiple patterns at once (advanced). If the regex contains named groups, groups will get matched to cms page params.
 
 ## Redirect target types
 

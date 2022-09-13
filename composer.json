@@ -39,5 +39,10 @@
             "tests",
             "phpunit.xml"
         ]
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": false
+        }
     }
 }
