@@ -6,7 +6,7 @@ namespace Winter\Redirect\ReportWidgets;
 
 use Backend\Classes\Controller;
 use Backend\Classes\ReportWidgetBase;
-use Backend\Helpers\Backend;
+use Backend;
 use Backend\Widgets\Form;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
