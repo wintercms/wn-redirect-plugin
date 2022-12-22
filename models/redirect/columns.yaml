@@ -11,7 +11,6 @@ columns:
         label: winter.redirect::lang.redirect.to_url
         type: redirect_from_url
         searchable: true
-        invisible: true
     target_type:
         label: winter.redirect::lang.redirect.target_type
         type: redirect_target_type
