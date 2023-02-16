@@ -46,6 +46,11 @@ class RenameToWinterRedirect extends Migration
         }
 
         Schema::enableForeignKeyConstraints();
+
+        // Migrate the plugin settings
+        DB::table('system_settings')
+            ->where('item', $this->oldPrefix . 'settings')
+            ->update(['item' => $this->newPrefix . 'settings']);
     }
 
     public function down()
@@ -76,6 +81,11 @@ class RenameToWinterRedirect extends Migration
         }
 
         Schema::enableForeignKeyConstraints();
+
+        // Migrate the plugin settings
+        DB::table('system_settings')
+            ->where('item', $this->newPrefix . 'settings')
+            ->update(['item' => $this->oldPrefix . 'settings']);
     }
 
     /**
