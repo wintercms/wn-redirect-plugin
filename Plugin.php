@@ -270,7 +270,7 @@ final class Plugin extends PluginBase
             },
             'redirect_from_url' => static function ($value): string {
                 $maxChars = 40;
-                $textLength = strlen($value);
+                $textLength = strlen($value ?? '');
 
                 if ($textLength > $maxChars) {
                     return '<span title="' . e($value) . '">'
