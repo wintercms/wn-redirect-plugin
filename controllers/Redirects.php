@@ -143,12 +143,12 @@ final class Redirects extends Controller
      */
     public function update_onSave(?string $context = null)
     {
-        $this->asExtension('FormController')->update_onSave($context);
+        $redirect = $this->asExtension('FormController')->update_onSave($context);
 
         $fromUrl = $this->formGetWidget()->getSaveData()['from_url'] ?? null;
 
         if (!$fromUrl) {
-            return;
+            return $redirect;
         }
 
         $this->cacheManager->forget($this->cacheManager->cacheKey($fromUrl, 'http'));
@@ -159,6 +159,8 @@ final class Redirects extends Controller
         $this->dispatcher->dispatch('winter.redirect.changed', [
             'redirectIds' => Arr::wrap($redirectIds)
         ]);
+
+        return $redirect;
     }
 
     // @codingStandardsIgnoreStart
