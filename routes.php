@@ -45,30 +45,34 @@ Route::group(['middleware' => ['web']], static function () {
 
         // TODO: Generate fallback image data if generating image fails.
         $imageData = Cache::remember($cacheKey . '_image', 5 * 60, static function () use ($crawler, $data, $properties) {
-            $primaryColor = BrandSetting::get(
-                $crawler ? 'primary_color' : 'secondary_color',
-                $crawler ? BrandSetting::PRIMARY_COLOR : BrandSetting::SECONDARY_COLOR
-            );
+            try {
+                $primaryColor = BrandSetting::get(
+                    $crawler ? 'primary_color' : 'secondary_color',
+                    $crawler ? BrandSetting::PRIMARY_COLOR : BrandSetting::SECONDARY_COLOR
+                );
 
-            $sparkline = new Sparkline();
-            $sparkline->setFormat($properties['format']);
-            $sparkline->setPadding('2 0 0 2');
-            $sparkline->setData($data);
-            $sparkline->setLineThickness($properties['lineThickness']);
-            $sparkline->setLineColorHex($primaryColor);
-            $sparkline->setFillColorHex($primaryColor);
-            $sparkline->deactivateBackgroundColor();
+                $sparkline = new Sparkline();
+                $sparkline->setFormat($properties['format']);
+                $sparkline->setPadding('2 0 0 2');
+                $sparkline->setData($data);
+                $sparkline->setLineThickness($properties['lineThickness']);
+                $sparkline->setLineColorHex($primaryColor);
+                $sparkline->setFillColorHex($primaryColor);
+                $sparkline->deactivateBackgroundColor();
 
-            return $sparkline->toBase64();
+                return $sparkline->toBase64();
+            } catch (\Throwable $e) {
+                // Generate a 1x1 transparent pixel as fallback.
+                return 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFDQJXep6X8QAAAABJRU5ErkJggg==';
+            }
         });
 
-        // TODO: Leverage Browser Caching
-        header('Content-Type: image/png');
-        header('Content-Disposition: inline; filename="' . $cacheKey . '.png"');
-        header('Accept-Ranges: none');
-
-        echo base64_decode($imageData);
-
-        exit(0);
+        return Response::make(base64_decode($imageData), 200, [
+            'Content-Type' => 'image/png',
+            'Content-Disposition' => 'inline; filename="' . $cacheKey . '.png"',
+            'Accept-Ranges' => 'none',
+            // Leverage browser caching
+            'Cache-Control' => 'public, max-age=300',
+        ]);
     });
 });
