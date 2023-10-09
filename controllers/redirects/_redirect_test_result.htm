@@ -1,14 +1,14 @@
 <?php if ($match === false): ?>
     <div class="form-group">
         <label style="color: red"><?= e(trans('winter.redirect::lang.test.no_match_label')); ?></label>
-        <div class="form-control oc-icon-thumbs-down">
+        <div class="form-control wn-icon-thumbs-down">
             <?= e(trans('winter.redirect::lang.test.no_match')); ?>
         </div>
     </div>
 <?php elseif ($match !== null): ?>
     <div class="form-group">
         <label style="color: green"><?= e(trans('winter.redirect::lang.test.match_success_label')); ?></label>
-        <div class="form-control oc-icon-thumbs-up">
+        <div class="form-control wn-icon-thumbs-up">
             <?= $url ?> <sup>(<?= $match->getStatusCode(); ?>)</sup>
         </div>
     </div>
