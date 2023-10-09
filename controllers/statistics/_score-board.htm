@@ -28,7 +28,7 @@
         <?php if ($latestClient): ?>
         <div class="scoreboard-item title-value">
             <h4><?= e(trans('winter.redirect::lang.statistics.latest_redirected_requests')); ?></h4>
-            <p class="<?= $latestClient->crawler ? 'oc-icon-google' : 'oc-icon-user' ?>"><?= e($latestClient->redirect->from_url) ?></p>
+            <p class="<?= $latestClient->crawler ? 'wn-icon-robot' : 'oc-icon-user' ?>"><?= e($latestClient->redirect->from_url) ?></p>
             <p class="description"><?= e($latestClient->timestamp) ?></p>
         </div>
         <?php endif; ?>
