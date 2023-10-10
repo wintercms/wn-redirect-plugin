@@ -247,7 +247,7 @@ return [
     ],
     'flash' => [
         'success_created_redirects' => 'Skapade :count ompekningar',
-        'static_page_redirect_not_supported' => 'This redirect cannot be modified. Plugin RainLab.Pages is required.', // TODO
+        'static_page_redirect_not_supported' => 'This redirect cannot be modified. Plugin Winter.Pages is required.', // TODO
         'truncate_success' => 'Successfully deleted all records', // TODO
         'delete_selected_success' => 'Successfully deleted selected records', // TODO
         'cache_cleared_success' => 'Successfully cleared redirect cache', // TODO

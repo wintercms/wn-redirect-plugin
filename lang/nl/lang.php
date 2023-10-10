@@ -253,7 +253,7 @@ return [
     ],
     'flash' => [
         'success_created_redirects' => 'Er zijn :count redirect(s) gecreëerd', // since 2.0.3
-        'static_page_redirect_not_supported' => 'Deze redirect kan niet bewerkt worden. RainLab.Pages Plugin is vereist.',
+        'static_page_redirect_not_supported' => 'Deze redirect kan niet bewerkt worden. Winter.Pages Plugin is vereist.',
         'truncate_success' => 'Alle items zijn succesvol verwijderd.',
         'delete_selected_success' => 'De geselecteerde items zijn succesvol verwijderd.',
         'cache_cleared_success' => 'Cache met redirects succesvol geleegd.',

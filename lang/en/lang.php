@@ -255,7 +255,7 @@ return [
     ],
     'flash' => [
         'success_created_redirects' => 'Successfully created :count redirects',
-        'static_page_redirect_not_supported' => 'This redirect cannot be modified. Plugin RainLab.Pages is required.',
+        'static_page_redirect_not_supported' => 'This redirect cannot be modified. Plugin Winter.Pages is required.',
         'truncate_success' => 'Successfully deleted all records',
         'delete_selected_success' => 'Successfully deleted selected records',
         'cache_cleared_success' => 'Successfully cleared redirect cache',

@@ -252,7 +252,7 @@ return [
     ],
     'flash' => [
         'success_created_redirects' => 'Se crearon con éxito :count redirecciones', // since 2.0.3
-        'static_page_redirect_not_supported' => 'Esta redirección no puede ser modificada. El Plugin RainLab.Pages es requerido.',
+        'static_page_redirect_not_supported' => 'Esta redirección no puede ser modificada. El Plugin Winter.Pages es requerido.',
         'truncate_success' => 'Todos los registros han sido borrados con éxito',
         'delete_selected_success' => 'Los registros seleccionados fueron borrados con éxito',
         'cache_cleared_success' => 'Se ha limpiado con éxito el caché de redireccionamiento',

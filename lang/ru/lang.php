@@ -249,7 +249,7 @@ return [
     ],
     'flash' => [
         'success_created_redirects' => 'Успешно создано :count редирект(ов)',
-        'static_page_redirect_not_supported' => 'Этот редирект нельзя изменить. Необходим плагин RainLab.Pages.',
+        'static_page_redirect_not_supported' => 'Этот редирект нельзя изменить. Необходим плагин Winter.Pages.',
         'truncate_success' => 'Все записи успешно удалены',
         'delete_selected_success' => 'Выбранные записи успешно удалены',
         'cache_cleared_success' => 'Кэш редиректа успешно очищен',
