@@ -7,7 +7,7 @@
             <div class="toolbar">
                 <a class="btn btn-outline-default btn-xs toolbar-item"
                    href="<?= Backend::url('winter/redirect/redirects/update/' . $redirect->id); ?>">
-                    <i class="oc-icon-pencil"></i><?= e(trans('winter.redirect::lang.test_lab.edit')); ?>
+                    <i class="wn-icon-pencil"></i><?= e(trans('winter.redirect::lang.test_lab.edit')); ?>
                 </a>
                 <a class="btn btn-outline-danger btn-xs toolbar-item"
                    data-request="onExclude"
@@ -15,14 +15,14 @@
                    data-request-confirm="<?= e(trans('winter.redirect::lang.test_lab.exclude_confirm')); ?>"
                    data-load-indicator="<?= e(trans('winter.redirect::lang.test_lab.exclude_indicator')); ?>"
                    href="javascript:">
-                    <i class="oc-icon-ban"></i><?= e(trans('winter.redirect::lang.test_lab.exclude')); ?>
+                    <i class="wn-icon-ban"></i><?= e(trans('winter.redirect::lang.test_lab.exclude')); ?>
                 </a>
                 <a class="btn btn-outline-success btn-xs toolbar-item"
                    data-request="onReRun"
                    data-request-data="id: <?= $redirect->id ?>"
                    data-load-indicator="<?= e(trans('winter.redirect::lang.test_lab.re_run_indicator')); ?>"
                    href="javascript:">
-                    <i class="oc-icon-refresh"></i><?= e(trans('winter.redirect::lang.test_lab.re_run')); ?>
+                    <i class="wn-icon-refresh"></i><?= e(trans('winter.redirect::lang.test_lab.re_run')); ?>
                 </a>
             </div>
         </div>

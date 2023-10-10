@@ -1,12 +1,12 @@
 <div class="toolbar" data-control="toolbar">
     <a href="<?= Backend::url('winter/redirect/redirects/create'); ?>"
-       class="btn btn-primary oc-icon-plus">
+       class="btn btn-primary wn-icon-plus">
         <?= e(trans('winter.redirect::lang.buttons.new_redirect')); ?>
     </a>
 
     <?php if ((int) \System\Models\LogSetting::get('log_requests') === 1): ?>
         <a href="#"
-           class="btn btn-default oc-icon-plus"
+           class="btn btn-default wn-icon-plus"
            data-control="popup"
            data-size="giant"
            data-handler="onOpenRequestLog"
@@ -15,13 +15,13 @@
         </a>
     <?php endif; ?>
 
-    <a class="btn btn-default oc-icon-sort-amount-asc"
+    <a class="btn btn-default wn-icon-sort-amount-asc"
        href="<?= Backend::url('winter/redirect/redirects/reorder'); ?>">
         <?= e(trans('winter.redirect::lang.buttons.reorder_redirects')); ?>
     </a>
 
     <div class="btn-group" id="checkBoxTriggeredButtons">
-        <button class="btn btn-default oc-icon-trash-o"
+        <button class="btn btn-default wn-icon-trash-o"
                 disabled=""
                 onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
                 data-request="onDelete"
@@ -33,7 +33,7 @@
                 data-stripe-load-indicator>
             <?= e(trans('winter.redirect::lang.buttons.delete')); ?>
         </button>
-        <button class="btn btn-default oc-icon-check-square-o"
+        <button class="btn btn-default wn-icon-check-square-o"
                 disabled=""
                 onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
                 data-request="onEnable"
@@ -44,7 +44,7 @@
                 data-stripe-load-indicator>
             <?= e(trans('winter.redirect::lang.buttons.enable')); ?>
         </button>
-        <button class="btn btn-default oc-icon-square-o"
+        <button class="btn btn-default wn-icon-square-o"
                 disabled=""
                 onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
                 data-request="onDisable"
@@ -56,7 +56,7 @@
             <?= e(trans('winter.redirect::lang.buttons.disable')); ?>
         </button>
     </div>
-    <button class="btn btn-default oc-icon-undo"
+    <button class="btn btn-default wn-icon-undo"
             disabled=""
             onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
             data-request="onResetStatistics"
@@ -67,7 +67,7 @@
             data-stripe-load-indicator>
         <?= e(trans('winter.redirect::lang.buttons.reset_statistics')); ?>
     </button>
-    <button class="btn btn-default oc-icon-ellipsis-h"
+    <button class="btn btn-default wn-icon-ellipsis-h"
             data-control="popup"
             data-handler="onLoadActions"
             data-keyboard="true"

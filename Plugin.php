@@ -220,7 +220,7 @@ final class Plugin extends PluginBase
     {
         return [
             'redirect_switch_color' => static function ($value): string {
-                $format = '<div class="oc-icon-circle" style="color: %s">%s</div>';
+                $format = '<div class="wn-icon-circle" style="color: %s">%s</div>';
 
                 if ((int) $value === 1) {
                     return sprintf($format, '#95b753', e(trans('backend::lang.list.column_switch_true')));
@@ -283,7 +283,7 @@ final class Plugin extends PluginBase
             'redirect_system' => static function ($value): string {
                 return sprintf(
                     '<span class="%s" title="%s"></span>',
-                    $value ? 'oc-icon-magic' : 'oc-icon-user',
+                    $value ? 'wn-icon-magic' : 'wn-icon-user',
                     e(trans('winter.redirect::lang.redirect.system_tip'))
                 );
             },
