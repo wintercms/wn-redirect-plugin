@@ -204,6 +204,8 @@ return [
         'top_crawlers_this_month' => 'Top :top: crawlers du mois',
         'top_redirects_this_month' => 'Top :top: redirections du mois',
         'activity_last_three_months' => 'Activité des 3 derniers mois',
+        'crawler_hits' => 'Robots',
+        'visitor_hits' => 'Visiteurs',
     ],
     'title' => [
         'import' => 'Import',
