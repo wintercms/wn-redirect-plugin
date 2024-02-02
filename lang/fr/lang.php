@@ -26,12 +26,13 @@ return [
         'statistics_enabled_comment' => 'Enregistrer des statistiques des redirections pour faire des analyses',
         'test_lab_enabled_label' => 'TestLab (beta)',
         'test_lab_enabled_comment' => 'TestLab vous permet de tester en masse vos redirections.',
-        'caching_enabled_label' => 'Caching of redirects (advanced)', // TODO
-        'caching_enabled_comment' => 'Improves the redirect engine when having a lot of redirects. ' // TODO
-            . 'CAUTION: Cache driver `file` and `database` are NOT supported. ' // TODO
-            . 'Recommended driver is `memcached` or a similar "in-memory" caching driver.', // TODO
-        'relative_paths_enabled_label' => 'Use relative paths', // TODO
-        'relative_paths_enabled_command' => 'The redirect engine will generate relative paths instead of absolute paths.', // TODO
+        'caching_enabled_label' => 'Mise en cache des redirections (avancé)',
+        'caching_enabled_comment' => 'Améliore le moteur de redirection lorsqu\'il y a beaucoup de redirections. '
+            . 'ATTENTION : Les pilotes de cache `file` et `database` ne sont pas supportés. '
+            . 'Le pilote recommandé est `memcached` ou un pilote de mise en cache "en mémoire" similaire.',
+        'relative_paths_enabled_label' => 'Utiliser des chemins relatifs',
+        'relative_paths_enabled_command' => 'Le moteur de redirection génère des chemins relatifs au lieu de chemins'
+            .' absolus.',
     ],
     'redirect' => [
         'redirect' => 'Redirect',
@@ -39,8 +40,8 @@ return [
         'from_url_placeholder' => '/source/path',
         'from_url_comment' => 'Le chemin source à trouver',
         'from_scheme' => 'Protocole source',
-        'from_scheme_comment' => 'Force la correspondance. Si HTTP est selectionné. <u>http://domain.com/path</u> va être selectionner mais'
-            . 'pas <u>https://domain.com/path</u>',
+        'from_scheme_comment' => 'Force la correspondance. Si HTTP est selectionné. <u>http://domain.com/path</u>'
+            . ' va être selectionner maispas <u>https://domain.com/path</u>',
         'to_url' => 'Chemin cible ou URL',
         'to_url_placeholder' => '/chemin/cible or http://cible.url',
         'to_url_comment' => 'Le chemin cible ou l\'url vers laquelle rediriger.',
@@ -53,7 +54,7 @@ return [
         'static_page_required_if' => 'Veuillez spécifier une Static Page de destination',
         'match_type' => 'Type de correspondance',
         'exact' => 'Exacte',
-        'regex' => 'Regular expression', // TODO
+        'regex' => 'Expression régulière',
         'placeholders' => 'Placeholders',
         'target_type' => 'Type de cible',
         'target_type_none' => 'Pas applicable',
@@ -95,28 +96,29 @@ return [
         'last_used_at' => 'Dernière utilisation à',
         'category' => 'Catégorie',
         'categories' => 'Catégories',
-        'description' => 'Description', // TODO
+        'description' => 'Description',
         'name' => 'Nom',
         'date_time' => 'Date & Heure',
         'date' => 'Date',
         'truncate_confirm' => 'Voulez-vous effacer tous les enregistrements?',
         'truncating' => 'Effacement...',
-        'warning' => 'Warning', // TODO
-        'cache_warning' => 'You have enabled caching but your caching driver is not supported. ' // TODO
-            . 'Redirects will not be cached.',
-        'general_confirm' => 'Are you sure you want to do this?', // TODO
-        'sparkline_30d' => 'Hits (30d)', // TODO
-        'has_hits' => 'Has hits', // TODO
-        'minimum_hits' => 'Minimum # hits', // TODO
-        'ignore_query_parameters' => 'Ignore query parameters', // TODO
-        'ignore_query_parameters_comment' => 'The redirect engine will ignore all query parameters.', // TODO
-        'ignore_case' => 'Ignore case', // TODO
-        'ignore_case_comment' => 'The redirect engine will do case-insensitive matching.', // TODO
-        'ignore_trailing_slash' => 'Ignore trailing slash', // TODO
-        'ignore_trailing_slash_comment' => 'The redirect engine will ignore trailing slashes.', // TODO
-        'last_used_at' => 'Last hit', // TODO
-        'updated_at' => 'Updated at', // TODO
-        'invalid_regex' => 'Invalid regular expression.', // TODO
+        'warning' => 'Attention',
+        'cache_warning' => 'Vous avez activé la mise en cache mais votre pilote de mise en cache n\'est pas'
+            . ' pris en charge. Les redirections ne seront pas mises en cache.',
+        'general_confirm' => 'Êtes-vous sûr de vouloir faire cela ?',
+        'sparkline_30d' => 'Visites (30j)',
+        'has_hits' => 'Visités',
+        'minimum_hits' => 'Minimum # visites',
+        'ignore_query_parameters' => 'Ignorer les paramètres de la requête',
+        'ignore_query_parameters_comment' => 'Le moteur de redirection ignorera tous les paramètres de la requête.',
+        'ignore_case' => 'Ignorer la casse',
+        'ignore_case_comment' => 'Le moteur de redirection ne tiendra pas compte des majuscules et des minuscules.',
+        'ignore_trailing_slash' => 'Ignorer le slash de fin',
+        'ignore_trailing_slash_comment' => 'Le moteur de redirection ne tiendra pas compte des slashs de fin.',
+        'last_used_at' => 'Dernière visite',
+        'updated_at' => 'Mis à jour le',
+        'invalid_regex' => 'Expression régulière invalide.',
+        'created_due_to_bad_request' => 'Créé en raison d\'une mauvaise requête.',
     ],
     'list' => [
         'no_records' => 'Il n\'y a pas de redirections dans cette vue.',
@@ -130,14 +132,14 @@ return [
         'to_date_comment' => 'La date d\'expiration de cette redirection. Optionnel',
         'scheduling_comment' => 'Ici vous pouvez spécifier la période durant laquelle la redirection sera disponible. '
             . 'Toutes sortes de combinaisons de dates sont possibles.',
-        'not_active_warning' => 'Redirect is not available anymore, please check \'Scheduling\' tab.', // TODO
+        'not_active_warning' => 'La redirection n\'est plus disponible, veuillez vérifier l\'onglet "Planification".',
     ],
     'test' => [
         'test_comment' => 'S\'il vous plaît, testez votre redirection avant de l\'enregistrer.',
         'input_path' => 'Chemin d\'entrée',
         'input_path_comment' => 'Le chemin d\'entrée à tester. Ex. /old-blog/category/123',
         'input_path_placeholder' => '/chemin/a/tester',
-        'input_scheme' => 'Input scheme', // TODO
+        'input_scheme' => 'Protocole',
         'test_date' => 'Date du test',
         'test_date_comment' => 'Si vous avez planifié cette redirections, '
             . 'vous pouvez la tester à une date spécifique.',
@@ -186,7 +188,7 @@ return [
         'matched_not_http_code' => 'La redirection correspond, mais pas le code HTTP! '
             . 'Attendu :expected. Reçu :received.',
         'matched_http_code' => 'Redirection trouvée, code de response HTTP :code.',
-        'executing_tests' => 'Executing tests...', // TODO
+        'executing_tests' => 'Exécution des tests...',
     ],
     'statistics' => [
         'hits_per_day' => 'Redirections par jour',
@@ -201,7 +203,9 @@ return [
         'no_data' => 'Pas de donnée',
         'top_crawlers_this_month' => 'Top :top: crawlers du mois',
         'top_redirects_this_month' => 'Top :top: redirections du mois',
-        'activity_last_three_months' => 'Activity last 3 months', // TODO
+        'activity_last_three_months' => 'Activité des 3 derniers mois',
+        'crawler_hits' => 'Robots',
+        'visitor_hits' => 'Visiteurs',
     ],
     'title' => [
         'import' => 'Import',
@@ -221,26 +225,26 @@ return [
         'from_request_log' => 'A partir des logs',
         'new_redirect' => 'Ajouter',
         'create_redirects' => 'Créer redirection',
-        'create_redirect' => 'Create redirect', // TODO
-        'create_and_new' => 'Create and new', // TODO
+        'create_redirect' => 'Créer une redirection',
+        'create_and_new' => 'Créer et nouveau',
         'delete' => 'Supprimer',
         'enable' => 'Activer',
         'disable' => 'Désactiver',
         'reorder_redirects' => 'Réordonner',
         'export' => 'Exporter',
         'import' => 'Importer',
-        'settings' => 'Settings', // TODO
+        'settings' => 'Paramètres',
         'categories' => 'Catégories',
-        'extensions' => 'Extensions', // TODO
+        'extensions' => 'Extensions',
         'new_category' => 'Nouvelle catégorie',
         'reset_statistics' => 'Réinitialisation des statistiques',
         'logs' => 'Log de redirection',
         'empty_redirect_log' => 'Vider le log de redirection',
-        'clear_cache' => 'Clear cache', // TODO
-        'stop' => 'Stop', // TODO
-        'reset_all' => 'Reset statistics for all redirects', // TODO
-        'all_redirects' => 'all redirects', // TODO
-        'bulk_actions' => 'Bulk actions', // TODO
+        'clear_cache' => 'Nettoyer le cache',
+        'stop' => 'Stop',
+        'reset_all' => 'Réinitialiser les statistiques pour toutes les redirections',
+        'all_redirects' => 'toutes les redirections',
+        'bulk_actions' => 'Actions groupées',
     ],
     'tab' => [
         'tab_general' => 'Général',
@@ -249,46 +253,47 @@ return [
         'tab_scheduling' => 'Planification',
         'tab_test_lab' => 'TestLab',
         'tab_advanced' => 'Avancé',
-        'tab_logs' => 'Event log', // TODO
+        'tab_logs' => 'Journal des événements',
     ],
     'flash' => [
         'success_created_redirects' => ':count redirections crée avec succés',
-        'static_page_redirect_not_supported' => 'Cette redirection ne peut pas être modifiée. Plugin Winter.Pages est nécessaire.',
+        'static_page_redirect_not_supported' => 'Cette redirection ne peut pas être modifiée. Plugin RainLab.Pages est nécessaire.',
         'truncate_success' => 'Toute les redirections ont été supprimées',
         'delete_selected_success' => 'Les redirections selectionnée ont été supprimées',
-        'cache_cleared_success' => 'Successfully cleared redirect cache', // TODO
-        'statistics_reset_success' => 'All statistics have been successfully reset', // TODO
-        'enabled_all_redirects_success' => 'All redirects have been successfully enabled', // TODO
-        'disabled_all_redirects_success' => 'All redirects have been successfully disabled', // TODO
-        'deleted_all_redirects_success' => 'All redirects have been successfully deleted', // TODO
+        'cache_cleared_success' => 'Le cache des redirections a été vidé avec succès',
+        'statistics_reset_success' => 'Toutes les statistiques ont été réinitialisées avec succès',
+        'enabled_all_redirects_success' => 'Toutes les redirections ont été activées avec succès',
+        'disabled_all_redirects_success' => 'Toutes les redirections ont été désactivées avec succès',
+        'deleted_all_redirects_success' => 'Toutes les redirections ont été supprimées avec succès',
     ],
     'import_export' => [
-        'match_type' => 'Match Type [match_type] (Allowed values: exact, placeholders, regex)',
-        'category_id' => 'Category [category_id]',
-        'target_type' => 'Target Type [target_type] (Allowed values: path_or_url, cms_page, static_page, none)',
-        'from_url' => 'Source path [from_url]',
-        'from_scheme' => 'Source scheme [from_scheme] (Allowed values: http, https, auto [default])',
-        'to_url' => 'Target path [to_url]',
-        'to_scheme' => 'Target scheme [to_scheme] (Allowed values: http, https, auto [default])',
-        'test_url' => 'Test URL [test_url]',
-        'cms_page' => 'CMS Page [cms_page] (Filename without .htm extension)',
-        'static_page' => 'Static Page [static_page] (Filename without .htm extension)',
-        'requirements' => 'Placeholder requirements [requirements]',
-        'status_code' => 'HTTP status code [status_code] (Possible values: 301, 302, 303, 404, 410)',
-        'hits' => 'Redirect Hits [hits]',
-        'from_date' => 'Scheduled date from [from_date] (YYYY-MM-DD or empty)',
-        'to_date' => 'Scheduled date to [to_date] (YYYY-MM-DD or empty)',
-        'sort_order' => 'Priority [sort_order]',
-        'is_enabled' => 'Enabled [is_enabled] (1 = enable redirect, 0 = disable redirect [default])',
-        'ignore_query_parameters' => 'Ignore Query Parameters [ignore_query_parameters] (1 = yes, 0 = no [default])',
-        'ignore_case' => 'Ignore Case [ignore_case] (1 = yes, 0 = no [default])',
-        'ignore_trailing_slash' => 'Ignore Trailing Slashes [ignore_trailing_slash] (1 = yes, 0 = no [default])',
-        'test_lab' => 'Test Lab [test_lab] (1 = enable Test Lab, 0 = disable TestLab [default])',
-        'test_lab_path' => 'Test Lab path [test_lab_path] (required if match_type = placeholders)',
-        'system' => 'System [system] (1 = system generated redirect, 0 = user generated redirect [default])',
+        'match_type' => 'Type de correspondance [match_type] (Valeurs autorisées: exact, placeholders, regex)',
+        'category_id' => 'Categorie [category_id]',
+        'target_type' => 'Type de cible [target_type] (Valeurs autorisées: path_or_url, cms_page, static_page, none)',
+        'from_url' => 'Chemin source [from_url]',
+        'from_scheme' => 'Protocole source [from_scheme] (Valeurs autorisées: http, https, auto [default])',
+        'to_url' => 'Chemin cible ou URL [to_url]',
+        'to_scheme' => 'Protocole cible [to_scheme] (Valeurs autorisées: http, https, auto [default])',
+        'test_url' => 'URL de test [test_url]',
+        'cms_page' => 'Page CMS [cms_page] (Nom de fichier sans extension .htm)',
+        'static_page' => 'Static Page [static_page] (Nom de fichier sans extension .htm)',
+        'requirements' => 'Exigences des `placeholders` [requirements]',
+        'status_code' => 'Code de statut HTTP [status_code] (Valeurs possibles: 301, 302, 303, 404, 410)',
+        'hits' => 'Nombre de visites [hits]',
+        'from_date' => 'Planifié de [from_date] (YYYY-MM-DD ou vide)',
+        'to_date' => 'Planifié à [to_date] (YYYY-MM-DD ou vide)',
+        'sort_order' => 'Priorité [sort_order]',
+        'is_enabled' => 'Activé [is_enabled] (1 = activer la redirection, 0 = désactiver la redirection [default])',
+        'ignore_query_parameters' => 'Ignorer les paramètres de requête [ignore_query_parameters] (1 = oui, 0 = non [default])',
+        'ignore_case' => 'Ignorer la casses [ignore_case] (1 = oui, 0 = non [default])',
+        'ignore_trailing_slash' => 'Ignorer les slashes de fin [ignore_trailing_slash] (1 = oui, 0 = non [default])',
+        'test_lab' => 'Test Lab [test_lab] (1 = active Test Lab, 0 = désactive TestLab [default])',
+        'test_lab_path' => 'Chemin Test Lab [test_lab_path] (requis si match_type = placeholders)',
+        'system' => 'Système [system] (1 = redirection générée par le système, 0 = redirection générée par'
+            .' l\'utilisateur [default])',
         'description' => 'Description [description]',
-        'last_used_at' => 'Last Used At [last_used_at] (YYYY-MM-DD HH:MM:SS or empty)',
-        'created_at' => 'Created At [created_at] (YYYY-MM-DD HH:MM:SS or empty)',
-        'updated_at' => 'Updated At [updated_at] (YYYY-MM-DD HH:MM:SS or empty)',
+        'last_used_at' => 'Dernière utilisation [last_used_at] (YYYY-MM-DD HH:MM:SS ou vide)',
+        'created_at' => 'Créé le [created_at] (YYYY-MM-DD HH:MM:SS ou vide)',
+        'updated_at' => 'Mis à jour le [updated_at] (YYYY-MM-DD HH:MM:SS ou vide)',
     ],
 ];
