@@ -78,3 +78,10 @@
 "4.0.3":
     - "Added support for forwarding query string params"
     - 20220728_0014_add_forward_query_parameters.php
+"4.0.4":
+    - "Match named regex groups to CMS Page parameters"
+    - "Add to_url to the list of available columns"
+    - "Fixed issue where Save & Close did not actually close"
+    - "Improved Russian translation"
+    - "Improved French translation"
+    - "Added Polish translation"
