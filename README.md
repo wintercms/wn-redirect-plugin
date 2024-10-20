@@ -1,13 +1,27 @@
-# Redirect plugin
+# Redirect Plugin
 
 ![Banner](https://github.com/wintercms/wn-redirect-plugin/raw/main/.github/banner.png?raw=true)
-
-Manage all your HTTP redirects with an easy to use GUI. This is an essential SEO plugin. With this plugin installed you can manage redirects directly from Winter's beautiful interface. Many webmasters and SEO specialists use redirects to optimise their website for search engines.
 
 [![Version](https://img.shields.io/github/v/release/wintercms/wn-redirect-plugin?sort=semver&style=flat-square)](https://github.com/wintercms/wn-redirect-plugin/releases)
 ![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/winter/wn-redirect-plugin?style=flat-square)
 [![License](https://img.shields.io/github/license/wintercms/wn-redirect-plugin?label=open%20source&style=flat-square)](https://packagist.org/packages/winter/wn-redirect-plugin)
 [![Discord](https://img.shields.io/discord/816852513684193281?label=discord&style=flat-square)](https://discord.gg/D5MFSPH6Ux)
+
+Manage all your HTTP redirects with an easy to use GUI. This is an essential SEO plugin. With this plugin installed you can manage redirects directly from Winter's beautiful interface. Many webmasters and SEO specialists use redirects to optimise their website for search engines.
+
+## Installation
+
+This plugin is available for installation via [Composer](http://getcomposer.org/).
+
+```bash
+composer require winter/wn-redirect-plugin
+```
+
+After installing the plugin you will need to run the migrations and (if you are using a [public folder](https://wintercms.com/docs/develop/docs/setup/configuration#using-a-public-folder)) [republish your public directory](https://wintercms.com/docs/develop/docs/console/setup-maintenance#mirror-public-files).
+
+```bash
+php artisan migrate
+```
 
 ## Features
 
