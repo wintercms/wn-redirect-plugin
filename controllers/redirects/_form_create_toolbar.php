@@ -1,19 +1,3 @@
-<?php Block::put('breadcrumb'); ?>
-    <ul>
-        <li><a href="<?= Backend::url('winter/redirect/redirects'); ?>"><?= e(trans('winter.redirect::lang.navigation.menu_label')); ?></a></li>
-        <li><?= e($this->pageTitle); ?></li>
-    </ul>
-<?php Block::endPut(); ?>
-
-<?php if (!$this->fatalError): ?>
-
-    <?= Form::open(['class' => 'layout']); ?>
-
-        <div class="layout-row">
-            <?= $this->formRender(); ?>
-        </div>
-
-        <div class="form-buttons">
             <div class="loading-indicator-container">
                 <button
                     type="submit"
@@ -45,13 +29,3 @@
                     <?= e(trans('backend::lang.form.or')); ?> <a href="<?= Backend::url('winter/redirect/redirects'); ?>"><?= e(trans('backend::lang.form.cancel')); ?></a>
                 </span>
             </div>
-        </div>
-
-    <?= Form::close(); ?>
-
-<?php else: ?>
-
-    <p class="flash-message static error"><?= e($this->fatalError); ?></p>
-    <p><a href="<?= Backend::url('winter/redirect/redirects'); ?>" class="btn btn-default"><?= e(trans('winter.redirect::lang.redirect.return_to_redirects')); ?></a></p>
-
-<?php endif ?>
