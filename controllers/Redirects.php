@@ -110,7 +110,7 @@ final class Redirects extends Controller
 
     public function create()
     {
-        $this->formLayout = 'sidebar';
+        $this->formLayout = 'standard';
 
         parent::create();
     }
