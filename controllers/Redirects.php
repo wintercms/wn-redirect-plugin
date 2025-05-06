@@ -177,18 +177,6 @@ final class Redirects extends Controller
         return $this->cacheManager;
     }
 
-    public function create_onSave(?string $context = null): RedirectResponse
-    {
-        /** @noinspection PhpPossiblePolymorphicInvocationInspection */
-        $redirect = parent::create_onSave($context);
-
-        if ($this->request->has('new')) {
-            return Backend::redirect('winter/redirect/redirects/create');
-        }
-
-        return $redirect;
-    }
-
     public function index_onDelete(): array
     {
         $redirectIds = $this->getCheckedIds();
