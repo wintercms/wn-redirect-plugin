@@ -11,10 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Unit Tests / PHP ${{ matrix.phpVersion }} / Winter ${{ matrix.winterRelease }}
     strategy:
-      max-parallel: 3
+      max-parallel: 4
       matrix:
-        phpVersion: ['8.0', '8.1', '8.2']
-      fail-fast: false
+        phpVersion: ['8.1', '8.2', '8.3', '8.4']
     steps:
       - name: Setup Winter
         uses: wintercms/setup-winter-action@v1
