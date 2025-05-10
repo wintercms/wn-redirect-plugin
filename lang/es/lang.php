@@ -221,7 +221,6 @@ return [
         'new_redirect' => 'Nueva redirección', // changed since 2.0.3
         'create_redirects' => 'Crear redirecciones', // since 2.0.3
         'create_redirect' => 'Crear redirección',
-        'create_and_new' => 'Crear y nuevo',
         'delete' => 'Borrar',
         'enable' => 'Activar',
         'disable' => 'Desactivar',

@@ -6,7 +6,6 @@ namespace Winter\Redirect\Controllers;
 
 use Backend\Classes\Controller;
 use Backend\Models\BrandSetting;
-use BackendMenu;
 use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
 use JsonException;
@@ -24,8 +23,6 @@ final class Statistics extends Controller
     public function __construct()
     {
         parent::__construct();
-
-        BackendMenu::setContext('Winter.Redirect', 'redirect', 'statistics');
 
         $this->pageTitle = 'winter.redirect::lang.title.statistics';
 

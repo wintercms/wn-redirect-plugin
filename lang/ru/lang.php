@@ -224,7 +224,6 @@ return [
         'new_redirect' => 'Новый редирект',
         'create_redirects' => 'Создание редиректов',
         'create_redirect' => 'Создать редирект',
-        'create_and_new' => 'Создать и новый',
         'delete' => 'Удалить',
         'enable' => 'Включить',
         'disable' => 'Отключить',

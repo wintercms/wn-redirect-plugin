@@ -53,6 +53,8 @@ final class Redirects extends Controller
 
     public string $formConfig = 'config_form.yaml';
 
+    public $formLayout = 'sidebar';
+
     public array $listConfig = [
         'list' => 'config_list.yaml',
         'requestLog' => 'request-log/config_list.yaml',
@@ -106,14 +108,19 @@ final class Redirects extends Controller
         }
     }
 
+    public function create()
+    {
+        $this->formLayout = 'standard';
+
+        parent::create();
+    }
+
     /**
      * @throws ModelNotFoundException
      * @noinspection PhpStrictTypeCheckingInspection
      */
     public function update($recordId = null, $context = null)
     {
-        $this->bodyClass = 'compact-container';
-
         /** @var Models\Redirect $redirect */
         $redirect = Models\Redirect::query()->findOrFail($recordId);
 
@@ -168,18 +175,6 @@ final class Redirects extends Controller
     public function getCacheManager(): CacheManagerInterface
     {
         return $this->cacheManager;
-    }
-
-    public function create_onSave(?string $context = null): RedirectResponse
-    {
-        /** @noinspection PhpPossiblePolymorphicInvocationInspection */
-        $redirect = parent::create_onSave($context);
-
-        if ($this->request->has('new')) {
-            return Backend::redirect('winter/redirect/redirects/create');
-        }
-
-        return $redirect;
     }
 
     public function index_onDelete(): array

@@ -216,7 +216,6 @@ return [
         'new_redirect' => 'Ny ompekning',
         'create_redirects' => 'Skapa ompekning',
         'create_redirect' => 'Create redirect', // TODO
-        'create_and_new' => 'Create and new', // TODO
         'delete' => 'Radera',
         'enable' => 'Aktivera',
         'disable' => 'Inaktivera',

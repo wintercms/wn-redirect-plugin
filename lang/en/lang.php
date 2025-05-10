@@ -224,7 +224,6 @@ return [
         'new_redirect' => 'New redirect',
         'create_redirects' => 'Create redirects',
         'create_redirect' => 'Create redirect',
-        'create_and_new' => 'Create and new',
         'delete' => 'Delete',
         'enable' => 'Enable',
         'disable' => 'Disable',
