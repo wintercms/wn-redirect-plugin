@@ -209,11 +209,6 @@ final class Redirect extends Model
         return $this->attributes['match_type'] === self::TYPE_REGEX;
     }
 
-    public function clients(): HasMany
-    {
-        return $this->hasMany(Client::class);
-    }
-
     public function setSortableOrder($itemIds, array $itemOrders = null): void
     {
         $itemIds = array_map(static function ($itemId) {
