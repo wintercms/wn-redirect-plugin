@@ -224,7 +224,6 @@ return [
         'new_redirect' => 'Nowe przekierowanie',
         'create_redirects' => 'Utwórz przekierowania',
         'create_redirect' => 'Utwórz przekierowanie',
-        'create_and_new' => 'Utwórz i nowe',
         'delete' => 'Usuń',
         'enable' => 'Włącz',
         'disable' => 'Wyłącz',

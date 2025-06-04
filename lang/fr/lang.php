@@ -226,7 +226,6 @@ return [
         'new_redirect' => 'Ajouter',
         'create_redirects' => 'Créer redirection',
         'create_redirect' => 'Créer une redirection',
-        'create_and_new' => 'Créer et nouveau',
         'delete' => 'Supprimer',
         'enable' => 'Activer',
         'disable' => 'Désactiver',

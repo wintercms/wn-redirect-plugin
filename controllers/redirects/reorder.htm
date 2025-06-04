@@ -1,8 +1,0 @@
-<?php Block::put('breadcrumb'); ?>
-    <ul>
-        <li><a href="<?= Backend::url('winter/redirect/redirects'); ?>"><?= e(trans('winter.redirect::lang.navigation.menu_label')); ?></a></li>
-        <li><?= e(trans('winter.redirect::lang.buttons.reorder_redirects')); ?></li>
-    </ul>
-<?php Block::endPut(); ?>
-
-<?= $this->reorderRender(); ?>

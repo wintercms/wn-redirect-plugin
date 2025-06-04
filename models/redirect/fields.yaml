@@ -227,6 +227,7 @@ tabs:
         tab_logs:
             tab: winter.redirect::lang.tab.tab_logs
             type: partial
+            path: field_tab_logs
         #
         # Advanced
         #

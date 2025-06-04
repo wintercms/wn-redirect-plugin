@@ -6,7 +6,6 @@ namespace Winter\Redirect\Controllers;
 
 use Backend\Behaviors;
 use Backend\Classes\Controller;
-use BackendMenu;
 
 /**
  * @mixin Behaviors\FormController
@@ -20,15 +19,11 @@ final class Categories extends Controller
     ];
 
     public $requiredPermissions = ['winter.redirect.access_redirects'];
-    public string $formConfig = 'config_form.yaml';
-    public string $listConfig = 'config_list.yaml';
 
     public function __construct()
     {
         parent::__construct();
 
         $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
-
-        BackendMenu::setContext('Winter.Redirect', 'redirect', 'categories');
     }
 }
