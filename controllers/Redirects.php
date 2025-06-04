@@ -51,18 +51,12 @@ final class Redirects extends Controller
         Behaviors\RelationController::class,
     ];
 
-    public string $formConfig = 'config_form.yaml';
-
     public $formLayout = 'sidebar';
 
     public array $listConfig = [
         'list' => 'config_list.yaml',
         'requestLog' => 'request-log/config_list.yaml',
     ];
-
-    public string $reorderConfig = 'config_reorder.yaml';
-    public string $importExportConfig = 'config_import_export.yaml';
-    public string $relationConfig = 'config_relation.yaml';
 
     public $requiredPermissions = ['winter.redirect.access_redirects'];
 
