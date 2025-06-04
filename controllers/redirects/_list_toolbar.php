@@ -20,53 +20,86 @@
         <?= e(trans('winter.redirect::lang.buttons.reorder_redirects')); ?>
     </a>
 
-    <div class="btn-group" id="checkBoxTriggeredButtons">
-        <button class="btn btn-default wn-icon-trash-o"
-                disabled=""
-                onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
-                data-request="onDelete"
-                data-request-confirm="<?= e(trans('winter.redirect::lang.redirect.delete_confirm')); ?>"
-                data-trigger-action="enable"
-                data-trigger=".control-list input[type=checkbox]"
-                data-trigger-condition="checked"
-                data-request-success="$('#checkBoxTriggeredButtons button').prop('disabled', true)"
-                data-stripe-load-indicator>
-            <?= e(trans('winter.redirect::lang.buttons.delete')); ?>
-        </button>
-        <button class="btn btn-default wn-icon-check-square-o"
-                disabled=""
-                onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
-                data-request="onEnable"
-                data-trigger-action="enable"
-                data-trigger=".control-list input[type=checkbox]"
-                data-trigger-condition="checked"
-                data-request-success="$('#checkBoxTriggeredButtons button').prop('disabled', true)"
-                data-stripe-load-indicator>
-            <?= e(trans('winter.redirect::lang.buttons.enable')); ?>
-        </button>
-        <button class="btn btn-default wn-icon-square-o"
-                disabled=""
-                onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
-                data-request="onDisable"
-                data-trigger-action="enable"
-                data-trigger=".control-list input[type=checkbox]"
-                data-trigger-condition="checked"
-                data-request-success="$('#checkBoxTriggeredButtons button').prop('disabled', true)"
-                data-stripe-load-indicator>
-            <?= e(trans('winter.redirect::lang.buttons.disable')); ?>
-        </button>
-    </div>
-    <button class="btn btn-default wn-icon-undo"
-            disabled=""
+    <div class="btn-group dropdown dropdown-fixed" data-control="bulk-actions">
+        <button
+            data-primary-button
+            type="button"
+            class="btn btn-default btn-bulk-action"
+            data-request="onEnable"
             onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
-            data-request="onResetStatistics"
             data-trigger-action="enable"
             data-trigger=".control-list input[type=checkbox]"
             data-trigger-condition="checked"
-            data-request-success="$('#checkBoxTriggeredButtons button').prop('disabled', true)"
-            data-stripe-load-indicator>
-        <?= e(trans('winter.redirect::lang.buttons.reset_statistics')); ?>
-    </button>
+            data-request-success="$('.btn-bulk-action').prop('disabled', true)"
+            data-stripe-load-indicator
+        >
+            <?= e(trans('winter.redirect::lang.buttons.enable')); ?>
+        </button>
+        <button
+            type="button"
+            class="btn btn-default dropdown-toggle btn-bulk-action"
+            data-trigger-action="enable"
+            data-trigger=".control-list input[type=checkbox]"
+            data-trigger-condition="checked"
+            data-toggle="dropdown"
+        >
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" data-dropdown-title="<?= e(trans('winter.redirect::lang.buttons.bulk_actions')); ?>">
+            <li>
+                <a
+                    href="javascript:;"
+                    class="wn-icon-check-square-o"
+                    onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+                    data-request="onEnable"
+                    data-request-success="$('.btn-bulk-action').prop('disabled', true)"
+                    data-stripe-load-indicator
+                >
+                    <?= e(trans('winter.redirect::lang.buttons.enable')); ?>
+                </a>
+            </li>
+            <li>
+                <a
+                    href="javascript:;"
+                    class="wn-icon-square-o"
+                    onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+                    data-request="onDisable"
+                    data-request-success="$('.btn-bulk-action').prop('disabled', true)"
+                    data-stripe-load-indicator
+                >
+                    <?= e(trans('winter.redirect::lang.buttons.disable')); ?>
+                </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a
+                    href="javascript:;"
+                    class="wn-icon-undo"
+                    onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+                    data-request="onResetStatistics"
+                    data-request-success="$('.btn-bulk-action').prop('disabled', true)"
+                    data-stripe-load-indicator
+                    data-confirm="<?= e(trans('winter.redirect::lang.redirect.general_confirm')) ?>"
+                >
+                    <?= e(trans('winter.redirect::lang.buttons.reset_statistics')); ?>
+                </a>
+            </li>
+            <li role="separator" class="divider"></li>
+            <li>
+                <a
+                    href="javascript:;"
+                    class="wn-icon-trash-o"
+                    onclick="$(this).data('request-data', { checked: $('.control-list').listWidget('getChecked') })"
+                    data-request="onDelete"
+                    data-request-success="$('.btn-bulk-action').prop('disabled', true)"
+                    data-stripe-load-indicator
+                    data-confirm="<?= e(trans('winter.redirect::lang.redirect.delete_confirm')); ?>"
+                >
+                    <?= e(trans('winter.redirect::lang.buttons.delete')); ?>
+                </a>
+            </li>
+        </ul>
+    </div>
     <button class="btn btn-default wn-icon-ellipsis-h"
             data-control="popup"
             data-handler="onLoadActions"
