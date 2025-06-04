@@ -19,8 +19,6 @@ final class Categories extends Controller
     ];
 
     public $requiredPermissions = ['winter.redirect.access_redirects'];
-    public string $formConfig = 'config_form.yaml';
-    public string $listConfig = 'config_list.yaml';
 
     public function __construct()
     {
