@@ -8,7 +8,6 @@ namespace Winter\Redirect\Controllers;
 
 use Backend\Behaviors\ListController;
 use Backend\Classes\Controller;
-use BackendMenu;
 use Illuminate\Contracts\Translation\Translator;
 use Illuminate\Http\Request;
 use Winter\Storm\Flash\FlashBag;
@@ -26,7 +25,6 @@ final class Logs extends Controller
     ];
 
     public $requiredPermissions = ['winter.redirect.access_redirects'];
-    public string $listConfig = 'config_list.yaml';
     private Request $request;
     private Translator $translator;
     private FlashBag $flash;
@@ -35,8 +33,6 @@ final class Logs extends Controller
     public function __construct(Request $request, Translator $translator, LoggerInterface $log)
     {
         parent::__construct();
-
-        BackendMenu::setContext('Winter.Redirect', 'redirect', 'logs');
 
         $this->addCss('/plugins/winter/redirect/assets/css/redirect.css');
 

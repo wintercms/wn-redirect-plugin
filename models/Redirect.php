@@ -14,7 +14,6 @@ use Winter\Redirect\Classes\OptionHelper;
 use Winter\Storm\Support\Arr;
 use Winter\Storm\Database\Builder;
 use Winter\Storm\Database\Model;
-use Winter\Storm\Database\Relations\HasMany;
 use Winter\Storm\Database\Traits\Sortable;
 use Winter\Storm\Database\Traits\Validation;
 
@@ -346,7 +345,6 @@ final class Redirect extends Model
                 $this->setAttribute('to_url', null);
                 $this->setAttribute('cms_page', null);
                 break;
-
         }
     }
 

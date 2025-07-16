@@ -222,7 +222,6 @@ return [
         'new_redirect' => 'Nieuwe redirect',
         'create_redirects' => 'Maak redirects',
         'create_redirect' => 'Maak redirect',
-        'create_and_new' => 'Maken en nieuw',
         'delete' => 'Verwijderen',
         'enable' => 'Inschakelen',
         'disable' => 'Uitschakelen',
