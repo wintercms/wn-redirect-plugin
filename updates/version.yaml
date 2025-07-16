@@ -88,3 +88,4 @@
 "4.0.5":
     - "Improved Russian translation"
     - "Fix clients relation conflict"
+"4.1.0": "Switch to using new controller behavior default backend views added in Winter v1.2.8+"
