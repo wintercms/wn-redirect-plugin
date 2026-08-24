@@ -43,3 +43,19 @@
 .report-widget .loading-indicator {
     background: transparent;
 }
+
+/*
+ * Dark mode. The report-widget panels carry a light-grey drop shadow that
+ * renders as a bright halo against the backend dark scheme, and the widget
+ * headings use a light cyan divider. Scoped to the dark selector set by
+ * Winter.TailwindUI.
+ */
+html[data-color-scheme="dark"] .row .report-widget {
+    -webkit-box-shadow: 3px 3px 11px 0 rgba(1, 4, 9, 0.6);
+    -moz-box-shadow: 3px 3px 11px 0 rgba(1, 4, 9, 0.6);
+    box-shadow: 3px 3px 11px 0 rgba(1, 4, 9, 0.6);
+}
+
+html[data-color-scheme="dark"] .row .report-widget h3 {
+    border-bottom-color: #30363d;
+}
