@@ -15,6 +15,7 @@ use Winter\Redirect\Classes\Contracts\PublishManagerInterface;
 use Winter\Redirect\Classes\Observers;
 use Winter\Redirect\Classes\RedirectMiddleware;
 use Winter\Redirect\Console\PublishRedirectsCommand;
+use Winter\Redirect\Console\ScaffoldCommand;
 use Winter\Redirect\Models;
 use Winter\Redirect\ReportWidgets;
 
@@ -299,6 +300,7 @@ final class Plugin extends PluginBase
     private function registerConsoleCommands(): void
     {
         $this->registerConsoleCommand('winter.redirect.publish-redirects', PublishRedirectsCommand::class);
+        $this->registerConsoleCommand('winter.redirect.scaffold', ScaffoldCommand::class);
     }
 
     private function registerCustomValidators(): void
