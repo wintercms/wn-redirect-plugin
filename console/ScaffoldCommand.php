@@ -391,13 +391,17 @@ class ScaffoldCommand extends Command
             'Googlebot', 'bingbot', 'YandexBot', 'DuckDuckBot', 'facebookexternalhit',
         ], 0, 5);
 
-        // Only enabled, active redirects realistically accrue hits; weight the
-        // "featured" first few so the Top-redirects chart has a clear ranking.
-        $eligible = array_values(array_filter($redirects, static function (Redirect $r): bool {
-            return (bool) $r->is_enabled;
-        }));
-
         $now = Carbon::now();
+
+        // Only enabled redirects whose active date window (if any) currently
+        // contains "now" realistically accrue hits — so an expired scheduled
+        // redirect isn't given current-month hits. Weight the "featured" first
+        // few so the Top-redirects chart has a clear ranking.
+        $eligible = array_values(array_filter($redirects, static function (Redirect $r) use ($now): bool {
+            return (bool) $r->is_enabled
+                && ($r->from_date === null || $r->from_date->lte($now))
+                && ($r->to_date === null || $r->to_date->gte($now));
+        }));
         $clientRows = [];
         $logAgg = []; // [redirectId] => ['hits' => n, 'log' => [...]]
         $counter = 0;
