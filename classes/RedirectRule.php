@@ -7,6 +7,7 @@ namespace Winter\Redirect\Classes;
 use Carbon\Carbon;
 use Carbon\Exceptions\InvalidFormatException;
 use JsonException;
+use Winter\Redirect\Classes\Util\Host;
 use Winter\Redirect\Models\Redirect;
 
 final class RedirectRule
@@ -15,6 +16,7 @@ final class RedirectRule
     private string $matchType;
     private string $targetType;
     private string $fromUrl;
+    private ?string $fromHost;
     private string $fromScheme;
     private string $toUrl;
     private string $toScheme;
@@ -37,6 +39,7 @@ final class RedirectRule
         $this->matchType = (string) ($attributes['match_type'] ?? null);
         $this->targetType = (string) ($attributes['target_type'] ?? null);
         $this->fromUrl = (string) ($attributes['from_url'] ?? null);
+        $this->fromHost = Host::normalize($attributes['from_host'] ?? null);
         $this->fromScheme = (string) ($attributes['from_scheme'] ?? null);
         $this->toUrl = (string) ($attributes['to_url'] ?? null);
         $this->toScheme = (string) ($attributes['to_scheme'] ?? null);
@@ -135,6 +138,14 @@ final class RedirectRule
     public function getFromUrl(): string
     {
         return $this->fromUrl;
+    }
+
+    /**
+     * The host this rule is limited to, or null when it applies to every host.
+     */
+    public function getFromHost(): ?string
+    {
+        return $this->fromHost;
     }
 
     public function getFromScheme(): string

@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use Symfony\Component\Stopwatch\Stopwatch;
 use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
 use Winter\Redirect\Classes\Contracts\TesterInterface;
+use Winter\Redirect\Classes\Util\Host;
 use Winter\Redirect\Models\Settings;
 
 abstract class TesterBase implements TesterInterface
@@ -24,11 +25,15 @@ abstract class TesterBase implements TesterInterface
 
     protected string $testUrl;
     protected string $testPath;
+    protected ?string $testHost;
 
-    public function __construct(string $testPath)
+    public function __construct(string $testPath, ?string $testHost = null)
     {
         $this->testPath = $testPath;
-        $this->testUrl = url($testPath);
+        $this->testHost = Host::normalize($testHost);
+        $this->testUrl = $this->testHost === null
+            ? url($testPath)
+            : self::buildUrlForHost($this->testHost, $testPath);
     }
 
     final public function execute(): TesterResult
@@ -54,6 +59,27 @@ abstract class TesterBase implements TesterInterface
     public function getTestUrl(): string
     {
         return $this->testUrl;
+    }
+
+    /**
+     * The host this test runs against, or null when the rule is not limited to one.
+     */
+    public function getTestHost(): ?string
+    {
+        return $this->testHost;
+    }
+
+    /**
+     * Rebuild the test URL on the rule's own host, keeping the scheme and port of this install so
+     * a local or non-standard-port site is still reachable when the tester follows the URL.
+     */
+    private static function buildUrlForHost(string $host, string $testPath): string
+    {
+        $base = parse_url(url('/'));
+        $scheme = $base['scheme'] ?? 'http';
+        $port = isset($base['port']) ? ':' . $base['port'] : '';
+
+        return $scheme . '://' . $host . $port . '/' . ltrim($testPath, '/');
     }
 
     abstract protected function test(): TesterResult;

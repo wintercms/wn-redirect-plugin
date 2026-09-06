@@ -30,6 +30,7 @@ final class RedirectImport extends ImportModel
         'to_date',
         'last_used_at',
         'to_url',
+        'from_host',
         'test_url',
         'cms_page',
         'static_page',

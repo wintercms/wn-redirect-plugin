@@ -4,6 +4,7 @@ columns:
     category_id: winter.redirect::lang.import_export.category_id
     target_type: winter.redirect::lang.import_export.target_type
     from_url: winter.redirect::lang.import_export.from_url
+    from_host: winter.redirect::lang.import_export.from_host
     from_scheme: winter.redirect::lang.import_export.from_scheme
     to_url: winter.redirect::lang.import_export.to_url
     to_scheme: winter.redirect::lang.import_export.to_scheme

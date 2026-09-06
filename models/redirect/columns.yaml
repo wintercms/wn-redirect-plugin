@@ -5,8 +5,13 @@
 columns:
     from_url:
         label: winter.redirect::lang.redirect.from_url
-        type: redirect_from_url
+        type: redirect_source_url
         searchable: true
+    from_host:
+        label: winter.redirect::lang.redirect.from_host
+        type: text
+        searchable: true
+        invisible: true
     to_url:
         label: winter.redirect::lang.redirect.to_url
         type: redirect_from_url

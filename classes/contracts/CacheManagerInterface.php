@@ -39,7 +39,7 @@ interface CacheManagerInterface
      * @param string $scheme
      * @return string
      */
-    public function cacheKey(string $requestPath, string $scheme): string;
+    public function cacheKey(string $requestPath, string $scheme, ?string $host = null): string;
 
     /**
      * Flush cache storage.

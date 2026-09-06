@@ -26,6 +26,7 @@ use Winter\Redirect\Classes\Observers\RedirectObserver;
 use Winter\Redirect\Classes\RedirectManager;
 use Winter\Redirect\Classes\RedirectRule;
 use Winter\Redirect\Classes\StatisticsHelper;
+use Winter\Redirect\Classes\Util\Host;
 use Winter\Redirect\Models;
 use Winter\Storm\Support\Arr;
 use Winter\Storm\Database\Builder;
@@ -401,15 +402,28 @@ final class Redirects extends Controller
      */
     public function onTest(): array
     {
-        $inputPath = $this->request->get('inputPath');
+        $inputPath = (string) $this->request->get('inputPath');
         $redirect = new Models\Redirect($this->request->get('Redirect'));
+
+        // The rule has not been saved yet, so apply the same source normalisation a save would.
+        $redirect->normalizeSourceUrl();
+
+        // A full URL can be tested as-is; a bare path is tested against the host the rule is
+        // limited to, so a host restriction does not make every test report "no match".
+        [$testHost, $testPath] = Host::splitUrl($inputPath);
+        $testHost ??= Host::normalize((string) $redirect->getAttribute('from_host'))
+            ?? $this->request->getHost();
 
         try {
             $rule = RedirectRule::createWithModel($redirect);
             $manager = RedirectManager::createWithRule($rule);
             $testDate = Carbon::createFromFormat('Y-m-d', $this->request->get('test_date', date('Y-m-d')));
             $manager->setMatchDate($testDate);
-            $match = $manager->match($inputPath, $this->request->get('test_scheme', $this->request->getScheme()));
+            $match = $manager->match(
+                $testPath,
+                $this->request->get('test_scheme', $this->request->getScheme()),
+                $testHost
+            );
         } catch (NoMatchForRequest | InvalidScheme | UnableToLoadRules $exception) {
             $match = false;
         } catch (Throwable $throwable) {
@@ -420,6 +434,7 @@ final class Redirects extends Controller
             '#testResult' => $this->makePartial('redirect_test_result', [
                 'match' => $match,
                 'url' => $match && isset($manager) ? $manager->getLocation($match) : '',
+                'testHost' => $testHost,
             ]),
         ];
     }

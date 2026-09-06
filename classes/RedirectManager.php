@@ -23,6 +23,7 @@ use Winter\Redirect\Classes\Contracts\CacheManagerInterface;
 use Winter\Redirect\Classes\Contracts\RedirectConditionInterface;
 use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
 use Winter\Redirect\Classes\Exceptions;
+use Winter\Redirect\Classes\Util\Host;
 use Winter\Redirect\Classes\Util\Str;
 use Winter\Redirect\Models;
 use Winter\Storm\Router\UrlGenerator;
@@ -96,7 +97,7 @@ final class RedirectManager implements RedirectManagerInterface
      * @throws Exceptions\NoMatchForRequest
      * @throws Exceptions\UnableToLoadRules
      */
-    public function match(string $requestPath, string $scheme): RedirectRule
+    public function match(string $requestPath, string $scheme, ?string $host = null): RedirectRule
     {
         if (!in_array($scheme, self::$schemes, true)) {
             throw Exceptions\InvalidScheme::withScheme($scheme);
@@ -108,7 +109,7 @@ final class RedirectManager implements RedirectManagerInterface
 
         foreach ((array) $this->rules as $rule) {
             try {
-                return $this->matchesRule($rule, $requestPath, $scheme);
+                return $this->matchesRule($rule, $requestPath, $scheme, $host);
             } catch (Exceptions\NoMatchForRule $exception) {
                 continue;
             }
@@ -117,9 +118,9 @@ final class RedirectManager implements RedirectManagerInterface
         throw Exceptions\NoMatchForRequest::withRequestPath($requestPath, $scheme);
     }
 
-    public function matchCached(string $requestPath, string $scheme): ?RedirectRule
+    public function matchCached(string $requestPath, string $scheme, ?string $host = null): ?RedirectRule
     {
-        $cacheKey = $this->cacheManager->cacheKey($requestPath, $scheme);
+        $cacheKey = $this->cacheManager->cacheKey($requestPath, $scheme, $host);
 
         if ($this->cacheManager->has($cacheKey)) {
             $cachedItem = $this->cacheManager->get($cacheKey);
@@ -136,7 +137,7 @@ final class RedirectManager implements RedirectManagerInterface
         }
 
         try {
-            $matchedRule = $this->match($requestPath, $scheme);
+            $matchedRule = $this->match($requestPath, $scheme, $host);
         } catch (Exceptions\NoMatchForRequest | Exceptions\InvalidScheme | Exceptions\UnableToLoadRules $exception) {
             $matchedRule = null;
         }
@@ -388,9 +389,14 @@ final class RedirectManager implements RedirectManagerInterface
     /**
      * @throws Exceptions\NoMatchForRule
      */
-    private function matchesRule(RedirectRule $rule, string $requestPath, string $scheme): RedirectRule
-    {
+    private function matchesRule(
+        RedirectRule $rule,
+        string $requestPath,
+        string $scheme,
+        ?string $host = null
+    ): RedirectRule {
         if (!$this->matchesScheme($rule, $scheme)
+            || !$this->matchesHost($rule, $host)
             || !$this->matchesPeriod($rule)
         ) {
             throw Exceptions\NoMatchForRule::withRedirectRule($rule, $requestPath, $scheme);
@@ -535,6 +541,15 @@ final class RedirectManager implements RedirectManagerInterface
         }
 
         return $rule->getFromScheme() === $scheme;
+    }
+
+    /**
+     * A rule with no source host applies to every host, which is how every rule behaved before
+     * source hosts existed. A null request host only satisfies such an unrestricted rule.
+     */
+    private function matchesHost(RedirectRule $rule, ?string $host): bool
+    {
+        return Host::matches($rule->getFromHost(), $host);
     }
 
     private function findReplacementForPlaceholder(RedirectRule $rule, string $placeholder): ?string

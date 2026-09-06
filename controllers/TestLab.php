@@ -151,12 +151,15 @@ final class TestLab extends Controller
     {
         $testPath = $this->getTestPath($redirect);
 
+        // A rule limited to a host has to be tested on that host, or every one of its tests fails.
+        $testHost = $redirect->getAttribute('from_host');
+
         return [
-            'maxRedirectsResult' => (new Testers\RedirectLoop($testPath))->execute(),
-            'matchedRedirectResult' => (new Testers\RedirectMatch($testPath))->execute(),
-            'responseCodeResult' => (new Testers\ResponseCode($testPath))->execute(),
-            'redirectCountResult' => (new Testers\RedirectCount($testPath))->execute(),
-            'finalDestinationResult' => (new Testers\RedirectFinalDestination($testPath))->execute(),
+            'maxRedirectsResult' => (new Testers\RedirectLoop($testPath, $testHost))->execute(),
+            'matchedRedirectResult' => (new Testers\RedirectMatch($testPath, $testHost))->execute(),
+            'responseCodeResult' => (new Testers\ResponseCode($testPath, $testHost))->execute(),
+            'redirectCountResult' => (new Testers\RedirectCount($testPath, $testHost))->execute(),
+            'finalDestinationResult' => (new Testers\RedirectFinalDestination($testPath, $testHost))->execute(),
         ];
     }
 

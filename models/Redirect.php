@@ -11,6 +11,7 @@ use Illuminate\Support\Fluent;
 use Illuminate\Validation\Validator;
 use System\Models\RequestLog;
 use Winter\Redirect\Classes\OptionHelper;
+use Winter\Redirect\Classes\Util\Host;
 use Winter\Storm\Support\Arr;
 use Winter\Storm\Database\Builder;
 use Winter\Storm\Database\Model;
@@ -76,6 +77,7 @@ final class Redirect extends Model
      */
     public array $rules = [
         'from_url' => 'required',
+        'from_host' => 'nullable|regex:/^(\\*\\.)?(?!-)[a-z0-9-]{1,63}(?<!-)(\\.(?!-)[a-z0-9-]{1,63}(?<!-))*$/i',
         'from_scheme' => 'in:http,https,auto',
         'to_url' => 'different:from_url|required_if:target_type,path_or_url',
         'to_scheme' => 'in:http,https,auto',
@@ -95,6 +97,7 @@ final class Redirect extends Model
         'cms_page.required_if' => 'winter.redirect::lang.redirect.cms_page_required_if',
         'static_page.required_if' => 'winter.redirect::lang.redirect.static_page_required_if',
         'is_regex' => 'winter.redirect::lang.redirect.invalid_regex',
+        'from_host.regex' => 'winter.redirect::lang.redirect.from_host_invalid',
     ];
 
     /**
@@ -104,6 +107,7 @@ final class Redirect extends Model
         'to_url' => 'winter.redirect::lang.redirect.to_url',
         'to_scheme' => 'winter.redirect::lang.redirect.to_scheme',
         'from_url' => 'winter.redirect::lang.redirect.from_url',
+        'from_host' => 'winter.redirect::lang.redirect.from_host',
         'from_scheme' => 'winter.redirect::lang.redirect.to_scheme',
         'match_type' => 'winter.redirect::lang.redirect.match_type',
         'target_type' => 'winter.redirect::lang.redirect.target_type',
@@ -224,6 +228,43 @@ final class Redirect extends Model
     public function setFromUrlAttribute($value): void
     {
         $this->attributes['from_url'] = urldecode((string) $value);
+    }
+
+    public function setFromHostAttribute($value): void
+    {
+        $this->attributes['from_host'] = Host::normalize(is_string($value) ? $value : null);
+    }
+
+    /**
+     * Let an absolute source URL be pasted straight into the source path field.
+     *
+     * `https://example.com/old-page` is stored as host `example.com` and path `/old-page`, so the
+     * rule only fires on that domain. Any scheme in the pasted URL is dropped: the source scheme
+     * is its own field, and silently rewriting one field from another would be a surprise.
+     *
+     * A regular expression source is never split — its host, if it has one, belongs to the pattern.
+     */
+    public function normalizeSourceUrl(): void
+    {
+        // Not isMatchTypeRegex(): validation runs this before the required rules, so match_type
+        // is not guaranteed to be set yet, and that accessor reads the attribute unguarded.
+        if ($this->getAttribute('match_type') === self::TYPE_REGEX) {
+            return;
+        }
+
+        [$host, $path] = Host::splitUrl((string) $this->getAttribute('from_url'));
+
+        if ($host === null) {
+            return;
+        }
+
+        $this->setAttribute('from_host', $host);
+        $this->setAttribute('from_url', $path);
+    }
+
+    public function beforeValidate(): void
+    {
+        $this->normalizeSourceUrl();
     }
 
     public function setSortOrderAttribute($value): void

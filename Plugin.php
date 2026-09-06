@@ -270,16 +270,16 @@ final class Plugin extends PluginBase
                 }
             },
             'redirect_from_url' => static function ($value): string {
-                $maxChars = 40;
-                $textLength = strlen($value ?? '');
+                return self::abbreviateUrlColumn((string) $value);
+            },
+            'redirect_source_url' => static function ($value, $column, $record): string {
+                $host = $record->getAttribute('from_host');
 
-                if ($textLength > $maxChars) {
-                    return '<span title="' . e($value) . '">'
-                        . e(substr_replace($value, '...', $maxChars / 2, $textLength - $maxChars))
-                        . '</span>';
-                }
-
-                return e($value);
+                // Showing the host inline keeps a host-limited rule readable at a glance without
+                // spending a whole extra column on the hosts of rules that are not limited at all.
+                return self::abbreviateUrlColumn(
+                    ($host === null || $host === '' ? '' : $host) . (string) $value
+                );
             },
             'redirect_system' => static function ($value): string {
                 return sprintf(
@@ -289,6 +289,23 @@ final class Plugin extends PluginBase
                 );
             },
         ];
+    }
+
+    /**
+     * Shorten a URL for a list column, keeping both ends visible and the full value on hover.
+     */
+    private static function abbreviateUrlColumn(string $value): string
+    {
+        $maxChars = 40;
+        $textLength = strlen($value);
+
+        if ($textLength > $maxChars) {
+            return '<span title="' . e($value) . '">'
+                . e(substr_replace($value, '...', (int) ($maxChars / 2), $textLength - $maxChars))
+                . '</span>';
+        }
+
+        return e($value);
     }
 
     public function registerSchedule($schedule): void

@@ -47,6 +47,62 @@ Result path when matched: /path/to
 
 This plugin allows you to match requests from a `http://` scheme to a `https://` scheme and vice versa.
 
+## Host matching
+
+By default a redirect matches on the request path alone, so it fires on every domain the site
+answers to. On an install that serves more than one domain, set a **Source Host** to limit a rule
+to one of them.
+
+```
+Source host: example.com
+Source path: /old-page
+Result: https://example.com/old-page redirects; https://other-site.com/old-page does not.
+```
+
+A rule with no source host is unrestricted and matches every host, which is how every rule behaved
+before this option existed.
+
+A leading `*.` matches any subdomain, but not the domain itself — the same convention nginx and
+Apache use for wildcard server names:
+
+```
+Source host: *.example.com
+Matches:     www.example.com, blog.example.com
+Not matched: example.com
+```
+
+Hosts are compared case insensitively, and a port is never part of the comparison, so
+`example.com` matches a request to `example.com:8080`.
+
+### Pasting a full URL
+
+A full URL may be pasted straight into the **Source Path** field. On save its host is moved into
+**Source Host** and the path is kept:
+
+```
+Pasted:      https://example.com/old-page
+Source host: example.com
+Source path: /old-page
+```
+
+The scheme of a pasted URL is discarded — scheme matching is controlled by the **Source scheme**
+field on the Advanced tab, and one field silently rewriting another would be a surprise.
+
+A regular expression source is never split this way; if a pattern needs to match a host, set the
+**Source Host** field alongside it.
+
+### Importing
+
+`from_host` is an importable and exportable column, so a CSV can carry the host per rule:
+
+```csv
+match_type,from_host,from_url,to_url,status_code,is_enabled
+exact,example.com,/old-page,https://example.com/new-page,301,1
+```
+
+Leave the column empty for a rule that should apply to every host. An absolute `from_url` is split
+on import in the same way as in the form.
+
 ## Placeholders
 
 Every placeholder can be attached to a requirement. A requirement consists of a `placeholder`, `requirement` and an optional `replacement` value.
