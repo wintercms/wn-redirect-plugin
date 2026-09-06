@@ -197,6 +197,31 @@ class RedirectHostTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
         }
     }
 
+    public function testAnAbsoluteSourceUrlWithAFragmentStillMatches(): void
+    {
+        $redirect = new Redirect([
+            'match_type' => Redirect::TYPE_EXACT,
+            'target_type' => Redirect::TARGET_TYPE_PATH_URL,
+            'from_url' => 'https://example.com/old-page#section',
+            'from_scheme' => Redirect::SCHEME_AUTO,
+            'to_url' => '/new-page',
+            'to_scheme' => Redirect::SCHEME_AUTO,
+            'requirements' => null,
+            'status_code' => 301,
+        ]);
+
+        self::assertTrue($redirect->save());
+
+        // A request never carries the fragment, so storing it would make the rule unmatchable.
+        self::assertEquals('/old-page', $redirect->getAttribute('from_url'));
+
+        $manager = RedirectManager::createWithRule(RedirectRule::createWithModel($redirect));
+
+        self::assertEquals('/new-page', $manager->getLocation(
+            $manager->match('/old-page', Redirect::SCHEME_HTTPS, 'example.com')
+        ));
+    }
+
     public function testCacheKeyVariesByHost(): void
     {
         /** @var CacheManagerInterface $cacheManager */

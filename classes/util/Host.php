@@ -82,7 +82,32 @@ final class Host
             $path = '/' . $path;
         }
 
-        return [$host, $path];
+        // A fragment never reaches the server, so keeping one would store a source path that no
+        // request could ever match. The query string is kept, since requests do carry that.
+        $fragment = strpos($path, '#');
+
+        if ($fragment !== false) {
+            $path = substr($path, 0, $fragment);
+        }
+
+        return [$host, $path === '' ? '/' : $path];
+    }
+
+    /**
+     * A concrete host that can stand in for a rule host when testing a rule.
+     *
+     * A wildcard is not a host a request could ever present, so it is resolved to a conventional
+     * subdomain of the domain it covers.
+     */
+    public static function toTestable(?string $ruleHost): ?string
+    {
+        $ruleHost = self::normalize($ruleHost);
+
+        if ($ruleHost === null) {
+            return null;
+        }
+
+        return strpos($ruleHost, '*.') === 0 ? 'www.' . substr($ruleHost, 2) : $ruleHost;
     }
 
     /**
@@ -102,6 +127,13 @@ final class Host
         $requestHost = self::normalize($requestHost);
 
         if ($requestHost === null) {
+            return false;
+        }
+
+        // `*` is rule notation, not something a request can present. Without this a rule host of
+        // `*.example.com` would match itself, and anything that fed a rule host back in as a
+        // request host - the Test Lab, for one - would report a false positive.
+        if (strpos($requestHost, '*') !== false) {
             return false;
         }
 

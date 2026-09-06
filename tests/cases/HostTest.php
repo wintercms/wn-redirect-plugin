@@ -69,6 +69,13 @@ class HostTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
             ],
             'plain path is untouched' => ['/old-page', null, '/old-page'],
             'path that looks like a host is untouched' => ['example.com/old-page', null, 'example.com/old-page'],
+            'fragment is dropped' => ['https://example.com/old#section', 'example.com', '/old'],
+            'query kept, fragment dropped' => [
+                'https://example.com/old?a=b#section',
+                'example.com',
+                '/old?a=b',
+            ],
+            'fragment directly on the host' => ['https://example.com#section', 'example.com', '/'],
             'regular expression is untouched' => ['#^/news/([^/]+)/?$#', null, '#^/news/([^/]+)/?$#'],
             'regex containing a scheme is untouched' => [
                 '#^https://example\.com/news$#',
@@ -103,6 +110,34 @@ class HostTest extends \Winter\Redirect\Tests\RedirectPluginTestCase
             'wildcard does not match the domain itself' => ['*.example.com', 'example.com', false],
             'wildcard does not match a suffix lookalike' => ['*.example.com', 'evil-example.com', false],
             'wildcard does not match another domain' => ['*.example.com', 'www.other.com', false],
+            'a wildcard is not a request host' => ['*.example.com', '*.example.com', false],
+            'no request host may carry a wildcard' => ['example.com', '*.example.com', false],
         ];
+    }
+
+    /**
+     * @dataProvider toTestableProvider
+     */
+    public function testToTestable(?string $ruleHost, ?string $expected): void
+    {
+        self::assertSame($expected, Host::toTestable($ruleHost));
+    }
+
+    public function toTestableProvider(): array
+    {
+        return [
+            'a concrete host stands for itself' => ['example.com', 'example.com'],
+            'a wildcard resolves to a real subdomain' => ['*.example.com', 'www.example.com'],
+            'normalisation still applies' => ['HTTPS://Example.COM:8080/x', 'example.com'],
+            'no host' => [null, null],
+            'empty' => ['', null],
+        ];
+    }
+
+    public function testAWildcardRuleAcceptsItsTestableHost(): void
+    {
+        // The Test Lab feeds a rule's host back in as the request host, so the stand-in this
+        // produces has to satisfy the rule it came from.
+        self::assertTrue(Host::matches('*.example.com', Host::toTestable('*.example.com')));
     }
 }

@@ -411,7 +411,7 @@ final class Redirects extends Controller
         // A full URL can be tested as-is; a bare path is tested against the host the rule is
         // limited to, so a host restriction does not make every test report "no match".
         [$testHost, $testPath] = Host::splitUrl($inputPath);
-        $testHost ??= Host::normalize((string) $redirect->getAttribute('from_host'))
+        $testHost ??= Host::toTestable((string) $redirect->getAttribute('from_host'))
             ?? $this->request->getHost();
 
         try {
