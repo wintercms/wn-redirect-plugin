@@ -32,30 +32,37 @@ fields:
         label: winter.redirect::lang.redirect.from_url
         placeholder: winter.redirect::lang.redirect.from_url_placeholder
         type: text
-        span: left
+        span: auto
         comment: winter.redirect::lang.redirect.from_url_comment
         required: true
         attributes:
             autofocus: ''
+    from_host:
+        label: winter.redirect::lang.redirect.from_host
+        placeholder: winter.redirect::lang.redirect.from_host_placeholder
+        type: text
+        span: auto
+        comment: winter.redirect::lang.redirect.from_host_comment
+        commentHtml: true
     to_url:
         label: winter.redirect::lang.redirect.to_url
         placeholder: winter.redirect::lang.redirect.to_url_placeholder
         type: text
-        span: right
+        span: full
         comment: winter.redirect::lang.redirect.to_url_comment
         dependsOn:
             - target_type
             - status_code
     cms_page:
         label: winter.redirect::lang.redirect.target_type_cms_page
-        span: right
+        span: full
         type: dropdown
         dependsOn:
             - target_type
             - status_code
     static_page:
         label: winter.redirect::lang.redirect.target_type_static_page
-        span: right
+        span: full
         type: dropdown
         dependsOn:
             - target_type

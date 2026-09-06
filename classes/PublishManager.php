@@ -32,6 +32,7 @@ final class PublishManager implements PublishManagerInterface
             'target_type',
             'from_scheme',
             'from_url',
+            'from_host',
             'to_scheme',
             'to_url',
             'cms_page',

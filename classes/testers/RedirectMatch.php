@@ -19,7 +19,7 @@ final class RedirectMatch extends TesterBase
 
         // TODO: Add scheme.
         try {
-            $match = $manager->match($this->testPath, Request::getScheme());
+            $match = $manager->match($this->testPath, Request::getScheme(), $this->testHost);
         } catch (NoMatchForRequest | InvalidScheme $e) {
             $match = false;
         }

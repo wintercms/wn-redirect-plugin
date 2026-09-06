@@ -43,11 +43,14 @@ final class CacheManager implements CacheManagerInterface
         return $this->cache->has(self::CACHE_TAG_MATCHES . '.' . $key);
     }
 
-    public function cacheKey(string $requestPath, string $scheme): string
+    public function cacheKey(string $requestPath, string $scheme, ?string $host = null): string
     {
         // Most caching backend have no limits on key lengths.
         // But to be sure I chose to MD5 hash the cache key.
-        return md5($requestPath . $scheme);
+        //
+        // The host is part of the key because a rule can be limited to one host: without it the
+        // first host to request a path would have its result served to every other host as well.
+        return md5($requestPath . $scheme . ($host === null ? '' : '@' . $host));
     }
 
     public function flush(): void

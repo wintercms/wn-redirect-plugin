@@ -25,12 +25,13 @@ interface RedirectManagerInterface
      *
      * @param string $requestPath
      * @param string $scheme 'http' or 'https'
+     * @param string|null $host The request host, or null to ignore host restrictions
      * @return RedirectRule
      * @throws InvalidScheme
      * @throws NoMatchForRequest
      * @throws UnableToLoadRules
      */
-    public function match(string $requestPath, string $scheme): RedirectRule;
+    public function match(string $requestPath, string $scheme, ?string $host = null): RedirectRule;
 
     /**
      * Redirect with specific rule.

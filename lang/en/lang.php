@@ -37,7 +37,16 @@ return [
         'redirect' => 'Redirect',
         'from_url' => 'Source Path',
         'from_url_placeholder' => '/source/path',
-        'from_url_comment' => 'The source path to match.',
+        'from_url_comment' => 'The source path to match. A full URL may be pasted here; its host '
+            . 'is moved to the source host field and its scheme is discarded.',
+        'from_host' => 'Source Host',
+        'from_host_placeholder' => 'example.com',
+        'from_host_comment' => 'Optional. Limit this redirect to one host, so it does not fire on '
+            . 'the other domains this site serves. Leave empty to match every host. A leading '
+            . '<u>*.</u> matches any subdomain, e.g. <u>*.example.com</u> matches '
+            . '<u>www.example.com</u> but not <u>example.com</u>.',
+        'from_host_invalid' => 'The source host must be a host name such as example.com, '
+            . 'optionally prefixed with *. — it cannot contain a scheme, port or path.',
         'from_scheme' => 'Source scheme',
         'from_scheme_comment' => 'Force match on scheme. If HTTP is selected <u>http://domain.com/path</u> will '
             . 'match and <u>https://domain.com/path</u> does not match.',
@@ -146,6 +155,7 @@ return [
         'no_match_label' => 'Sorry, no match!',
         'no_match' => 'No match found!',
         'match_success_label' => 'We have a match!',
+        'tested_on_host' => 'Tested on :host',
     ],
     'test_lab' => [
         'section_test_lab_comment' => 'TestLab allows you to mass test your redirects.',
@@ -268,6 +278,7 @@ return [
         'category_id' => 'Category [category_id]',
         'target_type' => 'Target Type [target_type] (Allowed values: path_or_url, cms_page, static_page, none)',
         'from_url' => 'Source path [from_url]',
+        'from_host' => 'Source host [from_host] (Optional; e.g. example.com or *.example.com)',
         'from_scheme' => 'Source scheme [from_scheme] (Allowed values: http, https, auto [default])',
         'to_url' => 'Target path [to_url]',
         'to_scheme' => 'Target scheme [to_scheme] (Allowed values: http, https, auto [default])',

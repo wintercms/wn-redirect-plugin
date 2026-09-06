@@ -90,3 +90,7 @@
     - "Fix clients relation conflict"
 "4.1.0": "Switch to using new controller behavior default backend views added in Winter v1.2.8+"
 "4.1.1": "Allow symfony/stopwatch ^7.0 and widen the winter/wn-backend-module constraint to ^1.2.8 || dev-develop."
+"5.0.0":
+    - "Added support for matching a source host, so a rule can be limited to a single domain"
+    - "BREAKING: RedirectManagerInterface::match() and CacheManagerInterface::cacheKey() take an additional optional $host argument. Any class implementing these interfaces must add the argument to its own signature, or PHP will refuse to load it."
+    - 20260906_0015_add_from_host_to_redirects_table.php

@@ -8,6 +8,7 @@ use InvalidArgumentException;
 use Symfony\Component\Stopwatch\Stopwatch;
 use Winter\Redirect\Classes\Contracts\RedirectManagerInterface;
 use Winter\Redirect\Classes\Contracts\TesterInterface;
+use Winter\Redirect\Classes\Util\Host;
 use Winter\Redirect\Models\Settings;
 
 abstract class TesterBase implements TesterInterface
@@ -24,10 +25,17 @@ abstract class TesterBase implements TesterInterface
 
     protected string $testUrl;
     protected string $testPath;
+    protected ?string $testHost;
 
-    public function __construct(string $testPath)
+    public function __construct(string $testPath, ?string $testHost = null)
     {
         $this->testPath = $testPath;
+        $this->testHost = Host::toTestable($testHost);
+
+        // Always this site. The host a rule is limited to is sent as a request header instead of
+        // being built into the URL: it comes from user input, and putting it in the URL would let
+        // anyone who can manage redirects point the tester's cURL calls at a loopback address, a
+        // private range or a cloud metadata endpoint.
         $this->testUrl = url($testPath);
     }
 
@@ -54,6 +62,14 @@ abstract class TesterBase implements TesterInterface
     public function getTestUrl(): string
     {
         return $this->testUrl;
+    }
+
+    /**
+     * The host this test runs against, or null when the rule is not limited to one.
+     */
+    public function getTestHost(): ?string
+    {
+        return $this->testHost;
     }
 
     abstract protected function test(): TesterResult;
@@ -85,9 +101,15 @@ abstract class TesterBase implements TesterInterface
 
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_VERBOSE, false);
-        curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [
-            'X-Winter-Redirect: Tester',
-        ]);
+        $headers = ['X-Winter-Redirect: Tester'];
+
+        // Makes the request arrive as though it were addressed to the host the rule is limited to,
+        // without the connection ever leaving this site.
+        if ($this->testHost !== null) {
+            $headers[] = 'Host: ' . $this->testHost;
+        }
+
+        curl_setopt($curlHandle, CURLOPT_HTTPHEADER, $headers);
     }
 
     protected function getRedirectManager(): RedirectManagerInterface

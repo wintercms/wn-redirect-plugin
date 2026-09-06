@@ -74,9 +74,13 @@ final class RedirectMiddleware
                 $this->cacheManager->cachingEnabledAndSupported()
                 && method_exists($this->redirectManager, 'matchCached')
             ) {
-                $rule = $this->redirectManager->matchCached($requestUri, $request->getScheme());
+                $rule = $this->redirectManager->matchCached(
+                    $requestUri,
+                    $request->getScheme(),
+                    $request->getHost()
+                );
             } else {
-                $rule = $this->redirectManager->match($requestUri, $request->getScheme());
+                $rule = $this->redirectManager->match($requestUri, $request->getScheme(), $request->getHost());
             }
         } catch (NoMatchForRequest | UnableToLoadRules | InvalidScheme $e) {
             $rule = false;
