@@ -30,25 +30,29 @@ final class Host
             return null;
         }
 
-        // Drop a leading scheme (`https://`) or protocol-relative marker (`//`).
-        $host = (string) preg_replace('~^(?:[a-z][a-z0-9+.\-]*:)?//~i', '', $host);
+        // The wildcard prefix is this plugin's own notation rather than URL grammar, so it is set
+        // aside before parsing and put back afterwards.
+        $wildcard = '';
 
-        // Keep the authority only; a path, query or fragment is not part of the host.
-        $host = (string) preg_replace('~[/?#].*$~', '', $host);
-
-        // Userinfo (`user:pass@`) is not part of the host either.
-        $atPosition = strrpos($host, '@');
-
-        if ($atPosition !== false) {
-            $host = substr($host, $atPosition + 1);
+        if (strpos($host, '*.') === 0) {
+            $wildcard = '*.';
+            $host = substr($host, 2);
         }
 
-        $host = self::removePort($host);
+        // parse_url() only reports a host when the string has an authority to parse: given a bare
+        // `example.com` it reports a path instead. Supplying the protocol-relative marker gives it
+        // an authority, after which it handles userinfo, ports and IPv6 literals for us.
+        if (preg_match('~^(?:[a-z][a-z0-9+.\-]*:)?//~i', $host) !== 1) {
+            $host = '//' . $host;
+        }
+
+        $parsed = parse_url($host);
+        $host = is_array($parsed) ? ($parsed['host'] ?? '') : '';
 
         // Hosts are case insensitive and the root label is implicit.
         $host = rtrim(strtolower($host), '.');
 
-        return $host === '' ? null : $host;
+        return $host === '' ? null : $wildcard . $host;
     }
 
     /**
@@ -111,21 +115,5 @@ final class Host
         }
 
         return $ruleHost === $requestHost;
-    }
-
-    /**
-     * Strip a trailing `:port`, leaving bracketed IPv6 literals intact.
-     */
-    private static function removePort(string $host): string
-    {
-        if (strpos($host, '[') === 0) {
-            $bracket = strpos($host, ']');
-
-            return $bracket === false ? $host : substr($host, 0, $bracket + 1);
-        }
-
-        $colon = strrpos($host, ':');
-
-        return $colon === false ? $host : substr($host, 0, $colon);
     }
 }
