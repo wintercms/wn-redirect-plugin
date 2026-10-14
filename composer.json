@@ -19,15 +19,16 @@
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": ">=8.1.2",
         "ext-curl": "*",
-        "ext-json": "*",
-        "composer/installers": "^1.0 || ^2.0",
+        "composer/installers": "^1.11 || ^2.0",
         "davaxi/sparkline": "^2.0",
         "jaybizzle/crawler-detect": "^1.2",
         "league/csv": "^9.0",
         "symfony/stopwatch": "^4.0 || ^5.0 || ^6.0 || ^7.0",
-        "winter/wn-backend-module": "^1.2.8 || dev-develop"
+        "winter/wn-backend-module": ">=1.2.8 || dev-develop",
+        "winter/wn-cms-module": ">=1.2.8 || dev-develop",
+        "winter/wn-system-module": ">=1.2.8 || dev-develop"
     },
     "replace": {
         "vdlp/oc-redirect-plugin": "<=3.1.1"
@@ -40,10 +41,5 @@
             "tests",
             "phpunit.xml"
         ]
-    },
-    "config": {
-        "allow-plugins": {
-            "composer/installers": false
-        }
     }
 }
